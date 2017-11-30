@@ -1,0 +1,11 @@
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\bin\Debug\netcoreapp2.0\Web.deps.json
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\bin\Debug\netcoreapp2.0\Web.runtimeconfig.json
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\bin\Debug\netcoreapp2.0\Web.runtimeconfig.dev.json
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\bin\Debug\netcoreapp2.0\Web.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\bin\Debug\netcoreapp2.0\Web.pdb
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\obj\Debug\netcoreapp2.0\Web.csprojResolveAssemblyReference.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\obj\Debug\netcoreapp2.0\Web.csproj.CoreCompileInputs.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\obj\Debug\netcoreapp2.0\Web.AssemblyInfoInputs.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\obj\Debug\netcoreapp2.0\Web.AssemblyInfo.cs
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\obj\Debug\netcoreapp2.0\Web.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Web\obj\Debug\netcoreapp2.0\Web.pdb

@@ -1,0 +1,11 @@
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Infrastructure.deps.json
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Infrastructure.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.csprojResolveAssemblyReference.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.csproj.CoreCompileInputs.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.AssemblyInfoInputs.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.AssemblyInfo.cs
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Infrastructure.pdb
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Core.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Core.pdb
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.pdb
