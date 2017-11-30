@@ -1,0 +1,14 @@
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Tests.deps.json
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Tests.runtimeconfig.json
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Tests.runtimeconfig.dev.json
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Tests.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\bin\Debug\netcoreapp2.0\Tests.pdb
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.csprojResolveAssemblyReference.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.csproj.CoreCompileInputs.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.AssemblyInfoInputs.cache
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.AssemblyInfo.cs
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.dll
+c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.pdb
