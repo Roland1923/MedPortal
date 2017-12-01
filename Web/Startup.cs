@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Core.IRepositories;
+using Infrastructure.Context;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +21,14 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IDatabaseService, DatabaseService>();
+            services.AddTransient<IPatientRepository, PatientRepository>();
+
+            //services.AddDbContext<DatabaseService>(opts => opts.UseInMemoryDatabase("MedPortal"));
+            //var connection = @"Server = .\SQLEXPRESS; Database = MedPortal; Trusted_Connection = true;";
+            var connection = Configuration.GetSection("ConnectionStrings:DefaultConnection");
+            services.AddDbContext<DatabaseService>(option => option.UseSqlServer(connection.Value));
+
             services.AddMvc();
         }
 

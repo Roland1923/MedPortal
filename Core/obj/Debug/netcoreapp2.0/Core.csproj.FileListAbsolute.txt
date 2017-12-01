@@ -7,3 +7,12 @@ c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Core\obj\Debug\n
 c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.AssemblyInfo.cs
 c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.dll
 c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.pdb
+C:\Users\Reflex\Desktop\MedPortal\Core\bin\Debug\netcoreapp2.0\Core.deps.json
+C:\Users\Reflex\Desktop\MedPortal\Core\bin\Debug\netcoreapp2.0\Core.dll
+C:\Users\Reflex\Desktop\MedPortal\Core\bin\Debug\netcoreapp2.0\Core.pdb
+C:\Users\Reflex\Desktop\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.csprojResolveAssemblyReference.cache
+C:\Users\Reflex\Desktop\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Reflex\Desktop\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.AssemblyInfoInputs.cache
+C:\Users\Reflex\Desktop\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.AssemblyInfo.cs
+C:\Users\Reflex\Desktop\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.dll
+C:\Users\Reflex\Desktop\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.pdb

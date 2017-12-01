@@ -9,3 +9,14 @@ c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\b
 c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Core.pdb
 c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.dll
 c:\users\reflex\documents\visual studio 2017\Projects\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.pdb
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Infrastructure.deps.json
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Infrastructure.dll
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Infrastructure.pdb
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Core.dll
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\bin\Debug\netcoreapp2.0\Core.pdb
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.AssemblyInfo.cs
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.dll
+C:\Users\Reflex\Desktop\MedPortal\Infrastructure\obj\Debug\netcoreapp2.0\Infrastructure.pdb
