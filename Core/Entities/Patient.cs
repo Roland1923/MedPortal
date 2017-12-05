@@ -28,6 +28,12 @@ namespace Core.Entities
         [EmailAddress]
         public string Email { get; private set; }
 
+        [Required(ErrorMessage = "You must provide a password!")]
+        [Display(Name = "Password")]
+        [StringLength(18, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        public string Password { get; private set; }
+
         [Required(ErrorMessage = "You must provide a City!")]
         [Display(Name = "City")]
         public string City { get; private set; }
@@ -44,18 +50,19 @@ namespace Core.Entities
         public string PhoneNumber { get; private set; }
 
 
-        public static Patient Create(string firstName, string lastName, string email, string city, DateTime birthdate, string phoneNumber)
+        public static Patient Create(string firstName, string lastName, string email, string password, string city, DateTime birthdate, string phoneNumber)
         {
             var instance = new Patient { PatientId = Guid.NewGuid() };
-            instance.Update(firstName, lastName, email, city, birthdate, phoneNumber);
+            instance.Update(firstName, lastName, email, password, city, birthdate, phoneNumber);
             return instance;
         }
 
-        public void Update(string firstName, string lastName, string email, string city, DateTime birthdate, string phoneNumber)
+        public void Update(string firstName, string lastName, string email, string password, string city, DateTime birthdate, string phoneNumber)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
+            Password = password;
             City = city;
             Birthdate = birthdate;
             PhoneNumber = phoneNumber;

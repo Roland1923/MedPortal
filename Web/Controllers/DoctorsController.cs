@@ -1,132 +1,131 @@
 ﻿using System;
 using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Core.Entities;
 using Core.IRepositories;
-using Microsoft.AspNetCore.Mvc;
 using Web.Models;
 
 namespace Web.Controllers
 {
-    public class PatientsController : Controller
+    public class DoctorsController : Controller
     {
-        private readonly IPatientRepository _repository;
+        private readonly IDoctorRepository _repository;
 
-        public PatientsController(IPatientRepository repository)
+        public DoctorsController(IDoctorRepository repository)
         {
             _repository = repository;
         }
 
-        // GET: Patients
+        // GET: Doctors
         public IActionResult Index()
         {
-            return View(_repository.GetAllPatients());
-
+            return View(_repository.GetAllDoctors());
         }
 
-        // GET: Patients/Details/e53cec5f-5632-4d98-bc66-23951b373468
+        // GET: Doctors/Details/5
         public IActionResult Details(Guid id)
         {
-            var patient = _repository.GetPatientById(id);
+            var doctor = _repository.GetDoctorById(id);
 
-            if (patient == null)
+            if (doctor == null)
             {
                 return NotFound();
             }
 
-            return View(patient);
+            return View(doctor);
         }
 
-        // GET: Patients/Create
+        // GET: Doctors/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Patients/Create
+        // POST: Doctors/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("FirstName, LastName, Email, Password, City, Birthdate, PhoneNumber")] PatientModel patient)
+        public IActionResult Create([Bind("FirstName,LastName,Email,Password,PhoneNumber,Speciality,Hospital,City,Address")] DoctorModel doctor)
         {
-            var instance = Patient.Create(patient.FirstName, patient.LastName, patient.Email, patient.Password, patient.City, patient.Birthdate, patient.PhoneNumber);
+            var instance = Doctor.Create(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address);
 
             if (ModelState.IsValid)
             {
-                _repository.AddPatient(instance);
+                _repository.AddDoctor(instance);
 
                 return RedirectToAction(nameof(Index));
             }
             return View(instance);
         }
 
-        // GET: Patients/Edit/e53cec5f-5632-4d98-bc66-23951b373468
+        // GET: Doctors/Edit/5
         public IActionResult Edit(Guid id)
         {
-            var patient = _repository.GetPatientById(id);
+            var doctor = _repository.GetDoctorById(id);
 
-            if (patient == null)
+            if (doctor == null)
             {
                 return NotFound();
             }
-            return View(patient);
+            return View(doctor);
         }
 
-        // POST: Patients/Edit/5
+        // POST: Doctors/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Guid id, [Bind("FirstName, LastName, Email, Password, City, Birthdate, PhoneNumber")] PatientModel patient)
+        public IActionResult Edit(Guid id, [Bind("FirstName,LastName,Email,Password,PhoneNumber,Speciality,Hospital,City,Address")] DoctorModel doctor)
         {
             if (id == Guid.Empty)
             {
                 return BadRequest();
             }
 
-            var entity = _repository.GetPatientById(id);
+            var entity = _repository.GetDoctorById(id);
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    entity.Update(patient.FirstName, patient.LastName, patient.Email, patient.Password, patient.City, patient.Birthdate, patient.PhoneNumber);
-                    _repository.EditPatient(entity);
+                    entity.Update(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address);
+                    _repository.EditDoctor(entity);
                 }
             }
             catch (InvalidOperationException)
             {
-                ModelState.AddModelError(string.Empty, "Unable to edit patient.");
+                ModelState.AddModelError(string.Empty, "Unable to edit doctor.");
             }
 
             return View(entity);
         }
 
-        // GET: Patients/Delete/5
+        // GET: Doctors/Delete/5
         public IActionResult Delete(Guid id)
         {
-            var patient = _repository.GetPatientById(id);
+            var doctor = _repository.GetDoctorById(id);
 
-            if (patient == null)
+            if (doctor == null)
             {
                 return NotFound();
             }
 
-            return View(patient);
+            return View(doctor);
         }
 
-        // POST: Patients/Delete/5
+        // POST: Doctors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
             try
             {
-                _repository.DeletePatient(id);
+                _repository.DeleteDoctor(id);
             }
             catch (DataException)
             {
-                ModelState.AddModelError(string.Empty, "Unable to delete patient.");
+                ModelState.AddModelError(string.Empty, "Unable to delete doctor.");
             }
 
             return RedirectToAction(nameof(Index));

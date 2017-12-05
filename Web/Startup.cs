@@ -23,6 +23,12 @@ namespace Web
         {
             services.AddTransient<IDatabaseService, DatabaseService>();
             services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddTransient<IDoctorRepository, DoctorRepository>();
+            services.AddTransient<IPatientHistoryRepository, PatientHistoryRepository>();
+            services.AddTransient<IAppointmentRepository, AppointmentRepository>();
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
+            services.AddTransient<IBloodDonorRepository, BloodDonorRepository>();
+
 
             //services.AddDbContext<DatabaseService>(opts => opts.UseInMemoryDatabase("MedPortal"));
             //var connection = @"Server = .\SQLEXPRESS; Database = MedPortal; Trusted_Connection = true;";

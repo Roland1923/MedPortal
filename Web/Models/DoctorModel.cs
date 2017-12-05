@@ -1,15 +1,15 @@
-﻿using System;
-
-namespace Web.Models
+﻿namespace Web.Models
 {
-    public class PatientModel
+    public class DoctorModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string City { get; set; }
-        public DateTime Birthdate { get; set; }
         public string PhoneNumber { get; set; }
+        public string Speciality { get; set; }
+        public string Hospital { get; set; }
+        public string City { get; set; }
+        public string Address { get; set; }
     }
 }
