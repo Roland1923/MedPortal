@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context
 {
@@ -9,11 +10,11 @@ namespace Infrastructure.Context
             Database.EnsureCreated();
         }
 
-        public DbSet<Core.Entities.Patient> Patients { get; set; }
-        public DbSet<Core.Entities.Doctor> Doctors { get; set; }
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
         public DbSet<PatientHistory> PatientHistories { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
-        public DbSet<BloodDonor> BloodDonors { get; set; }
+        //public DbSet<BloodDonor> BloodDonors { get; set; }
     }
 }

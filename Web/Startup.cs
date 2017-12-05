@@ -27,7 +27,7 @@ namespace Web
             services.AddTransient<IPatientHistoryRepository, PatientHistoryRepository>();
             services.AddTransient<IAppointmentRepository, AppointmentRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
-            services.AddTransient<IBloodDonorRepository, BloodDonorRepository>();
+            //services.AddTransient<IBloodDonorRepository, BloodDonorRepository>();
 
 
             //services.AddDbContext<DatabaseService>(opts => opts.UseInMemoryDatabase("MedPortal"));

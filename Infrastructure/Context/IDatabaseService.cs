@@ -11,7 +11,7 @@ namespace Infrastructure.Context
         DbSet<PatientHistory> PatientHistories { get; set; }
         DbSet<Appointment> Appointments { get; set; }
         DbSet<Feedback> Feedbacks { get; set; }
-        DbSet<BloodDonor> BloodDonors { get; set; }
+        //DbSet<BloodDonor> BloodDonors { get; set; }
         EntityEntry Entry(object entity);
         int SaveChanges();
     }
