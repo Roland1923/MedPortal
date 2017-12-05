@@ -15,7 +15,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
 
                 //Act
                 repository.AddPatient(patient);
@@ -31,7 +31,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 repository.AddPatient(patient);
                 var id = patient.PatientId;
 
@@ -49,10 +49,12 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
-                repository.AddPatient(patient);
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 var firstName = patient.FirstName;
-                patient.Update("Daniel", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+
+                repository.AddPatient(patient);
+
+                patient.Update("Daniel", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 var newFirstName = patient.FirstName;
 
                 //Act
@@ -69,7 +71,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 repository.AddPatient(patient);
 
                 //Act
@@ -86,7 +88,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 repository.AddPatient(patient);
 
                 //Act

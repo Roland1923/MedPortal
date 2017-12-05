@@ -14,7 +14,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new AppointmentRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 var appointment = Appointment.Create(new DateTime(1996, 02, 10),patient);
 
                 //Act
@@ -30,7 +30,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new AppointmentRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 var appointment = Appointment.Create(new DateTime(1996, 02, 10), patient);
 
                 repository.AddAppointment(appointment);
@@ -49,7 +49,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new AppointmentRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 var appointment = Appointment.Create(new DateTime(2017, 12, 04), patient);
                 repository.AddAppointment(appointment);
                 var currentDate = appointment.AppointmentDate;
@@ -69,7 +69,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new AppointmentRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 var appointment = Appointment.Create(new DateTime(1996, 02, 10), patient);
                 repository.AddAppointment(appointment);
 
@@ -86,7 +86,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new AppointmentRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
                 var appointment = Appointment.Create(new DateTime(1996, 02, 10), patient);
                 repository.AddAppointment(appointment);
 
