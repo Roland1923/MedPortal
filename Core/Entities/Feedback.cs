@@ -1,32 +1,33 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class Feedback
     {
-        private Feedback() { }
-
         [Key]
         [Required]
         public Guid FeedbackId { get; private set; }
+
+        [ForeignKey("PatientId")]
+        public Patient Patient { get; private set; }
+        public Guid PatientId { get; private set; }
+
+        [ForeignKey("DoctorId")]
+        public Doctor Doctor { get; private set; }
+        public Guid DoctorId { get; private set; }
 
         [Required(ErrorMessage = "You must provide a description!")]
         [Display(Name = "Feedback")]
         [MinLength(4), MaxLength(400)]
         public string Description { get; private set; }
 
-        [Required(ErrorMessage = "You must provide a pacient id!")]
-        [Display(Name = "PacientID")]
-        public Patient CurrentPacient { get; private set; }
-
-        [Required(ErrorMessage = "You must provide a doctor id!")]
-        [Display(Name = "DoctorID")]
-        public Doctor CurrentDoctor { get; private set; }
-
         [Required(ErrorMessage = "You must give a rating!")]
         [Display(Name = "Rating")]
         public string Rating { get; private set; }
+
+        private Feedback() { }
 
         public static Feedback Create(string description, Patient patient, Doctor doctor, string rating)
         {
@@ -38,8 +39,8 @@ namespace Core.Entities
         public void Update(string description, Patient patient, Doctor doctor, string rating)
         {
             Description = description;
-            CurrentPacient = patient;
-            CurrentDoctor = doctor;
+            Patient = patient;
+            Doctor = doctor;
             Rating = rating;
         }
     }

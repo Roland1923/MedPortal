@@ -18,8 +18,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
           "Microsoft.NET.Test.Sdk": "15.5.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1",
-          "Web": "1.0.0"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1"
         },
         "runtime": {
           "Tests.dll": {}
@@ -3792,19 +3791,6 @@
         "runtime": {
           "Infrastructure.dll": {}
         }
-      },
-      "Web/1.0.0": {
-        "dependencies": {
-          "Core": "1.0.0",
-          "Infrastructure": "1.0.0",
-          "Microsoft.AspNetCore.All": "2.0.3",
-          "Microsoft.EntityFrameworkCore": "2.0.1",
-          "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1"
-        },
-        "runtime": {
-          "Web.dll": {}
-        }
       }
     }
   },
@@ -6032,11 +6018,6 @@
       "sha512": ""
     },
     "Infrastructure/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Web/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

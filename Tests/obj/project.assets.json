@@ -5488,25 +5488,6 @@
         "runtime": {
           "bin/placeholder/Infrastructure.dll": {}
         }
-      },
-      "Web/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.0",
-        "dependencies": {
-          "Core": "1.0.0",
-          "Infrastructure": "1.0.0",
-          "Microsoft.AspNetCore.All": "2.0.3",
-          "Microsoft.EntityFrameworkCore": "2.0.1",
-          "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
-          "Microsoft.NETCore.App": "2.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Web.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Web.dll": {}
-        }
       }
     }
   },
@@ -14256,11 +14237,6 @@
       "type": "project",
       "path": "../Infrastructure/Infrastructure.csproj",
       "msbuildProject": "../Infrastructure/Infrastructure.csproj"
-    },
-    "Web/1.0.0": {
-      "type": "project",
-      "path": "../Web/Web.csproj",
-      "msbuildProject": "../Web/Web.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -14276,8 +14252,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.1",
       "Microsoft.NET.Test.Sdk >= 15.5.0",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.1",
-      "Web >= 1.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.1"
     ]
   },
   "packageFolders": {
@@ -14313,9 +14288,6 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Reflex\\Desktop\\MedPortal\\Web\\Web.csproj": {
-              "projectPath": "C:\\Users\\Reflex\\Desktop\\MedPortal\\Web\\Web.csproj"
-            },
             "C:\\Users\\Reflex\\Desktop\\MedPortal\\Core\\Core.csproj": {
               "projectPath": "C:\\Users\\Reflex\\Desktop\\MedPortal\\Core\\Core.csproj"
             },

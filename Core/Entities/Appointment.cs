@@ -1,37 +1,42 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Core.CustomAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class Appointment
     {
-        private Appointment() { }
-
         [Key]
         [Required]
         public Guid AppointmentId { get; private set; }
 
-        public Patient PatientForAppointment { get; private set; }
-        
-        
+        [ForeignKey("PatientId")]
+        public Patient Patient { get; private set; }
+        public Guid PatientId { get; private set; }
+
+        [ForeignKey("DoctorId")]
+        public Doctor Doctor { get; private set; }
+        public Guid DoctorId { get; private set; }
+
         [Required(ErrorMessage = "You must provide an Appointment Date")]
         [Display(Name = "AppointmentDate")]
-        [MyDate]
         [DataType(DataType.Date)]
         public DateTime AppointmentDate { get; private set; }
 
-        public static Appointment Create(DateTime appointmentDate,Patient patient)
+        private Appointment() { }
+
+        public static Appointment Create(DateTime appointmentDate, Doctor doctor, Patient patient)
         {
-            var instance = new Appointment() { AppointmentId = Guid.NewGuid()};
-            instance.Update(appointmentDate,patient);
+            var instance = new Appointment { AppointmentId = Guid.NewGuid()};
+            instance.Update(appointmentDate, doctor, patient);
             return instance;
         }
 
-        public void Update(DateTime appointmentDate,Patient patient)
+        public void Update(DateTime appointmentDate, Doctor doctor, Patient patient)
         {
             AppointmentDate = appointmentDate;
-            PatientForAppointment = patient;
+            Doctor = doctor;
+            Patient = patient;
         }
     }
 }

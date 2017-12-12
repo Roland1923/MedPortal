@@ -1,5 +1,6 @@
 ﻿using Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 
 namespace Infrastructure.Context
 {
@@ -15,6 +16,19 @@ namespace Infrastructure.Context
         public DbSet<PatientHistory> PatientHistories { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
-        //public DbSet<BloodDonor> BloodDonors { get; set; }
+        public DbSet<BloodDonor> BloodDonors { get; set; }
+
+        /*protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<Patient>()
+                .Property(a => a.PatientId)
+                .IsRequired();
+            builder.Entity<Patient>()
+                .Property(a => a.FirstName)
+                .HasMaxLength()
+                .IsRequired();
+            
+        }*/
     }
 }

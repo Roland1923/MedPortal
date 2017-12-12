@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Core.Entities;
 using Infrastructure.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,13 +16,14 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                BloodDonor bloodDonor = BloodDonor.Create("A2", null);
+                Patient patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", bloodDonor);
 
                 //Act
-                repository.AddPatient(patient);
+                repository.Add(patient);
 
                 //Assert
-                Assert.AreEqual(repository.GetAllPatients().Count,1);
+                Assert.AreEqual(repository.GetAll().Count(), 1);
             });
         }
 
@@ -31,15 +33,15 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
-                repository.AddPatient(patient);
-                var id = patient.PatientId;
+                BloodDonor bloodDonor = BloodDonor.Create("A2", null);
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", bloodDonor);
+                repository.Add(patient);
 
                 //Act
-                repository.DeletePatient(id);
+                repository.Delete(patient);
 
                 //Assert
-                Assert.AreEqual(repository.GetAllPatients().Count, 0);
+                Assert.AreEqual(repository.GetAll().Count(), 0);
             });
         }
 
@@ -49,16 +51,17 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                BloodDonor bloodDonor = BloodDonor.Create("A2", null);
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", bloodDonor);
                 var firstName = patient.FirstName;
 
-                repository.AddPatient(patient);
+                repository.Add(patient);
 
-                patient.Update("Daniel", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
+                patient.Update("Daniel", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", bloodDonor, null, null, null);
                 var newFirstName = patient.FirstName;
 
                 //Act
-                repository.EditPatient(patient);
+                repository.Update(patient);
 
                 //Assert
                 Assert.AreNotEqual(firstName, newFirstName);
@@ -71,11 +74,12 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
-                repository.AddPatient(patient);
+                BloodDonor bloodDonor = BloodDonor.Create("A2", null);
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", bloodDonor);
+                repository.Add(patient);
 
                 //Act
-                var extractedPatient = repository.GetPatientById(patient.PatientId);
+                var extractedPatient = repository.GetById(patient.PatientId);
 
                 //Assert
                 Assert.AreEqual(patient, extractedPatient);
@@ -88,11 +92,12 @@ namespace Tests.IntegrationTests
             RunOnDatabase(ctx => {
                 //Arrange
                 var repository = new PatientRepository(ctx);
-                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459");
-                repository.AddPatient(patient);
+                BloodDonor bloodDonor = BloodDonor.Create("A2", null);
+                var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", bloodDonor);
+                repository.Add(patient);
 
                 //Act
-                var count = repository.GetAllPatients().Count;
+                var count = repository.GetAll().Count();
 
                 //Assert
                 Assert.AreEqual(count, 1);

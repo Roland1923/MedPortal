@@ -5,9 +5,8 @@ namespace Web.Models
 {
     public class AppointmentModel
     {
-        public Guid AppointmentId { get;  set; }
-        public DateTime AppointmentDate { get;  set; }
-        //public List<Doctor> DoctorForAppointment { get; private set; }
-        public Patient PatientForAppointment { get;  set; }
+        public DateTime AppointmentDate { get; set; }
+        public Doctor Doctor { get; set; }
+        public Patient Patient { get; set; }
     }
 }

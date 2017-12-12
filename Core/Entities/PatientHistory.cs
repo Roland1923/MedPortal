@@ -1,21 +1,22 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class PatientHistory
     {
-        private PatientHistory() { }
-
         [Key]
         [Required]
         public Guid HistoryId { get; private set; }
 
-       [Required]
+        [ForeignKey("PatientId")]
         public Patient Patient { get; private set; }
+        public Guid PatientId { get; private set; }
 
-        [Required]
+        [ForeignKey("DoctorId")]
         public Doctor Doctor { get; private set; }
+        public Guid DoctorId { get; private set; }
 
         [Display(Name = "Prescription")]
         [MinLength(3), MaxLength(250)]
@@ -30,6 +31,7 @@ namespace Core.Entities
         [MinLength(3), MaxLength(250)]
         public string Recomandations { get; private set; }
 
+        private PatientHistory() { }
 
         public static PatientHistory Create(Patient patient, Doctor doctor, string prescription, string description, string recomandations)
         {

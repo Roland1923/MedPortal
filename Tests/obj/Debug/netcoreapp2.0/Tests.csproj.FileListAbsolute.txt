@@ -30,5 +30,3 @@ C:\Users\Reflex\Desktop\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.AssemblyIn
 C:\Users\Reflex\Desktop\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.AssemblyInfo.cs
 C:\Users\Reflex\Desktop\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.dll
 C:\Users\Reflex\Desktop\MedPortal\Tests\obj\Debug\netcoreapp2.0\Tests.pdb
-C:\Users\Reflex\Desktop\MedPortal\Tests\bin\Debug\netcoreapp2.0\Web.dll
-C:\Users\Reflex\Desktop\MedPortal\Tests\bin\Debug\netcoreapp2.0\Web.pdb

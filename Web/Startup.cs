@@ -1,4 +1,5 @@
-﻿using Core.IRepositories;
+﻿using Core.Entities;
+using Core.IRepositories;
 using Infrastructure.Context;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Web
 {
@@ -22,12 +24,12 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IDatabaseService, DatabaseService>();
-            services.AddTransient<IPatientRepository, PatientRepository>();
-            services.AddTransient<IDoctorRepository, DoctorRepository>();
-            services.AddTransient<IPatientHistoryRepository, PatientHistoryRepository>();
-            services.AddTransient<IAppointmentRepository, AppointmentRepository>();
-            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
-            //services.AddTransient<IBloodDonorRepository, BloodDonorRepository>();
+            services.AddTransient<IEditableRepository<Patient>, PatientRepository>();
+            services.AddTransient<IEditableRepository<Doctor>, DoctorRepository>();
+            services.AddTransient<IEditableRepository<PatientHistory>, PatientHistoryRepository>();
+            services.AddTransient<IEditableRepository<Appointment>, AppointmentRepository>();
+            services.AddTransient<IEditableRepository<Feedback>, FeedbackRepository>();
+            services.AddTransient<IEditableRepository<BloodDonor>, BloodDonorRepository>();
 
 
             //services.AddDbContext<DatabaseService>(opts => opts.UseInMemoryDatabase("MedPortal"));
@@ -36,11 +38,26 @@ namespace Web
             services.AddDbContext<DatabaseService>(option => option.UseSqlServer(connection.Value));
 
             services.AddMvc();
+
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "MedPortal API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Too V1");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,32 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Core.Entities
 {
     public class Doctor
     {
-        private Doctor() { }
-
-        public static Doctor Create(string firstName, string lastName, string email, string password, string phoneNumber, string speciality, string hospital, string city, string address)
-        {
-            var instance = new Doctor { DoctorId = Guid.NewGuid() };
-            instance.Update(firstName, lastName, email, password, phoneNumber, speciality, hospital, city, address);
-            return instance;
-        }
-
-        public void Update(string firstName, string lastName, string email, string password, string phoneNumber, string speciality, string hospital, string city, string address)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Password = password;
-            PhoneNumber = phoneNumber;
-            Speciality = speciality;
-            Hospital = hospital;
-            City = city;
-            Address = address;
-        }
-
         [Key]
         [Required]
         public Guid DoctorId { get; private set; }
@@ -76,5 +55,44 @@ namespace Core.Entities
         [Display(Name = "Address")]
         [DataType(DataType.Text)]
         public string Address { get; private set; }
+
+        public List<Appointment> Appointments { get; private set; }
+        public List<Feedback> Feedbacks { get; private set; }
+
+        private Doctor() { }
+
+        public static Doctor Create(string firstName, string lastName, string email, string password, string phoneNumber, string speciality, string hospital, string city, string address)
+        {
+            var instance = new Doctor { DoctorId = Guid.NewGuid(), Appointments = new List<Appointment>(), Feedbacks = new List<Feedback>() };
+            instance.Update(firstName, lastName, email, password, phoneNumber, speciality, hospital, city, address, null, null);
+            return instance;
+        }
+
+        public void Update(string firstName, string lastName, string email, string password, string phoneNumber, string speciality, string hospital, string city, string address, List<Appointment> appointments, List<Feedback> feedbacks)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Password = password;
+            PhoneNumber = phoneNumber;
+            Speciality = speciality;
+            Hospital = hospital;
+            City = city;
+            Address = address;
+            if (appointments != null)
+            {
+                foreach (var appointment in appointments)
+                {
+                    Appointments.Add(appointment);
+                }
+            }
+            if (feedbacks != null)
+            {
+                foreach (var feedback in feedbacks)
+                {
+                    Feedbacks.Add(feedback);
+                }
+            }
+        }
     }
 }
