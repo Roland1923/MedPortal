@@ -1,34 +1,19 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class PatientHistory
     {
-        [Key]
-        [Required]
         public Guid HistoryId { get; private set; }
-
         [ForeignKey("PatientId")]
         public Patient Patient { get; private set; }
         public Guid PatientId { get; private set; }
-
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; private set; }
         public Guid DoctorId { get; private set; }
-
-        [Display(Name = "Prescription")]
-        [MinLength(3), MaxLength(250)]
         public string Prescription { get; private set; }
-
-        [Display(Name = "Description")]
-        [MinLength(3), MaxLength(250)]
         public string Description { get; private set; }
-
-
-        [Display(Name = "Recomandations")]
-        [MinLength(3), MaxLength(250)]
         public string Recomandations { get; private set; }
 
         private PatientHistory() { }

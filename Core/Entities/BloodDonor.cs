@@ -1,20 +1,12 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class BloodDonor
     {
-        [Key]
-        [Required]
         public Guid BloodDonorId { get; private set; }
-
-        [Required(ErrorMessage = "You must provide a valid Blood Type!")]
-        [Display(Name = "Blood Type (O1, A2, B3, AB4)")]
-        [RegularExpression(@"^(01|A2|B3|AB4)$", ErrorMessage = "Not a valid Blood Type!")]
         public string Type { get; private set; }
-
         [ForeignKey("PatientId")]
         public Patient Patient { get; private set; }
         public Guid PatientId { get; private set; }

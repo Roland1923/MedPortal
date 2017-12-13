@@ -8,7 +8,7 @@ namespace WebApp.Models
         public string Description { get; set; }
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }
-        public string Rating { get; set; }
+        public int Rating { get; set; }
 
     }
 }
