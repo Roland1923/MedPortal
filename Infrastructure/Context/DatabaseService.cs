@@ -16,18 +16,6 @@ namespace Infrastructure.Context
         public DbSet<Core.Entities.Appointment> Appointments { get; set; }
         public DbSet<Core.Entities.Feedback> Feedbacks { get; set; }
         public DbSet<Core.Entities.BloodDonor> BloodDonors { get; set; }
-
-        /*protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-            builder.Entity<Patient>()
-                .Property(a => a.PatientId)
-                .IsRequired();
-            builder.Entity<Patient>()
-                .Property(a => a.FirstName)
-                .HasMaxLength()
-                .IsRequired();
-            
-        }*/
+        
     }
 }

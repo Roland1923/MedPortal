@@ -13123,7 +13123,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Reflex\\.nuget\\packages\\": {},
+    "C:\\Users\\Daniel Oana\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13132,17 +13132,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Reflex\\Desktop\\MedPortal\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Reflex\\Desktop\\MedPortal\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\Reflex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Reflex\\Desktop\\MedPortal\\Core\\obj\\",
+      "projectPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\Daniel Oana\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Reflex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Daniel Oana\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

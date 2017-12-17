@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class BloodDonor
     {
+        [Key]
         public Guid BloodDonorId { get; private set; }
         public string Type { get; private set; }
         [ForeignKey("PatientId")]

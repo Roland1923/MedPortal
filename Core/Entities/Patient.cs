@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class Patient
     {
+        [Key]
         public Guid PatientId { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }

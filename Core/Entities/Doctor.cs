@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Core.Entities
 {
     public class Doctor
     {
+        [Key]
         public Guid DoctorId { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }

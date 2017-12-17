@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Entities
 {
     public class Feedback
     {
+        [Key]
         public Guid FeedbackId { get; private set; }
         [ForeignKey("PatientId")]
         public Patient Patient { get; private set; }
