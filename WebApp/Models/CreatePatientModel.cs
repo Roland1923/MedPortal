@@ -12,6 +12,6 @@ namespace WebApp.Models
         public string City { get; set; }
         public DateTime Birthdate { get; set; }
         public string PhoneNumber { get; set; }
-        public BloodDonor BloodDonor { get; set; }
+        //public BloodDonor BloodDonor { get; set; }
     }
 }

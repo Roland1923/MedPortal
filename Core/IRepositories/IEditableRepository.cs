@@ -1,9 +1,11 @@
-﻿namespace Core.IRepositories
+﻿using System.Threading.Tasks;
+
+namespace Core.IRepositories
 {
     public interface IEditableRepository<T> : IReadOnlyRepository<T>
     {
-        void Add(T entity);
-        void Delete(T entity);
-        void Update(T entity);
+        Task<T> AddAsync(T entity);
+        Task<bool> DeleteAsync(T entity);
+        Task<bool> UpdateAsync(T entity);
     }
 }

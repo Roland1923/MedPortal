@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Core.IRepositories
 {
     public interface IReadOnlyRepository<T>
     {
-        IQueryable<T> GetAll();
-        T GetById(Guid id);
+        Task<List<T>> GetAllAsync();
+        Task<PagingResult<T>> GetAllPageAsync(int skip, int take);
+        Task<T> GetByIdAsync(Guid id);
     }
 }

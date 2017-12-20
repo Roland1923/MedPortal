@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Core.Entities;
+﻿using Core.Entities;
 using Infrastructure.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,46 +9,46 @@ namespace Tests.IntegrationTests
     public class DoctorRepositoryTests : BaseIntegrationTests
     {
         [TestMethod]
-        public void Given_DoctorRepository_When_AddingADoctor_Then_TheDoctorShouldBeProperlySaved()
+        public void Given_DoctorRepository_When_AddAsyncingADoctor_Then_TheDoctorShouldBeProperlySaved()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
                 var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
 
                 //Act
-                repository.Add(doctor);
+                await repository.AddAsync(doctor);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 1);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 1);
             });
         }
 
         [TestMethod]
         public void Given_DoctorRepository_When_DeletingADoctor_Then_TheDoctorShouldBeProperlyRemoved()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 // Arrange
                 var repository = new DoctorRepository(ctx);
                 var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
-                repository.Add(doctor);
+                await repository.AddAsync(doctor);
 
                 //Act
-                repository.Delete(doctor);
+                await repository.DeleteAsync(doctor);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 0);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 0);
             });
         }
 
         [TestMethod]
         public void Given_DoctorRepository_When_EditingADoctor_Then_TheDoctorShouldBeProperlyEdited()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
                 var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
-                repository.Add(doctor);
+                await repository.AddAsync(doctor);
 
                 var firstName = doctor.FirstName;
 
@@ -58,7 +57,7 @@ namespace Tests.IntegrationTests
                 var newFirstName = doctor.FirstName;
 
                 //Act
-                repository.Update(doctor);
+                await repository.UpdateAsync(doctor);
 
                 //Assert
                 Assert.AreNotEqual(firstName, newFirstName);
@@ -68,14 +67,14 @@ namespace Tests.IntegrationTests
         [TestMethod]
         public void Given_DoctorRepository_When_ReturningADoctor_Then_TheDoctorShouldBeProperlyReturned()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
                 var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
-                repository.Add(doctor);
+                await repository.AddAsync(doctor);
 
                 //Act
-                var extractedDoctor = repository.GetById(doctor.DoctorId);
+                var extractedDoctor = await repository.GetByIdAsync(doctor.DoctorId);
 
                 //Assert
                 Assert.AreEqual(doctor, extractedDoctor);
@@ -85,14 +84,14 @@ namespace Tests.IntegrationTests
         [TestMethod]
         public void Given_DoctorRepository_When_ReturningAllDoctors_Then_AllDoctorsShouldBeProperlyReturned()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
                 var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
-                repository.Add(doctor);
+                await repository.AddAsync(doctor);
 
                 //Act
-                var count = repository.GetAll().Count();
+                var count = repository.GetAllAsync().Result.Count;
 
                 //Assert
                 Assert.AreEqual(count, 1);

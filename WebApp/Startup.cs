@@ -39,6 +39,7 @@ namespace WebApp
             services.AddTransient<IEditableRepository<Appointment>, AppointmentRepository>();
             services.AddTransient<IEditableRepository<Feedback>, FeedbackRepository>();
             services.AddTransient<IEditableRepository<BloodDonor>, BloodDonorRepository>();
+
             services.AddTransient<IValidator<AppointmentModel>, AppointmentValidator>();
             services.AddTransient<IValidator<BloodDonorModel>, BloodDonorValidator>();
             services.AddTransient<IValidator<CreateDoctorModel>, CreatingDoctorValidator>();
@@ -67,7 +68,7 @@ namespace WebApp
         public void Configure(IApplicationBuilder app,
             IHostingEnvironment env,
             IAntiforgery antiforgery)
-        {
+        { 
 
             //Manually handle setting XSRF cookie. Needed because HttpOnly has to be set to false so that
             //Angular is able to read/access the cookie.

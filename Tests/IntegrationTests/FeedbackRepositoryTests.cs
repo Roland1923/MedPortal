@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Core.Entities;
+﻿using Core.Entities;
 using Infrastructure.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,52 +9,52 @@ namespace Tests.IntegrationTests
     public class FeedbackRepositoryTests : BaseIntegrationTests
     {
         [TestMethod]
-        public void Given_FeedbackRepository_When_AddingAFeedback_Then_TheFeedbackShouldBeProperlySaved()
+        public void Given_FeedbackRepository_When_AddAsyncingAFeedback_Then_TheFeedbackShouldBeProperlySaved()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new FeedbackRepository(ctx);
                 var feedback = Feedback.Create("OK", null, null, 5);
                 
                 //Act
-                repository.Add(feedback);
+                await repository.AddAsync(feedback);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 1);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 1);
             });
         }
 
         [TestMethod]
         public void Given_FeedbackRepository_When_DeletingAFeedback_Then_TheFeedbackShouldBeProperlyRemoved()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new FeedbackRepository(ctx);
                 var feedback = Feedback.Create("OK", null, null, 5);
-                repository.Add(feedback);
+                await repository.AddAsync(feedback);
 
                 //Act
-                repository.Delete(feedback);
+                await repository.DeleteAsync(feedback);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 0);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 0);
             });
         }
 
         [TestMethod]
         public void Given_FeedbackRepository_When_EditingAFeedback_Then_TheFeedbackShouldBeProperlyEdited()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new FeedbackRepository(ctx);
                 var feedback = Feedback.Create("OK", null, null, 5);
-                repository.Add(feedback);
+                await repository.AddAsync(feedback);
 
                 var description = feedback.Description;
                 feedback.Update("IT's OK", null, null, 4);
                 
                 //Act
-                repository.Update(feedback);
+                await repository.UpdateAsync(feedback);
 
                 //Assert
                 Assert.AreNotEqual(feedback.Description, description);
@@ -65,14 +64,14 @@ namespace Tests.IntegrationTests
         [TestMethod]
         public void Given_FeedbackRepository_When_ReturningAFeedback_Then_TheFeedbackShouldBeProperlyReturned()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new FeedbackRepository(ctx);
                 var feedback = Feedback.Create("OK", null, null, 5);
-                repository.Add(feedback);
+                await repository.AddAsync(feedback);
 
                 //Act
-                var extractedFeedback = repository.GetById(feedback.FeedbackId);
+                var extractedFeedback = await repository.GetByIdAsync(feedback.FeedbackId);
 
                 //Assert
                 Assert.AreEqual(feedback, extractedFeedback);
@@ -82,14 +81,14 @@ namespace Tests.IntegrationTests
         [TestMethod]
         public void Given_FeedbackRepository_When_ReturningAllFeedbacks_Then_AllFeedbacksShouldBeProperlyReturned()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new FeedbackRepository(ctx);
                 var feedback = Feedback.Create("OK", null, null, 5);
-                repository.Add(feedback);
+                await repository.AddAsync(feedback);
 
                 //Act
-                var count = repository.GetAll().Count();
+                var count = repository.GetAllAsync().Result.Count;
 
                 //Assert
                 Assert.AreEqual(count, 1);

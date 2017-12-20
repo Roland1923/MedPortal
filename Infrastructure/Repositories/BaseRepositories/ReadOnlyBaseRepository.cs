@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,14 +16,24 @@ namespace Infrastructure.Repositories.BaseRepositories
             DbContext = dbContext;
         }
 
-        public IQueryable<TEntity> GetAll()
+        public async Task<List<TEntity>> GetAllAsync()
         {
-            return DbContext.Set<TEntity>();
+            return await DbContext.Set<TEntity>().ToListAsync();
         }
 
-        public TEntity GetById(Guid id)
+        public async Task<PagingResult<TEntity>> GetAllPageAsync(int skip, int take)
         {
-            return DbContext.Set<TEntity>().Find(id);
+            var totalRecords = await DbContext.Set<TEntity>().CountAsync();
+            var entity = await DbContext.Set<TEntity>()
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+            return new PagingResult<TEntity>(entity, totalRecords);
+        }
+
+        public async Task<TEntity> GetByIdAsync(Guid id)
+        {
+            return await DbContext.Set<TEntity>().FindAsync(id);
         }
     }
 }

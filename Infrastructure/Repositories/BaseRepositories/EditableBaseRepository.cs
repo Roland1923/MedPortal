@@ -1,4 +1,5 @@
-﻿using Core.IRepositories;
+﻿using System.Threading.Tasks;
+using Core.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.BaseRepositories
@@ -9,22 +10,45 @@ namespace Infrastructure.Repositories.BaseRepositories
         {
         }
 
-        public void Add(TEntity entity)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
             DbContext.Set<TEntity>().Add(entity);
-            DbContext.SaveChanges();
+            try
+            {
+                await DbContext.SaveChangesAsync();
+            }
+            catch
+            {
+                return null;
+            }
+            return entity;
         }
 
-        public void Delete(TEntity entity)
+        public async Task<bool> DeleteAsync(TEntity entity)
         {
             DbContext.Set<TEntity>().Remove(entity);
-            DbContext.SaveChanges();
+            try
+            {
+                return await DbContext.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Update(TEntity entity)
+        public async Task<bool> UpdateAsync(TEntity entity)
         {
-            DbContext.Set<TEntity>().Update(entity);
-            DbContext.SaveChanges();
+            DbContext.Set<TEntity>().Attach(entity);
+            DbContext.Entry(entity).State = EntityState.Modified;
+            try
+            {
+                return await DbContext.SaveChangesAsync() > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

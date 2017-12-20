@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Core.Entities;
+﻿using Core.Entities;
 using Infrastructure.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,50 +10,49 @@ namespace Tests.IntegrationTests
         [TestMethod]
         public void Given_BloodDonorRepository_When_AddingAnBloodDonor_Then_TheBloodDonorShouldBeProperlySaved()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodDonorRepository(ctx);
                 var bloodDonor = BloodDonor.Create("AB4", null);
 
                 //Act
-                repository.Add(bloodDonor);
+                await repository.AddAsync(bloodDonor);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 1);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 1);
             });
         }
         [TestMethod]
         public void Given_BloodDonorRepository_When_DeletingAnBloodDonor_Then_TheBloodDonorShouldBeProperlyRemoved()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodDonorRepository(ctx);
                 var bloodDonor = BloodDonor.Create("AB4", null);
 
-                repository.Add(bloodDonor);
-                var id = bloodDonor.BloodDonorId;
+                await repository.AddAsync(bloodDonor);
 
                 //Act
-                repository.Delete(bloodDonor);
+                await repository.DeleteAsync(bloodDonor);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 0);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 0);
             });
         }
         [TestMethod]
         public void Given_BloodDonorRepository_When_EditingAnBloodDonor_Then_TheBloodDonorShouldBeProperlyEdited()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodDonorRepository(ctx);
                 var bloodDonor = BloodDonor.Create("AB4", null);
-                repository.Add(bloodDonor);
+                await repository.AddAsync(bloodDonor);
                 var currentType = bloodDonor.Type;
                 bloodDonor.Update("A4", null);
                 var newCurrentType = bloodDonor.Type;
 
                 //Act
-                repository.Update(bloodDonor);
+                await repository.UpdateAsync(bloodDonor);
 
                 //Assert
                 Assert.AreNotEqual(currentType, newCurrentType);
@@ -63,14 +61,14 @@ namespace Tests.IntegrationTests
         [TestMethod]
         public void Given_BloodDonorRepository_When_ReturningAnBloodDonor_Then_TheBloodDonorShouldBeProperlyReturned()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodDonorRepository(ctx);
                 var bloodDonor = BloodDonor.Create("AB4", null);
-                repository.Add(bloodDonor);
+                await repository.AddAsync(bloodDonor);
 
                 //Act
-                var extractedBloodDonor = repository.GetById(bloodDonor.BloodDonorId);
+                var extractedBloodDonor = repository.GetByIdAsync(bloodDonor.BloodDonorId);
 
                 //Assert
                 Assert.AreEqual(bloodDonor, extractedBloodDonor);
@@ -79,14 +77,14 @@ namespace Tests.IntegrationTests
         [TestMethod]
         public void Given_BloodDonorRepository_When_ReturningAllBloodDonors_Then_AllBloodDonorsShouldBeProperlyReturned()
         {
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodDonorRepository(ctx);
                 var bloodDonor = BloodDonor.Create("AB4", null);
-                repository.Add(bloodDonor);
+                await repository.AddAsync(bloodDonor);
 
                 //Act
-                var count = repository.GetAll().Count();
+                var count = repository.GetAllAsync().Result.Count;
 
                 //Assert
                 Assert.AreEqual(count, 1);

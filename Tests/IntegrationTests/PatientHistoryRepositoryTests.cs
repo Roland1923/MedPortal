@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Core.Entities;
 using Infrastructure.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,21 +11,21 @@ namespace Tests.IntegrationTests
     public class PatientHistoryRepositoryTests : BaseIntegrationTests
     {
         [TestMethod]
-        public void Given_PatientHistoryRepository_When_AddingAPatientHistory_Then_ThePatientHistoryShouldBeProperlySaved()
+        public void Given_PatientHistoryRepository_When_AddAsyncingAPatientHistory_Then_ThePatientHistoryShouldBeProperlySaved()
         {
             var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
             var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", null);
 
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new PatientHistoryRepository(ctx);
                 var patientHistory = PatientHistory.Create(patient, doctor, "Paracetamol", "Febra", "Odihna");
 
                 //Act
-                repository.Add(patientHistory);
+                await repository.AddAsync(patientHistory);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 1);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 1);
             });
         }
 
@@ -36,17 +35,17 @@ namespace Tests.IntegrationTests
             var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
             var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", null);
 
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new PatientHistoryRepository(ctx);
                 var patientHistory = PatientHistory.Create(patient, doctor, "Paracetamol", "Febra", "Odihna");
-                repository.Add(patientHistory);
+                await repository.AddAsync(patientHistory);
 
                 //Act
-                repository.Delete(patientHistory);
+                await repository.DeleteAsync(patientHistory);
 
                 //Assert
-                Assert.AreEqual(repository.GetAll().Count(), 0);
+                Assert.AreEqual(repository.GetAllAsync().Result.Count, 0);
             });
         }
 
@@ -56,18 +55,18 @@ namespace Tests.IntegrationTests
             var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
             var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", null);
 
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new PatientHistoryRepository(ctx);
                 var patientHistory = PatientHistory.Create(patient, doctor, "Paracetamol", "Febra", "Odihna");
-                repository.Add(patientHistory);
+                await repository.AddAsync(patientHistory);
 
                 var prescription = patientHistory.Prescription;
                 patientHistory.Update(patient, doctor, "Fervex", "Febra", "Odihna");
                 var newPrescription = patientHistory.Prescription;
 
                 //Act
-                repository.Update(patientHistory);
+                await repository.UpdateAsync(patientHistory);
 
                 //Assert
                 Assert.AreNotEqual(prescription, newPrescription);
@@ -80,14 +79,14 @@ namespace Tests.IntegrationTests
             var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
             var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", null);
 
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new PatientHistoryRepository(ctx);
                 var patientHistory = PatientHistory.Create(patient, doctor, "Paracetamol", "Febra", "Odihna");
-                repository.Add(patientHistory);
+                await repository.AddAsync(patientHistory);
 
                 //Act
-                var extractedPatientHistory = repository.GetById(patientHistory.HistoryId);
+                var extractedPatientHistory = await repository.GetByIdAsync(patientHistory.HistoryId);
 
                 //Assert
                 Assert.AreEqual(patientHistory, extractedPatientHistory);
@@ -100,14 +99,14 @@ namespace Tests.IntegrationTests
             var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
             var patient = Patient.Create("Roland", "Iordache", "roland.iordache96@gmail.com", "asfdsdssd", "Iasi", new DateTime(1996, 02, 10), "0746524459", null);
 
-            RunOnDatabase(ctx => {
+            RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new PatientHistoryRepository(ctx);
                 var patientHistory = PatientHistory.Create(patient, doctor, "Paracetamol", "Febra", "Odihna");
-                repository.Add(patientHistory);
+                await repository.AddAsync(patientHistory);
 
                 //Act
-                var count = repository.GetAll().Count();
+                var count = repository.GetAllAsync().Result.Count;
 
                 //Assert
                 Assert.AreEqual(count, 1);
