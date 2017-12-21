@@ -1,21 +1,23 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Core.IRepositories;
+using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.BaseRepositories
 {
     public abstract class EditableBaseRepository<TEntity> : ReadOnlyBaseRepository<TEntity>, IEditableRepository<TEntity> where TEntity : class
     {
-        protected EditableBaseRepository(DbContext dbContext) : base(dbContext)
+        protected EditableBaseRepository(IDatabaseService databaseService) : base(databaseService)
         {
         }
 
         public async Task<TEntity> AddAsync(TEntity entity)
         {
-            DbContext.Set<TEntity>().Add(entity);
+            DatabaseService.Set<TEntity>().Add(entity);
             try
             {
-                await DbContext.SaveChangesAsync();
+                await DatabaseService.SaveChangesAsync(new CancellationToken());
             }
             catch
             {
@@ -26,10 +28,10 @@ namespace Infrastructure.Repositories.BaseRepositories
 
         public async Task<bool> DeleteAsync(TEntity entity)
         {
-            DbContext.Set<TEntity>().Remove(entity);
+            DatabaseService.Set<TEntity>().Remove(entity);
             try
             {
-                return await DbContext.SaveChangesAsync() > 0;
+                return await DatabaseService.SaveChangesAsync(new CancellationToken()) > 0;
             }
             catch
             {
@@ -39,11 +41,11 @@ namespace Infrastructure.Repositories.BaseRepositories
 
         public async Task<bool> UpdateAsync(TEntity entity)
         {
-            DbContext.Set<TEntity>().Attach(entity);
-            DbContext.Entry(entity).State = EntityState.Modified;
+            DatabaseService.Set<TEntity>().Attach(entity);
+            DatabaseService.Entry(entity).State = EntityState.Modified;
             try
             {
-                return await DbContext.SaveChangesAsync() > 0;
+                return await DatabaseService.SaveChangesAsync(new CancellationToken()) > 0;
             }
             catch
             {

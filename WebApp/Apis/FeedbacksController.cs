@@ -79,7 +79,7 @@ namespace WebApp.Apis
 
         // POST api/Feedbacks
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 201)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> CreateFeedback([FromBody]FeedbackModel feedback)
@@ -109,7 +109,7 @@ namespace WebApp.Apis
 
         // PUT api/Feedbacks/5
         [HttpPut("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> UpdateFeedback(Guid id, [FromBody]FeedbackModel feedback)
@@ -141,7 +141,7 @@ namespace WebApp.Apis
 
         // DELETE api/Feedbacks/5
         [HttpDelete("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> DeleteFeedback([FromBody]Feedback feedback)

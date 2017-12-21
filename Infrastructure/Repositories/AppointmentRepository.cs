@@ -1,12 +1,12 @@
 ﻿using Core.Entities;
+using Infrastructure.Context;
 using Infrastructure.Repositories.BaseRepositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
     public class AppointmentRepository : EditableBaseRepository<Appointment>
     {
-        public AppointmentRepository(DbContext dbContext) : base(dbContext)
+        public AppointmentRepository(DatabaseService databaseService) : base(databaseService)
         {
         }
     }

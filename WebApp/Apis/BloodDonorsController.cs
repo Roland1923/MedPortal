@@ -79,7 +79,7 @@ namespace WebApp.Apis
 
         // POST api/BloodDonors
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 201)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> CreateBloodDonor([FromBody]BloodDonorModel bloodDonor)
@@ -109,7 +109,7 @@ namespace WebApp.Apis
 
         // PUT api/BloodDonors/5
         [HttpPut("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> UpdateBloodDonor(Guid id, [FromBody]BloodDonorModel bloodDonor)
@@ -141,7 +141,7 @@ namespace WebApp.Apis
 
         // DELETE api/BloodDonors/5
         [HttpDelete("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> DeleteBloodDonor([FromBody]BloodDonor bloodDonor)

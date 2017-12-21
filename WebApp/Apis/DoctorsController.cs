@@ -79,7 +79,7 @@ namespace WebApp.Apis
 
         // POST api/Doctors
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 201)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> CreateDoctor([FromBody]CreateDoctorModel doctor)
@@ -109,7 +109,7 @@ namespace WebApp.Apis
 
         // PUT api/Doctors/5
         [HttpPut("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> UpdateDoctor(Guid id, [FromBody]UpdateDoctorModel doctor)
@@ -141,7 +141,7 @@ namespace WebApp.Apis
 
         // DELETE api/Doctors/5
         [HttpDelete("{id}")]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> DeleteDoctor([FromBody]Doctor doctor)

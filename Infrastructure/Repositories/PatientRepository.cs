@@ -1,12 +1,12 @@
 ﻿using Core.Entities;
+using Infrastructure.Context;
 using Infrastructure.Repositories.BaseRepositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
     public class PatientRepository : EditableBaseRepository<Patient>
     {
-        public PatientRepository(DbContext dbContext) : base(dbContext)
+        public PatientRepository(DatabaseService databaseService) : base(databaseService)
         {
         }
     }

@@ -9,7 +9,7 @@ namespace Infrastructure.Context
         {
             Database.EnsureCreated();
         }
-
+        
         public DbSet<Core.Entities.Patient> Patients { get; set; }
         public DbSet<Core.Entities.Doctor> Doctors { get; set; }
         public DbSet<Core.Entities.PatientHistory> PatientHistories { get; set; }

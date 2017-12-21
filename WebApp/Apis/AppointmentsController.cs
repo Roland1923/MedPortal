@@ -14,8 +14,7 @@ namespace WebApp.Apis
     public class AppointmentsController : Controller
     {
         private readonly IEditableRepository<Appointment> _repository;
-
-
+        
         public AppointmentsController(IEditableRepository<Appointment> repository)
         {
             _repository = repository;
@@ -79,7 +78,7 @@ namespace WebApp.Apis
 
         // POST api/Appointments
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 201)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> CreateAppointment([FromBody]AppointmentModel appointment)
@@ -109,7 +108,7 @@ namespace WebApp.Apis
 
         // PUT api/Appointments/5
         [HttpPut("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> UpdateAppointment(Guid id, [FromBody]AppointmentModel appointment)
@@ -141,7 +140,7 @@ namespace WebApp.Apis
 
         // DELETE api/Appointments/5
         [HttpDelete("{id}")]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> DeleteAppointment([FromBody]Appointment appointment)

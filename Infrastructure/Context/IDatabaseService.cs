@@ -1,11 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Infrastructure.Context
 {
     public interface IDatabaseService
     {
         EntityEntry Entry(object entity);
-        int SaveChanges();
+        DbSet<TEntity> Set<TEntity>() where TEntity : class;
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
 

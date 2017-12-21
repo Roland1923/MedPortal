@@ -79,7 +79,7 @@ namespace WebApp.Apis
 
         // POST api/PatientHistorys
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 201)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> CreatePatientHistory([FromBody]PatientHistoryModel patientHistory)
@@ -109,7 +109,7 @@ namespace WebApp.Apis
 
         // PUT api/PatientHistorys/5
         [HttpPut("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> UpdatePatientHistory(Guid id, [FromBody]PatientHistoryModel patientHistory)
@@ -141,7 +141,7 @@ namespace WebApp.Apis
 
         // DELETE api/PatientHistorys/5
         [HttpDelete("{id}")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [ProducesResponseType(typeof(ApiResponse), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
         public async Task<ActionResult> DeletePatientHistory([FromBody]PatientHistory patientHistory)

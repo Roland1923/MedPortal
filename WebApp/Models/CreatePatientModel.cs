@@ -1,5 +1,4 @@
 ﻿using System;
-using Core.Entities;
 
 namespace WebApp.Models
 {

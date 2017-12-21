@@ -40,6 +40,16 @@ namespace WebApp
             services.AddTransient<IEditableRepository<Feedback>, FeedbackRepository>();
             services.AddTransient<IEditableRepository<BloodDonor>, BloodDonorRepository>();
 
+            
+
+
+            //services.AddDbContext<DatabaseService>(opts => opts.UseInMemoryDatabase("MedPortal"));
+            //var connection = @"Server = .\SQLEXPRESS; Database = MedPortal; Trusted_Connection = true;";
+            var connection = Configuration.GetSection("ConnectionStrings:DefaultConnection");
+            services.AddDbContext<DatabaseService>(option => option.UseSqlServer(connection.Value));
+
+            services.AddMvc().AddFluentValidation(fv => { });
+
             services.AddTransient<IValidator<AppointmentModel>, AppointmentValidator>();
             services.AddTransient<IValidator<BloodDonorModel>, BloodDonorValidator>();
             services.AddTransient<IValidator<CreateDoctorModel>, CreatingDoctorValidator>();
@@ -48,14 +58,6 @@ namespace WebApp
             services.AddTransient<IValidator<UpdatePatientModel>, UpdatingPatientValidator>();
             services.AddTransient<IValidator<FeedbackModel>, FeedbackValidator>();
             services.AddTransient<IValidator<PatientHistoryModel>, PatientHistoryValidator>();
-
-
-            //services.AddDbContext<DatabaseService>(opts => opts.UseInMemoryDatabase("MedPortal"));
-            //var connection = @"Server = .\SQLEXPRESS; Database = MedPortal; Trusted_Connection = true;";
-            var connection = Configuration.GetSection("ConnectionStrings:DefaultConnection");
-            services.AddDbContext<DatabaseService>(option => option.UseSqlServer(connection.Value));
-
-            services.AddMvc().AddFluentValidation();
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
