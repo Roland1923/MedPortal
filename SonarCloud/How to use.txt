@@ -1,0 +1,10 @@
+	
+fa3f23dd85bd930e20684a708bf160d5cffbb424
+
+SonarQube.Scanner.MSBuild.exe begin /k:"medportal" /o:"medportal" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="fa3f23dd85bd930e20684a708bf160d5cffbb424"  /d:sonar.exclusions=**/ClientApp/**,**/wwwroot/**
+
+dotnet.exe msbuild /t:Rebuild
+
+dotnet.exe restore
+
+SonarQube.Scanner.MSBuild.exe end /d:sonar.login="fa3f23dd85bd930e20684a708bf160d5cffbb424"
