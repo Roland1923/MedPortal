@@ -1,0 +1,69 @@
+
+.historyCard {
+	width: 95%;
+    font-align: center;
+    border: 1px solid #8e8e8e;
+    border-radius: 5px;
+}
+
+.historyCard-img {
+    height: 75px;
+    width: 75px;
+}
+
+.img-col {
+	width: 350px;
+}
+
+.info-col {
+	width: 500px;
+}
+
+.historyCard-data {
+    font-size: 90%;
+}
+
+.historyCard-doctor {
+    font-size: 90%;
+}
+
+.historyCard-specializare {
+    font-size: 90%;
+}
+
+.historyCard-X {
+	font-size: 400%;
+}
+
+.historyCard-info {
+	display: none;
+	
+}
+
+.historyCard-title {
+	color: #000;
+    font-size: 90%;
+}
+
+
+.container-fluid {
+	width: 70%;
+}
+
+.dropdown-toggle {
+	margin: 10px auto;
+	font-size: 90%;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  font-size: 24px;
+  border-radius: 45px;
+  background-color: #5dabd8;
+}
+
+.bg-blue {
+	background-color: #d1f5ff;
+    border-radius: 3px;
+}
