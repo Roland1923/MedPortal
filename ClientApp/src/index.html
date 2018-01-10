@@ -1,16 +1,76 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Angular Bootstrap Demo</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Angular Bootstrap Demo</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css"> <!-- thats important for animation effects -->
+    <link href="https://fonts.googleapis.com/css?family=Arbutus" rel="stylesheet"> <!-- Demo -->
 </head>
 <body>
+
   <app-root>Loading...</app-root>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+  <footer id="myFooter">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-3">
+                  <a href="#"> <img src="assets\img\general/LOGO2.png" alt="test" class="img-responsive" title="Med Portal"> </a>
+              </div>
+              <div class="col-sm-2">
+                  <h5>Get started</h5>
+                  <ul>
+                      <li><a href="#">Prima pagina</a></li>
+                      <li><a href="#">Inregistreaza-te ca doctor</a></li>
+                      <li><a href="#">Inregistreaza-te ca pacient</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-2">
+                  <h5>Despre noi</h5>
+                  <ul>
+                      <li><a href="#">Company Information</a></li>
+                      <li><a href="#">Contact us</a></li>
+                      <li><a href="#">Reviews</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-2">
+                  <h5>Support</h5>
+                  <ul>
+                      <li><a href="#">FAQ</a></li>
+                      <li><a href="#">Help desk</a></li>
+                      <li><a href="#">Forums</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-3">
+                  <div class="social-networks">
+                      <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                  </div>
+                  <button type="button" class="btn btn-default">Contact us</button>
+              </div>
+          </div>
+      </div>
+      <div class="footer-copyright">
+          <p>© 2018 Copyright </p>
+      </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+	
+<script>
+  $(document).ready(function(){
+    AOS.init({ disable: 'mobile' });
+  });
+</script>
 </body>
 </html>

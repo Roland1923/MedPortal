@@ -8,6 +8,7 @@ import {BaseService} from "./base.service";
 
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/Rx'; 
+import { first } from 'rxjs/operator/first';
 
 @Injectable()
 export class UserService extends BaseService {
@@ -31,18 +32,37 @@ export class UserService extends BaseService {
   }
 
   doctorRegister(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, speciality: string, hospital: string, city: string, address: string): Observable<DoctorRegistration> {
-    //console.log(firstName + " " + lastName);
     let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, speciality, hospital, city, address });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    
-    
-    console.log('body is ' + body);
-    console.log('headers is ' + headers);
 
     return this.http.post(this.baseUrl + "api/Doctors", body, options)
       .map(res => true)
       .catch(this.handleError);
+    }
+
+    editDoctorProfile(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, speciality: string, hospital: string, city: string, address: string): Observable<DoctorRegistration> {
+      console.log(firstName + " " + lastName + " " + email + " " + password + " " + phoneNumber + " " + speciality + " " + hospital + " " + city + " " + address);
+      
+      let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, speciality, hospital, city, address });
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      
+      return this.http.put(this.baseUrl + "api/Doctors", body, options)
+        .map(res => true)
+        .catch(this.handleError);
+    }
+
+    editPatientProfile(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, city: string, birthdate: string): Observable<DoctorRegistration> {
+      console.log("UserService: " + firstName + " " + lastName);
+      
+      let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, city, birthdate });
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+  
+      return this.http.put(this.baseUrl + "api/Patients", body, options)
+        .map(res => true)
+        .catch(this.handleError);
     }
 
 }

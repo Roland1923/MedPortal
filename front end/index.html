@@ -11,24 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="index-style.css">
-
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/bootstrap-theme.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-	<link rel="stylesheet" href="../css/recenzie.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
-    <link rel="stylesheet" href='../css/star-rating.css' media="all" type="text/css">
-    <link rel="stylesheet" href='../css/star-rating.min.css' media="all" type="text/css">
-	<link rel="stylesheet" type="text/css" href="yourPath/silviomoreto-bootstrap-select-83d5a1b/dist/css/bootstrap-select.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/star-rating.js"></script>
+	
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css"> <!-- thats important for animation effects -->
+     <link href="https://fonts.googleapis.com/css?family=Arbutus" rel="stylesheet"> <!-- Demo -->
 
 </head>
 
@@ -80,52 +68,56 @@
 			</div>
 		</div>
 	</nav>   
+	 <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" data-aos="fade-left" data-aos-duration="2600" data-aos-once="true" >
+                    <h1>Bun venit pe platforma MedPortal</h1>
+                    <p>Ajutăm medicii, pacienții și susținem donarea de sange</p>
+                </div>
+                <div class="col-md-12" data-aos="fade-right" data-aos-duration="2600" data-aos-once="true" >
+					<center>
+						<a class="btn btn-link" href="#"><button type="button" class="btn btn-success btn-lg" type="submit" value="doctor">Înregistrare Doctor</button></a>
+						 <a class="btn btn-link" href="#"> <button type="button" class="btn btn-info btn-lg" type="submit" value="patient">Înregistrare Pacient</button></a>
+						 <a class="btn btn-link" href="#"><button type="button" class="btn btn-danger btn-lg" type="submit" value="donor">Înregistrare Donator</button></a>
+                    </center>
+                </div>
+            </div>
+        </div>
+        
+	</header>
 
-	
-	<div class="row bg-info">
-		<div class="col-md-12">
-			<div class="aaa">
-				<h1 class="subtitle">
-					Bun venit pe platforma MedPortal
-				</h1>						
+	<div class="row" style="margin-top:7%;margin-bottom:7%;">	
+		<div class="container">
+				<div class="col-md-4">
+					<center>
+						<img src="img/ICON-doc.png" class="img-circle mid-img" alt="the-brains">
+						<br><br>
+						<p class="textt">Ia legatura cu cei mai buni specialisti si obtine o programare.</p>
+					</center>
+				</div>
 
-				<h2 class="description">
-					Ajutăm medicii, pacienții și susținem donarea de sange
-				</h2>	
-
-				<div class="well col-12 col-md-auto">
-					<form accept-charset="UTF-8" action="/" class="simple_form" data-remote="true" method="post" novalidate="novalidate">
-						<span class="text-left">Înregistrează-te ca</span>
-						<button type="button" class="btn btn-success btn-lg button-length" type="submit" value="doctor">Doctor</button>
-       		            <button type="button" class="btn btn-info btn-lg button-length" type="submit" value="patient">Pacient</button>
-       		    	    <button type="button" class="btn btn-danger btn-lg button-length" type="submit" value="donator">Donator</button>
-       	        	</form>
-            	</div>
-			</div>
-		</div>
-	</div>	
-
-	
-	<div class="container-mid">
-		<div class="row mid">
-			<div class="col-sm-4">
-				<img src="img/ICON-doc.png" class="mid-img">
-				<p class="h4 text-center mid-text">Ia legatura cu cei mai buni specialisti si obtine o programare.</p>
-			</div>
-						
-			<div class="col-sm-4">
-				<img src="img/ICON-pill.png" class="mid-img">
-				<p class="h4 text-center mid-text ">Gaseste tratamentul potrivit economisind timp si energie</p>
-			</div>
-			
-			<div class="col-sm-4">
-				<img src="img/ICON-heart.png" class="mid-img">
-				<p class="h4 text-center mid-text ">Fii si tu Donator si vino în ajutorul celor care au nevoie de tine!</p>
-			</div>
+				<div class="col-md-4">
+					<center>
+						<img src="img/ICON-pill.png" class="img-circle mid-img" alt="...">
+						<br><br>
+						<p class="textt">Gaseste tratamentul potrivit economisind timp si energie</p>
+					</center>
+				</div>
+				
+				<div class="col-md-4">
+					<center>
+						<img src="img/ICON-heart.png" class="img-circle mid-img" alt="...">
+						<br><br>
+						<p class="textt">Fii si tu Donator si vino în ajutorul celor care au nevoie de tine!</p>
+					</center>
+				</div>
 		</div>
 	</div>
 	
-	<div class="container" style="margin-top: 500px; margin-bottom: 100px;">
+
+	
+	<div class="container">
 		<h1 class="text-center">Găsește doctorul tău</h1>
 		<h4 class="subtitle"> Dacă vrei să faci o programare la unul dintre doctorii care sunt înscriși pe platforma MedPortal, primul pas este să găsești un doctor potrivit pentru tine </h4>
 				
@@ -150,44 +142,14 @@
 		</div>
 	</div>
 	
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
 	
-	
-	
-    <!----------- Footer ------------>
-    <footer class="footer-bs">
-        <div class="row">
-			10:25 AM 1/8/2018
-			<div class="col-md-3 footer-brand animated fadeInLeft">
-            	<a href='/' title='Go to MedPortal Home'>
-					<img src="img/Logo2.png" width="250px" alt="test" class="img-responsive" title="Med Portal">
-                </a>
-                
-                <p>© 2017 MedPortal. Toate drepturile rezervate.</p>
-            </div>
-        	<div class="col-md-4 footer-nav animated fadeInUp">
-            	<h4>Meniu —</h4>
-            	<div class="col-md-6">
-                    <ul class="pages">
-                        <li><a href="#">Ești medic?</a></li>
-                        <li><a href="#">Ești pacient?</a></li>
-                        <li><a href="#">Ești donator?</a></li>
-                    </ul>
-                </div>
-				
-            </div>
-        	<div class="col-md-2 footer-social animated fadeInDown">
-            	<h4>Grupe sânge</h4>
-            	<ul>
-                	<li><a href="#">O (I)</a></li>
-                	<li><a href="#">A (II)</a></li>
-                	<li><a href="#">B (III)</a></li>
-                	<li><a href="#">AB (IV)</a></li>
-                </ul>
-            </div>
-        	
-        </div>
-        <div id="rights"><a href="http://www.freepik.com">Doctor images Designed by Dooder / Freepik</a></div>
-    </footer>
-</div>
+<script>
+$(document).ready(function(){
+	AOS.init({ disable: 'mobile' });
+});
+
+/* For mobile support, delet the 'mobile' */
+</script>
 </body>
 </html>

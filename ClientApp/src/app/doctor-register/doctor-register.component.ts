@@ -25,8 +25,6 @@ export class DoctorRegisterComponent implements OnInit {
     this.submitted = true;
     this.isRequesting = true;
     this.errors = '';
-    console.log("firstname: " + value.firstName)
-    console.log("lastname: " + value.lastName)
     if (valid) {
         this.userService.doctorRegister(value.firstName,
             value.lastName,

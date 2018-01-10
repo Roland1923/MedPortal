@@ -8,20 +8,6 @@
 	min-width: 15.0em;
 }
 
-.col-md-12 {
-	background-image: url("img/docs.png");
-	background-repeat: no-repeat;
-	background-color: white;
-	background-size: 99% auto;
-	height: 450px;
-	possition: absolute;
-}
-
-.container {
-	margin-top: 0px !important;
-	
-}
-
 .container-mid {
 	margin-left: 15.5%;
 	width: 70%;
@@ -47,9 +33,8 @@
 	margin-right: 20px;
 }
 
-.button-length {
-	width: 22.5%;
-	min-width: 10em;
+.btn-lg {
+	width: 100%;
 }
 
 .aaa {
@@ -74,62 +59,137 @@
 .mid-img {
 	width:150px;
 	height: 150px;
-	margin-left: 35%;
+	
 }
 
-.footer-bs {
-    background-color: #3c3d41;
-	padding: 60px 40px;
-	color: rgba(255,255,255,1.00);
-	margin-bottom: 20px;
-	border-bottom-right-radius: 6px;
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 6px;
-}
-.footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
-.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
-.footer-bs .footer-brand h2 { margin:0px 0px 10px; }
-.footer-bs .footer-brand p { font-size:12px; color:rgba(255,255,255,0.70); }
-
-.footer-bs .footer-nav ul.pages { list-style:none; padding:0px; }
-.footer-bs .footer-nav ul.pages li { padding:5px 0px;}
-.footer-bs .footer-nav ul.pages a { color:rgba(255,255,255,1.00); font-weight:bold; text-transform:uppercase; }
-.footer-bs .footer-nav ul.pages a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
-.footer-bs .footer-nav h4 {
-	font-size: 11px;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	margin-bottom:10px;
+.container2 {
+	width: 100%;
 }
 
-.footer-bs .footer-nav ul.list { list-style:none; padding:0px; }
-.footer-bs .footer-nav ul.list li { padding:5px 0px;}
-.footer-bs .footer-nav ul.list a { color:rgba(255,255,255,0.80); }
-.footer-bs .footer-nav ul.list a:hover { color:rgba(255,255,255,0.60); text-decoration:none; }
-
-.footer-bs .footer-social ul { list-style:none; padding:0px; }
-.footer-bs .footer-social h4 {
-	font-size: 11px;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-}
-.footer-bs .footer-social li { padding:5px 4px;}
-.footer-bs .footer-social a { color:rgba(255,255,255,1.00);}
-.footer-bs .footer-social a:hover { color:rgba(255,255,255,0.80); text-decoration:none; }
-
-.footer-bs .footer-ns h4 {
-	font-size: 11px;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	margin-bottom:10px;
-}
-.footer-bs .footer-ns p { font-size:12px; color:rgba(255,255,255,0.70); }
-
-@media (min-width: 768px) {
-	.footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-left:solid 1px rgba(255,255,255,0.10); }
+.container .text-muted {
+  margin: 20px 0;
 }
 
-#rights{
-	font-size: 10px;
-	font-color: gray;
+
+.textt {
+	font-size: 140%;
+}
+
+.aaaa {
+	margin-left: 10%;
+}
+
+
+
+/* Demo */
+body
+{
+    font-family: 'sans-serif';
+}
+
+/* Header settings */
+header {
+  height:100vh; /* you can change that height to 100%, please get sure youre Header is ready */
+  background-attachment:fixed;
+  background-size:cover;
+  background-position:left;
+  background-repeat:no-repeat;
+  background-image:linear-gradient(to right, black 0%, white 100%), url('https://businessradiox.com/wp-content/uploads/2016/07/TDBanner4.jpg');
+  background-blend-mode:screen; /* you can remove that, if you do that delet the "linear-gradient(to right, black 0%, white 100%)," */
+}
+
+@media (max-width:767px){
+  header {
+  background-attachment:inherit;
+}
+}
+
+header .row
+{
+    margin-top: 10%; /* Handle the row */
+}
+
+@media (max-width:767px){
+    header .row
+{
+    margin-top:30vh; /* Handle the row on mobile */
+}
+}
+
+header h1
+{
+    font-family: 'Arbutus', cursive;
+    text-align:center;
+    font-size:61px;
+    color:#F8CA4D;
+    text-shadow:0px 0px 4px #222;
+}
+
+@media (max-width:767px){
+    header h1
+{
+    font-size:41px;
+}
+}
+
+header p
+{
+    text-align:center;
+    font-size:21px;
+}
+
+header .btn-link
+{
+    margin-top:20px;
+    font-size:21px;
+    letter-spacing:1px;
+    color:#2F3440;
+}
+
+header .btn-link:hover
+{
+    text-decoration:none;
+    color:#eee;
+    border:1px solid #eee;
+    transition:all 0.7s;
+    text-shadow:0px 0px 3px #000;
+}
+
+
+/* Custom navbar settings */
+.navbar-default {
+  background-color:#3F5666;
+  border-color:#2F3440;
+  border-bottom:1px solidÂ #00c9c0;
+  border-radius:0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color:#fff;
+  letter-spacing:1px;
+  font-weight:500;
+}
+
+.navbar-default .navbar-brand {
+  color:#ffffff;
+  letter-spacing:1px;
+}
+
+.navbar-default .navbar-brand:hover {
+  color:#eee;
+  transition:all 0.7s;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color:#eee;
+  background-color:#2F3440;
+  transition:all 0.7s;
+  font-size:21px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color:#eee;
+  background-color:#2F3440;
+  transition:all 0.7s;
+  font-size:15px;
 }

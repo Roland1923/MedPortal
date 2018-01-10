@@ -1,0 +1,75 @@
+
+<div class="container" style="width:80%; height:80%; margin-top: 5%; margin-bottom: 5%;">
+    <div class="row">
+      <div class="col-4 d-inline-block">
+        <div class="row align-items-center justify-content-center">
+          <img src="https://cdn3.iconfinder.com/data/icons/internet-and-web-4/78/internt_web_technology-13-256.png" class="img-fluid img-profile">
+        </div>
+      
+        <div class="row h-40 align-middle">
+          <div class="btn-group-vertical">
+            <button type="button" class="btn btn-info mb-2 px-5">Programari</button>
+            <button type="button" class="btn btn-info mb-2 px-5">Istoric</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-8 d-inline-block">
+        <div class="col-12 bg-light">
+            <div class="card border-info my-1">
+              <div class="card-body">
+                <div class="card-text">
+                  <form #f="ngForm" novalidate (ngSubmit)="editPatientProfile(f)" class="form-horizontal"  id="contact_form">
+                    <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa2 fa-user-circle"></i></span>
+                      <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Nume" ngFocus ngModel>
+                    </div>
+                    
+                    <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa2 fa-user-circle"></i></span>
+                      <input id="firstName" type="text" class="form-control" name="firstName" placeholder="Prenume" ngModel>
+                    </div>
+                    
+                    <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa2 fa-phone"></i></span>
+                      <input id="phoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Telefon" ngModel>
+                    </div>
+                    
+                    
+                    <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa2 fa-location-arrow"></i></span>
+                      <input id="city" type="text" class="form-control" name="city" placeholder="Oraș" ngModel>
+                    </div>
+            
+        
+                        <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa-calendar-o"></i></span>
+                      <input id="birthdate" type="date" class="form-control" name="birthdate" placeholder="Dara Nașterii" ngModel>
+                    </div>
+  
+                    <div class="input-group mt-5 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa2 fa-envelope"></i></span>
+                      <input id="email" type="text" class="form-control" name="email" placeholder="E-mail" ngModel>
+                    </div>
+                    
+                    <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa2 fa-key"></i></span>
+                      <input id="password" type="text" class="form-control" name="password" placeholder="Parola" ngModel>
+                    </div>
+                    
+                    <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-3"><i class="fa fa2 fa-key"></i></span>
+                      <input id="password_confirm" type="text" class="form-control" name="password_confirm" placeholder="Confirma parola" ngModel>
+                    </div>
+  
+                    <div class="row align-items-center justify-content-center">
+                      <button type="submit" class="btn btn-info mb-2 px-5">Salveaza schimbarile</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
