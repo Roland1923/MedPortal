@@ -1,0 +1,137 @@
+<div class="container">
+  <form  #f="ngForm" novalidate (ngSubmit)="registerDoctor(f)" class="well form-horizontal"  id="contact_form">
+    <fieldset><!-- Form Name -->
+      <legend><h2><b>Înregistrare Doctor</b></h2></legend><br>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Nume</label> 
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="lastName" placeholder="Nume" class="form-control"  type="text" tmFocus ngModel>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Prenume</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input  name="firstName" placeholder="Prenume" class="form-control"  type="text" ngModel>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input name="email" placeholder="Adresa de e-mail" class="form-control" type="text" ngModel>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Parola</label> 
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input name="password" placeholder="Parola" class="form-control"  type="password" ngModel>
+        </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" >Confirmă Parola</label> 
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input name="confirm_password" placeholder="Confirmă Parola" class="form-control"  type="password" ngModel>
+        </div>
+        </div>
+      </div>
+      
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Telefon</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+        <input  name="phoneNumber" placeholder="Telefon" class="form-control"  type="tel" ngModel>
+        </div>
+        </div>
+      </div>
+      
+      <!-- Text input-->  
+      <div class="form-group">
+        <label class="col-md-4 control-label">Specializare</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
+            <input name="speciality" placeholder="Specializare" class="form-control" type="text" ngModel>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <div class="row">
+        <div class="text-center panel panel-heading"  style="width: 100%; margin-top: 2%"><span style="font-size: 20px;"><b>Informații despre instituția în care veți onora programările</b></span></div>
+      </div>
+      
+      <div class="row form-group">
+      
+        <!-- Text input-->  
+        <label class="col-md-2 control-label">Nume</label>  
+        <div class="col-md-3 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input name="hospital" placeholder="Nume" class="form-control input-md" type="text" ngModel>
+          </div>
+        </div>
+        
+        <label class="col-md-2 control-label" for="city">Oraș</label>
+        <div class="col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <input id="city" name="city" placeholder="Oraș" class="form-control input-md" required="" type="text" ngModel>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row form-group">
+        <label class="col-md-2 control-label" for="district">Adresă</label>
+        <div class="col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+            <input id="address" name="address" placeholder="Strada" class="form-control input-md" required="" type="text" ngModel>
+          </div>
+        </div>
+        
+        <label class="col-md-2 control-label" for="state">Țara</label>
+        <div class="col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
+            <input id="state" name="state" placeholder="România" disabled="true" class="form-control input-md" required="" type="text" ngModel>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <div class="row">
+          <div class="text-center"  style="width: 100%; margin-top: 3%">
+            <button type="submit" class="btn btn-success" style="width: 20%; font-weight: bold;" [disabled]="f.invalid || isRequesting"> ÎNREGISTRARE <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
