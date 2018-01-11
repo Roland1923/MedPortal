@@ -36,5 +36,7 @@ namespace Infrastructure.Repositories.BaseRepositories
         {
             return await DatabaseService.Set<TEntity>().FindAsync(id);
         }
+
+       
     }
 }

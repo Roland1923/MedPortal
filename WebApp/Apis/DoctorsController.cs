@@ -30,8 +30,9 @@ namespace WebApp.Apis
         {
             try
             {
-                var Doctors = await _repository.GetAllAsync();
-                return Ok(Doctors);
+             
+              var doctors = await _repository.GetAllAsync();
+              return Ok(doctors);
             }
             catch
             {
@@ -39,9 +40,11 @@ namespace WebApp.Apis
             }
         }
 
+   
 
-        // GET api/Doctors/page/10/10
-        [HttpGet("page/{skip}/{take}")]
+
+    // GET api/Doctors/page/10/10
+    [HttpGet("page/{skip}/{take}")]
         [NoCache]
         [ProducesResponseType(typeof(List<Doctor>), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
@@ -162,5 +165,6 @@ namespace WebApp.Apis
         }
 
 
-    }
+
+  }
 }
