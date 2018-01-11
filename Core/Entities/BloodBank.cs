@@ -9,7 +9,6 @@ namespace Core.Entities
     {
         [Key]
         public Guid BloodBankId { get; private set; }
-        [ForeignKey("Type")]
         public Dictionary<string,int> Types { get; private set; }
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; private set; }
