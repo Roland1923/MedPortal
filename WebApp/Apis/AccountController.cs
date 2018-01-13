@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Core.Entities;
 using Core.IRepositories;
 using Infrastructure.Attributes;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebApp.Common;
@@ -27,19 +29,25 @@ namespace WebApp.Apis
         _repositoryPatient = repositoryPatient;
       }
 
-     // api/Accout/doctor
-      [HttpGet("doctorAccount")]
+     // api/Accout/doctorAccount
+      [HttpPut("doctorAccount")]
       [NoCache]
       [ProducesResponseType(typeof(Doctor), 200)]
-      [ProducesResponseType(typeof(ApiResponse), 400)]
-      public async Task<ActionResult> DoctorAccount(string email, string password)
+      [ProducesResponseType(typeof(ApiResponse), 404)]
+      public async Task<ActionResult> DoctorAccount([FromBody]CredetialsModel doctorCredetialsModel)
       {
+        
+      
         try
         {
           var doctorsList = await _repositoryDoctor.GetAllAsync();
-          if (!doctorsList.Any(doctor => doctor.Email == email && doctor.Password == password))
-            return BadRequest(new ApiResponse {Status = false});
-          var requestAt = DateTime.Now;
+          if (!doctorsList.Any(doctor => doctor.Email == doctorCredetialsModel.Email && doctor.Password == doctorCredetialsModel.Password))
+            return Json(new RequestResult
+            {
+              State = RequestState.Failed
+            });
+        //return BadRequest(new ApiResponse {Status = false});
+        var requestAt = DateTime.Now;
           var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
           var token = GenerateToken(expiresIn);
 
@@ -57,7 +65,11 @@ namespace WebApp.Apis
         }
         catch
         {
-          return BadRequest(new ApiResponse { Status = false });
+          return Json(new RequestResult
+          {
+            State = RequestState.Failed
+          });
+        //return BadRequest(new ApiResponse { Status = false });
         }
       }
 
@@ -71,7 +83,13 @@ namespace WebApp.Apis
         {
           var pacientsList = await _repositoryPatient.GetAllAsync();
           if (!pacientsList.Any(pacient => pacient.Email == email && pacient.Password == password))
-            return BadRequest(new ApiResponse {Status = false});
+            // return BadRequest(new ApiResponse {Status = false});
+          {
+            return Json(new RequestResult
+            {
+              State = RequestState.Failed
+            });
+          }
           var requestAt = DateTime.Now;
           var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
           var token = GenerateToken(expiresIn);
@@ -109,5 +127,12 @@ namespace WebApp.Apis
         });
         return handler.WriteToken(securityToken);
       }
+      [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+      [ProducesResponseType(typeof(ApiResponse), 200)]
+      [HttpGet("GetStaff")]
+      public IActionResult GetStaff()
+      {
+      return BadRequest(new ApiResponse { Status = false });
+    }
   }
 }

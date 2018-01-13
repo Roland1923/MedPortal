@@ -1,6 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
+<div class="mdl-list__item" *ngFor="let character of characters">
+	<span class="mdl-list__item-primary-content">
+		<i class="material-icons mdl-list__item-avatar">person</i>
+		<span>{{character}}</span>
+	</span>
+	<a class="mdl-list__item-secondary-action mdl-js-ripple-effect mdl-button mdl-js-button mdl-button--icon mdl-button--colored" href="#"><i class="material-icons">star</i></a>
+</div>
 <nav class="navbar">
 		<div class='container-fluid header'>
 			<div class='row'>
