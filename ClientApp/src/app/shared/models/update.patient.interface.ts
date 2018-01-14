@@ -5,5 +5,5 @@ export interface UpdatePatient {
     password : string;
     phoneNumber : string;
     city : string;
-    birthdate : string;
+    birthdate : Date;
 }

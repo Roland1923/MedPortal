@@ -5,5 +5,5 @@ export interface PatientRegistration {
     password : string;
     phoneNumber : string;
     city : string;
-    birthdate : DateTimeFormat;
+    birthdate : Date;
 }
