@@ -18,9 +18,9 @@ namespace WebApp.Models.Validations
             RuleFor(c => c.City).NotNull().WithMessage("Trebuie sa specificati un oras").Length(3, 30)
                 .WithMessage("Numele orasului trebuie sa aiba intre 3 si 30 caractere");
             RuleFor(c => c.Birthdate).NotNull().WithMessage("Trebuie sa specificati data de nastere").Must(BeAValidDate);
-            RuleFor(c => c.PhoneNumber).NotNull().WithMessage("Trebuie sa specificati un numar de telefon")
-                .Matches(@" ^\(? ([0 - 9]{ 3})\)?[-. ]? ([0 - 9]{3})[-. ]? ([0 - 9]{4})$")
-                .WithMessage("Numarul de telefon invalid");
+            RuleFor(c => c.PhoneNumber).NotNull().WithMessage("Trebuie sa specificati un numar de telefon");
+            //.Matches(@" ^\(? ([0 - 9]{ 3})\)?[-. ]? ([0 - 9]{3})[-. ]? ([0 - 9]{4})$")
+            //.WithMessage("Numarul de telefon invalid");
         }
 
         private bool BeAValidDate(DateTime date)

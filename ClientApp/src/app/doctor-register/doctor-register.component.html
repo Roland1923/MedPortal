@@ -19,13 +19,6 @@
                       </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
@@ -37,13 +30,6 @@
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                         <input name="firstName" placeholder="Prenume" class="form-control" type="text" ngModel>
                       </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
                 </div>
             </div>
         </div>
@@ -59,13 +45,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put e-mail validation error messages here -->
-                        </span>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
@@ -77,13 +56,6 @@
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
                         <input name="password" placeholder="Parola" class="form-control" type="password" ngModel>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                    <span class="text-danger align-middle">
-                        <i class="fa fa-close"> Example Error Message</i>
-                    </span>
                 </div>
             </div>
         </div>
@@ -112,13 +84,6 @@
                       </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
@@ -132,13 +97,6 @@
                       </div>
                 </div>
               </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="text-center panel card-header" style="width: 100%; margin-top: 3%; margin-bottom: 3%;">
@@ -159,13 +117,6 @@
                       </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
-                </div>
-            </div>
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
@@ -179,13 +130,6 @@
                       </div>
                 </div>
               </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
-                </div>
-            </div>
         </div>
 
         <div class="row">
@@ -200,13 +144,6 @@
                       </div>
                 </div>
               </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
-                </div>
-            </div>
         </div>
 
         <div class="row">
@@ -221,11 +158,14 @@
                       </div>
                 </div>
               </div>
+        </div>
+        
+        <div class="row align-items-center justify-content-center">
             <div class="col-md-3">
                 <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put name validation error messages here -->
-                        </span>
+                    <span class="text-danger align-middle">
+                         {{error}}
+                    </span>
                 </div>
             </div>
         </div>

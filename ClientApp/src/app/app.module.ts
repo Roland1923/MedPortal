@@ -18,6 +18,7 @@ import { EditDoctorProfileComponent } from './edit-doctor-profile/edit-doctor-pr
 import { EditPatientProfileComponent } from './edit-patient-profile/edit-patient-profile.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './shared/services/auth.service';
+import { PatientRegisterComponent } from './patient-register/patient-register.component';
 
 
 @NgModule({
@@ -27,8 +28,8 @@ import { AuthService } from './shared/services/auth.service';
     EditDoctorProfileComponent,
     EditPatientProfileComponent,
     HomeComponent,
-    AuthComponent
-    
+    AuthComponent,
+    PatientRegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +37,7 @@ import { AuthService } from './shared/services/auth.service';
       {path:'', component: AppComponent},
       {path:'home', component:HomeComponent},
       {path:'doctor-register', component:DoctorRegisterComponent},
+      {path:'patient-register', component:PatientRegisterComponent},
       {path:'edit-doctor-profile', component:EditDoctorProfileComponent},
       {path:'edit-patient-profile', component:EditPatientProfileComponent},
       {path:'login',component:AuthComponent}

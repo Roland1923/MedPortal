@@ -14,7 +14,7 @@ export class AuthComponent implements OnDestroy {
     private password: string;
     private postStream$: Subscription;
 
-    constructor(private authService: AuthService,private router: Router) { }
+    constructor(private authService: AuthService, private router: Router) { }
 
     login() {
         if (this.postStream$) { this.postStream$.unsubscribe }

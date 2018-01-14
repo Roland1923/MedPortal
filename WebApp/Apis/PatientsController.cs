@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Core.Entities;
 using Core.IRepositories;
 using Infrastructure.Attributes;
+using WebApp.Common;
 using WebApp.Models;
 
 namespace WebApp.Apis
@@ -86,7 +87,7 @@ namespace WebApp.Apis
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
+               return BadRequest(Json(new ApiResponse { Status = false, ModelState = ModelState }));
             }
 
             var instance = Patient.Create(patient.FirstName, patient.LastName, patient.Email, patient.Password, patient.City, patient.Birthdate, patient.PhoneNumber, null);

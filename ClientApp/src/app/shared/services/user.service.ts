@@ -53,6 +53,16 @@ export class UserService extends BaseService {
         .catch(this.handleError);
     }
 
+    patientRegister(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, city: string, birthdate: string): Observable<DoctorRegistration> {
+      let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, city, birthdate });
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+  
+      return this.http.post(this.baseUrl + "api/Patients", body, options)
+        .map(res => true)
+        .catch(this.handleError);
+      }
+
     editPatientProfile(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, city: string, birthdate: string): Observable<DoctorRegistration> {
       console.log("UserService: " + firstName + " " + lastName);
       
@@ -64,5 +74,4 @@ export class UserService extends BaseService {
         .map(res => true)
         .catch(this.handleError);
     }
-
 }

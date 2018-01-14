@@ -46,7 +46,6 @@ export class AuthService implements CanActivate{
                     let result = res;
                     if (result.state && result.state == 1 && result.data && result.data.accessToken) {
                         sessionStorage.setItem(this.tokeyKey, result.data.accessToken);
-
                     }
                     return result;
                 }

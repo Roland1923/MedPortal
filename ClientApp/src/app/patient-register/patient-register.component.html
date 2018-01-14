@@ -1,0 +1,168 @@
+<div class="container" style="margin-top: 3%; margin-bottom: 3%;">
+  <form #f="ngForm" novalidate (ngSubmit)="patientRegister(f)" class="form-horizontal"  id="contact_form">
+      <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+              <h2>&#xCE;nregistrare Pacient</h2>
+              <hr>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 field-label-responsive">
+              <label for="name">Nume</label>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input name="lastName" placeholder="Nume" class="form-control" type="text" tmfocus ngModel>
+                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 field-label-responsive">
+              <label for="name">Prenume</label>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input name="firstName" placeholder="Prenume" class="form-control" type="text" ngModel>
+                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 field-label-responsive">
+              <label for="email">E-mail</label>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                      <input name="email" placeholder="Adresa de e-mail" class="form-control" type="text" ngModel>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 field-label-responsive">
+              <label for="password">Parola</label>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                      <input name="password" placeholder="Parola" class="form-control" type="password" ngModel>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 field-label-responsive">
+              <label for="password">Confirm&#x103; Parola</label>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-repeat"></i></div>
+                      <input name="confirm_password" placeholder="Confirm&#x103; Parola" class="form-control" type="password" ngModel>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 field-label-responsive">
+              <label for="name">Telefon</label>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-phone"></i></div>
+                      <input name="phoneNumber" placeholder="Telefon" class="form-control" type="tel" ngModel>
+                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 field-label-responsive">
+              <label for="name">Data na&#x219;terii</label>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-calendar"></i></div>
+                      <input name="birthday" placeholder="Data na&#x219;terii" class="form-control" type="date" tmfocus="" ngModel>
+                    </div>
+              </div>
+            </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 field-label-responsive">
+            <label for="name">Ora&#x219;</label>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-location-arrow"></i></div>
+                      <input id="city" name="city" placeholder="Ora&#x219;" class="form-control input-md" required type="text" ngModel>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <div class="text-center" style="width: 100%; margin-top: 1%">
+          <div class="checkbox checbox-switch switch-danger">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <div class="row align-items-center justify-content-center">
+                  <div class="material-switch pull-right" style ="margin-right:6%;">
+                      <input id="someSwitchOptionDanger" name="checkStatus" ng-model='checkStatus' (click)='expandRegisterForm($event)' type="checkbox"/>
+                      <label for="someSwitchOptionDanger" class="label-danger"></label>
+                  </div>
+                  Vreau să donez sânge
+                </div>
+              </li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+    <div id="donorDiv" style="display: block">
+      <!-- Text input-->
+      <div class="row">
+        <div class="col-md-3 field-label-responsive">
+            <label for="name">Grupa sanguin&#259;</label>
+        </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-id-card-o"></i></div>
+                    <input name="bloodtype" placeholder="Grupa Sanguin&#259;" class="form-control" type="text" tmfocus=""ngModel>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-3">
+            <div class="form-control-feedback">
+                <span class="text-danger align-middle">
+                     {{error}}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center" style="margin-top: 3%">
+        <div class="col-md-4"></div>
+        <div class="col-md-6"><!--[disabled]="f.invalid || isRequesting"-->
+            <button type="submit" class="btn btn-info" id="register-btn"><i class="fa fa-user-plus"></i> &#xCE;NREGISTRARE</button>
+        </div>
+    </div>
+  </form>
+</div>
+

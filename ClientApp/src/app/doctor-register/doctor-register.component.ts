@@ -39,7 +39,7 @@ export class DoctorRegisterComponent implements OnInit {
             .subscribe(
                 result => {
                     if (result) {
-                        this.router.navigate(['/doctor-register'], { queryParams: { brandNew: true, email: value.email } });
+                        this.router.navigate(['/edit-doctor-profile']);
                     }
                 },
                 errors => this.errors = errors);
