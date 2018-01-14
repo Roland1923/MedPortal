@@ -15,17 +15,18 @@ export class EditPatientProfileComponent implements OnInit {
   errors: string;  
     isRequesting: boolean;
     submitted: boolean = false;
-
+    id : string = '77dfb343-ff30-4c6b-9ae6-2acece49befd';
     patient : PatientProfile;
 
     constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
         this.getPatient();
+        console.log(this.patient);
     }
 
     private getPatient() {
-        this.userService.getDoctor("77dfb343-ff30-4c6b-9ae6-2acece49befd")
+        this.userService.getDoctor(this.id)
         .subscribe((patient: PatientProfile) => {
             this.patient = patient;
         },
@@ -40,13 +41,17 @@ export class EditPatientProfileComponent implements OnInit {
         this.errors = '';
         
         if (valid) {
-            this.userService.editPatientProfile(value.firstName,
+            this.userService.editPatientProfile(this.id,
+                value.firstName,
                 value.lastName,
                 value.email,
                 value.password,
                 value.phoneNumber,
                 value.city,
-                value.birthdate)
+                value.birthdate,
+                this.patient.appointments,
+                this.patient.patientHistories,
+                this.patient.feedbacks)
                 .finally(() => this.isRequesting = false)
                 .subscribe(
                     result => {
