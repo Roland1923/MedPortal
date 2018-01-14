@@ -7,9 +7,7 @@
         
           <div class="row h-40 align-middle">
               <div class="btn-group-vertical">
-                <button type="button" class="btn btn-info mb-2 px-5">Pacienții mei</button>
-                <button type="button" class="btn btn-info mb-2 px-5">Programări</button>
-                <button type="button" class="btn btn-info mb-2 px-5">Recenzii</button>
+                <button type="button" class="btn btn-info mb-2 px-5">Profilul meu</button>
               </div>
           </div>
       </div>
@@ -22,43 +20,48 @@
                   <form #f="ngForm" novalidate (ngSubmit)="editDoctorProfile(f)" class="form-horizontal"  id="contact_form">
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-user-circle"></i></span>
-                      <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Nume" tmfocus ngModel>
+                      <input id="lastName" type="text" class="form-control" name="lastName" value="{{doctor.lastName}}" placeholder="Nume" tmfocus ngModel>
                     </div>
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-user-circle"></i></span>
-                      <input id="firstName" type="text" class="form-control" name="firstName" placeholder="Prenume" ngModel>
+                      <input id="firstName" type="text" class="form-control" name="firstName" value="{{doctor.firstName}}" placeholder="Prenume" ngModel>
                     </div>
                   
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-phone"></i></span>
-                      <input id="phoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Telefon" ngModel>
+                      <input id="phoneNumber" type="text" class="form-control" name="phoneNumber" value="{{doctor.phoneNumber}}" placeholder="Telefon" ngModel>
+                    </div>
+
+                    <div class="input-group my-4 px-4">
+                      <span class="input-group-addon px-4"><i class="fa fa-sticky-note-o"></i></span>
+                      <input id="description" type="text" class="form-control" name="description" value="{{doctor.description}}" placeholder="Descriere" ngModel>
                     </div>
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-id-card-o"></i></span>
-                      <input id="speciality" type="text" class="form-control" name="speciality" placeholder="Specialitate" ngModel>
+                      <input id="speciality" type="text" class="form-control" name="speciality" value="{{doctor.speciality}}" placeholder="Specialitate" ngModel>
                     </div>
                     
                     
                     <div class="input-group mt-5 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-h-square"></i></span>
-                      <input id="hospital" type="text" class="form-control" name="hospital" placeholder="Nume Instituție" ngModel>
+                      <input id="hospital" type="text" class="form-control" name="hospital" value="{{doctor.hospital}}" placeholder="Nume" ngModel>
                     </div>
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-location-arrow"></i></span>
-                      <input id="city" type="text" class="form-control" name="city" placeholder="Oraș" ngModel>
+                      <input id="city" type="text" class="form-control" name="city" value="{{doctor.city}}" placeholder="Ora&#x219;" ngModel>
                     </div>
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-map-marker"></i></span>
-                      <input id="address" type="text" class="form-control" name="address" placeholder="Adresă" ngModel>
+                      <input id="address" type="text" class="form-control" name="address" value="{{doctor.address}}" placeholder="Adres&#x103;" ngModel>
                     </div>
                     
                     <div class="input-group mt-5 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-envelope"></i></span>
-                      <input id="email" type="text" class="form-control" name="email" placeholder="E-mail" ngModel>
+                      <input id="email" type="text" class="form-control" name="email" value="{{doctor.email}}" placeholder="E-mail" ngModel>
                     </div>
                     
                     <div class="input-group my-4 px-4">
@@ -72,7 +75,7 @@
                     </div>
                     
                     <div class="row align-items-center justify-content-center">
-                        <button type="submit" class="btn btn-info mb-2 px-5">Salvează schimbările</button>
+                        <button type="submit" class="btn btn-info mb-2 px-5" [disabled]="f.invalid || isRequesting">Salvează schimbările</button>
                     </div>
                   </form>
                 </div>
@@ -82,3 +85,4 @@
       </div>
     </div>
   </div>
+  {{error}}

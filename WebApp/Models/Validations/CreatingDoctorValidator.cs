@@ -17,8 +17,9 @@ namespace WebApp.Models.Validations
             RuleFor(c => c.City).NotNull().WithMessage("Trebuie sa specificati un oras").Length(3, 30)
                 .WithMessage("Numele orasului trebuie sa aiba intre 3 si 30 caractere");
             RuleFor(c => c.PhoneNumber).NotNull().WithMessage("Trebuie sa specificati un numar de telefon");
-                //.Matches(@" ^\(? ([0 - 9]{ 3})\)?[-. ]? ([0 - 9]{3})[-. ]? ([0 - 9]{4})$")
-                //.WithMessage("Numarul de telefon invalid");
+            //.Matches(@" ^\(? ([0 - 9]{ 3})\)?[-. ]? ([0 - 9]{3})[-. ]? ([0 - 9]{4})$")
+            //.WithMessage("Numarul de telefon invalid");
+            RuleFor(c => c.Description).Length(10, 50).WithMessage("Trebuie sa introduceti o descriere");
             RuleFor(c => c.Hospital).NotNull().WithMessage("Trebuie sa specificati spitalul");
             RuleFor(c => c.Address).NotNull().WithMessage("Trebuie sa specificati adresa");
             RuleFor(c => c.Speciality).NotNull().WithMessage("Trebuie sa specificati specialitatea");

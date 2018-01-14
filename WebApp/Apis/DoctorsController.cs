@@ -92,7 +92,7 @@ namespace WebApp.Apis
                 return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
             }
 
-            var instance = Doctor.Create(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address);
+            var instance = Doctor.Create(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Description, doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address);
 
             try
             {
@@ -127,7 +127,7 @@ namespace WebApp.Apis
             try
             {
 
-                instance.Update(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address, doctor.Appointments, doctor.Feedbacks);
+                instance.Update(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Description,doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address, doctor.Appointments, doctor.Feedbacks);
 
                 var status = await _repository.UpdateAsync(instance);
                 if (!status)

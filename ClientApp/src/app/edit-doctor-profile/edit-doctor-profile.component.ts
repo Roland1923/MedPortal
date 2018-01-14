@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { DoctorProfile} from '../shared/models/doctor.profile.interface'
+import { DoctorProfile } from '../shared/models/doctor.profile.interface'
+import { UpdateDoctor } from '../shared/models/update.doctor.interface'
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -15,13 +16,25 @@ export class EditDoctorProfileComponent implements OnInit {
     isRequesting: boolean;
     submitted: boolean = false;
 
+    doctor: DoctorProfile;
+
     constructor(private userService:UserService, private router: Router) { }
 
     ngOnInit() {
+        this.getDoctor();
     }
 
-    editDoctorProfile({ value, valid }: { value: DoctorProfile, valid: boolean }) {
-        console.log(value.firstName + " " + value.lastName)
+    private getDoctor() {
+        this.userService.getDoctor("a9e458f0-8692-437a-983b-d0e6860ac849")
+        .subscribe((doctor: DoctorProfile) => {
+            this.doctor = doctor;
+        },
+        error => {
+            this.errors = error;
+        });
+    }
+
+    editDoctorProfile({ value, valid }: { value: UpdateDoctor, valid: boolean }) {
         this.submitted = true;
         this.isRequesting = true;
         this.errors = '';
@@ -32,6 +45,7 @@ export class EditDoctorProfileComponent implements OnInit {
                 value.email,
                 value.password,
                 value.phoneNumber,
+                value.description,
                 value.speciality,
                 value.hospital,
                 value.city,
@@ -40,7 +54,7 @@ export class EditDoctorProfileComponent implements OnInit {
                 .subscribe(
                     result => {
                         if (result) {
-                            this.router.navigate(['/edit-doctor-profile'], { queryParams: { brandNew: true, email: value.email } });
+                            this.router.navigate(['/edit-doctor-profile']);
                         }
                     },
                     errors => this.errors = errors);

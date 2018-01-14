@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PatientProfile } from '../shared/models/patient.profile.interface';
+import { UpdatePatient } from '../shared/models/update.patient.interface';
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -15,13 +16,25 @@ export class EditPatientProfileComponent implements OnInit {
     isRequesting: boolean;
     submitted: boolean = false;
 
+    patient : PatientProfile;
+
     constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
+        this.getPatient();
     }
 
-    editPatientProfile({ value, valid }: { value: PatientProfile, valid: boolean }) {
-        console.log(value.firstName + " " + value.lastName + "-----")
+    private getPatient() {
+        this.userService.getDoctor("77dfb343-ff30-4c6b-9ae6-2acece49befd")
+        .subscribe((patient: PatientProfile) => {
+            this.patient = patient;
+        },
+        error => {
+            this.errors = error;
+        });
+    }
+
+    editPatientProfile({ value, valid }: { value: UpdatePatient, valid: boolean }) {
         this.submitted = true;
         this.isRequesting = true;
         this.errors = '';
@@ -38,7 +51,7 @@ export class EditPatientProfileComponent implements OnInit {
                 .subscribe(
                     result => {
                         if (result) {
-                            this.router.navigate(['/edit-patient-profile'], { queryParams: { brandNew: true, email: value.email } });
+                            this.router.navigate(['/edit-patient-profile']);
                         }
                     },
                     errors => this.errors = errors);

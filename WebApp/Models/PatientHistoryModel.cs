@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using System;
+using Core.Entities;
 
 namespace WebApp.Models
 {
@@ -9,5 +10,6 @@ namespace WebApp.Models
         public string Prescription { get; set; }
         public string Description { get; set; }
         public string Recomandations { get; set; }
+        public DateTime Date { get; set; }
     }
 }

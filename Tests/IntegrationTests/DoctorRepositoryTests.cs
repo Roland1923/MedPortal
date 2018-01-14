@@ -14,7 +14,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
 
                 //Act
                 await repository.AddAsync(doctor);
@@ -30,7 +30,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 // Arrange
                 var repository = new DoctorRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 await repository.AddAsync(doctor);
 
                 //Act
@@ -47,12 +47,12 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 await repository.AddAsync(doctor);
 
                 var firstName = doctor.FirstName;
 
-                doctor.Update("Oana", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu", null, null);
+                doctor.Update("Oana", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu", null, null);
 
                 var newFirstName = doctor.FirstName;
 
@@ -70,7 +70,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 await repository.AddAsync(doctor);
 
                 //Act
@@ -87,7 +87,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new DoctorRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 await repository.AddAsync(doctor);
 
                 //Act

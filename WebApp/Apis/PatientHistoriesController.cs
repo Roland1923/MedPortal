@@ -89,7 +89,7 @@ namespace WebApp.Apis
                 return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
             }
 
-            var instance = PatientHistory.Create(patientHistory.Patient, patientHistory.Doctor, patientHistory.Prescription, patientHistory.Description, patientHistory.Recomandations);
+            var instance = PatientHistory.Create(patientHistory.Patient, patientHistory.Doctor, patientHistory.Prescription, patientHistory.Description, patientHistory.Recomandations, patientHistory.Date);
 
             try
             {
@@ -124,7 +124,7 @@ namespace WebApp.Apis
             try
             {
 
-                instance.Update(patientHistory.Patient, patientHistory.Doctor, patientHistory.Prescription, patientHistory.Description, patientHistory.Recomandations);
+                instance.Update(patientHistory.Patient, patientHistory.Doctor, patientHistory.Prescription, patientHistory.Description, patientHistory.Recomandations, patientHistory.Date);
 
                 var status = await _repository.UpdateAsync(instance);
                 if (!status)

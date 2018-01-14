@@ -4,6 +4,7 @@ export interface DoctorRegistration {
     email : string;
     password : string;
     phoneNumber : string;
+    description : string;
     speciality : string;
     hospital : string;
     city : string;

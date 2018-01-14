@@ -4,7 +4,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { DoctorRegistration } from '../../shared/models/doctor.registration.interface'
 import { ConfigService } from '../utils/config.service';
-import {BaseService} from "./base.service";
+import { BaseService } from "./base.service";
 
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/Rx'; 
@@ -31,8 +31,14 @@ export class UserService extends BaseService {
     this.baseUrl = configService.getApiURI();
   }
 
-  doctorRegister(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, speciality: string, hospital: string, city: string, address: string): Observable<DoctorRegistration> {
-    let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, speciality, hospital, city, address });
+  getDoctor(id : string) {
+    return this.http.get(this.baseUrl + "api/Doctors/" + id)
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+
+  doctorRegister(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, description : string, speciality: string, hospital: string, city: string, address: string): Observable<DoctorRegistration> {
+    let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, description, speciality, hospital, city, address });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
@@ -41,9 +47,7 @@ export class UserService extends BaseService {
       .catch(this.handleError);
     }
 
-    editDoctorProfile(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, speciality: string, hospital: string, city: string, address: string): Observable<DoctorRegistration> {
-      console.log(firstName + " " + lastName + " " + email + " " + password + " " + phoneNumber + " " + speciality + " " + hospital + " " + city + " " + address);
-      
+    editDoctorProfile(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, description : string, speciality: string, hospital: string, city: string, address: string): Observable<DoctorRegistration> {
       let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, speciality, hospital, city, address });
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
@@ -53,7 +57,14 @@ export class UserService extends BaseService {
         .catch(this.handleError);
     }
 
-    patientRegister(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, city: string, birthdate: string): Observable<DoctorRegistration> {
+    /* PATIENT */
+    getPatient (id : string) {
+      return this.http.get(this.baseUrl + "api/Patients/" + id)
+        .map(response => response.json())
+        .catch(this.handleError);
+    }
+
+    patientRegister(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, city: string, birthdate: Date): Observable<DoctorRegistration> {
       let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, city, birthdate });
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
@@ -63,9 +74,7 @@ export class UserService extends BaseService {
         .catch(this.handleError);
       }
 
-    editPatientProfile(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, city: string, birthdate: string): Observable<DoctorRegistration> {
-      console.log("UserService: " + firstName + " " + lastName);
-      
+    editPatientProfile(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, city: string, birthdate: Date): Observable<DoctorRegistration> {
       let body = JSON.stringify({ firstName, lastName , email, password, phoneNumber, city, birthdate });
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });

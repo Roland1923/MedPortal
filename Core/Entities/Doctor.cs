@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Core.Entities
@@ -13,6 +14,7 @@ namespace Core.Entities
         public string Email { get; private set; }
         public string Password { get; private set; }
         public string PhoneNumber { get; private set; }
+        public string Description { get; private set; }
         public string Speciality { get; private set; }
         public string Hospital { get; private set; }
         public string City { get; private set; }
@@ -22,20 +24,21 @@ namespace Core.Entities
 
         private Doctor() { }
 
-        public static Doctor Create(string firstName, string lastName, string email, string password, string phoneNumber, string speciality, string hospital, string city, string address)
+        public static Doctor Create(string firstName, string lastName, string email, string password, string phoneNumber, string description, string speciality, string hospital, string city, string address)
         {
             var instance = new Doctor { DoctorId = Guid.NewGuid(), Appointments = new List<Appointment>(), Feedbacks = new List<Feedback>() };
-            instance.Update(firstName, lastName, email, password, phoneNumber, speciality, hospital, city, address, null, null);
+            instance.Update(firstName, lastName, email, password, phoneNumber, description, speciality, hospital, city, address, null, null);
             return instance;
         }
 
-        public void Update(string firstName, string lastName, string email, string password, string phoneNumber, string speciality, string hospital, string city, string address, List<Appointment> appointments, List<Feedback> feedbacks)
+        public void Update(string firstName, string lastName, string email, string password, string phoneNumber, string description, string speciality, string hospital, string city, string address, List<Appointment> appointments, List<Feedback> feedbacks)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
             PhoneNumber = phoneNumber;
+            Description = description;
             Speciality = speciality;
             Hospital = hospital;
             City = city;

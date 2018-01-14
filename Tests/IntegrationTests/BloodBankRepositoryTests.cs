@@ -14,7 +14,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodBankRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 var bloodBank = BloodBank.Create(doctor);
                 //Act
                 await repository.AddAsync(bloodBank);
@@ -30,7 +30,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 // Arrange
                 var repository = new BloodBankRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 var bloodBank = BloodBank.Create(doctor);
                 await repository.AddAsync(bloodBank);
 
@@ -48,7 +48,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodBankRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 var bloodBank = BloodBank.Create(doctor);
                 await repository.AddAsync(bloodBank);
 
@@ -72,7 +72,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodBankRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 var bloodBank = BloodBank.Create(doctor);
                 await repository.AddAsync(bloodBank);
 
@@ -90,7 +90,7 @@ namespace Tests.IntegrationTests
             RunOnDatabase(async ctx => {
                 //Arrange
                 var repository = new BloodBankRepository(ctx);
-                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
+                var doctor = Doctor.Create("Daniel", "Oana", "daniel.oana@gmail.com", "parola", "0746524459", "bla", "Cardiologie", "Sf. Spiridon", "Iasi", "Str. Vasile Lupu");
                 var bloodBank = BloodBank.Create(doctor);
                 await repository.AddAsync(bloodBank);
 
