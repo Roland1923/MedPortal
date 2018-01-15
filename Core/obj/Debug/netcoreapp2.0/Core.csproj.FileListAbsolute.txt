@@ -34,3 +34,5 @@ C:\Users\Onu\Documents\GitHub\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.Assemb
 C:\Users\Onu\Documents\GitHub\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.AssemblyInfo.cs
 C:\Users\Onu\Documents\GitHub\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.dll
 C:\Users\Onu\Documents\GitHub\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.pdb
+C:\Users\user\Desktop\. NET\_Proiect\v2\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.dll
+C:\Users\user\Desktop\. NET\_Proiect\v2\MedPortal\Core\obj\Debug\netcoreapp2.0\Core.pdb
