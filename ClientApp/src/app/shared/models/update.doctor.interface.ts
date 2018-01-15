@@ -3,6 +3,7 @@ export interface UpdateDoctor {
     lastName : string;
     email : string;
     password : string;
+    passwordConfirmation : string;
     phoneNumber : string;
     description : string;
     speciality : string;

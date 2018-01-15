@@ -85,7 +85,7 @@ namespace WebApp.Apis
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
+                return BadRequest(ModelState);
             }
 
             var instance = Appointment.Create(appointment.AppointmentDate, appointment.Doctor, appointment.Patient);
@@ -115,7 +115,7 @@ namespace WebApp.Apis
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
+                return BadRequest(ModelState);
             }
 
             var instance = await _repository.GetByIdAsync(id);

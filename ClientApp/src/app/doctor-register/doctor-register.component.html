@@ -67,7 +67,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-repeat"></i></div>
-                        <input name="confirm_password" placeholder="Confirm&#x103; Parola" class="form-control" type="password" ngModel>
+                        <input name="passwordConfirmation" placeholder="Confirm&#x103; Parola" class="form-control" type="password" ngModel>
                     </div>
                 </div>
             </div>
@@ -173,14 +173,12 @@
               </div>
         </div>
         
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-3">
+        <div class="row align-items-center justify-content-center"> <!--</div>*ngIf="errors">-->
                 <div class="form-control-feedback">
-                    <span class="text-danger align-middle">
-                         {{error}}
+                    <span class="text-danger">
+                         {{errors}}
                     </span>
                 </div>
-            </div>
         </div>
 
         <div class="row align-items-center justify-content-center" style="margin-top: 3%">

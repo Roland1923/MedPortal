@@ -12,17 +12,16 @@ import { UserService } from '../shared/services/user.service';
 })
 export class EditPatientProfileComponent implements OnInit {
 
-  errors: string;  
+    errors: string;  
     isRequesting: boolean;
     submitted: boolean = false;
-    id : string = '77dfb343-ff30-4c6b-9ae6-2acece49befd';
+    id : string = '40ac4cd1-5aca-4878-bed2-0b8d0985ccd9';
     patient : PatientProfile;
 
     constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() {
         this.getPatient();
-        console.log(this.patient);
     }
 
     private getPatient() {
@@ -30,8 +29,8 @@ export class EditPatientProfileComponent implements OnInit {
         .subscribe((patient: PatientProfile) => {
             this.patient = patient;
         },
-        error => {
-            this.errors = error;
+        errors => {
+            this.errors = errors;
         });
     }
 
@@ -40,26 +39,31 @@ export class EditPatientProfileComponent implements OnInit {
         this.isRequesting = true;
         this.errors = '';
         
-        if (valid) {
-            this.userService.editPatientProfile(this.id,
-                value.firstName,
-                value.lastName,
-                value.email,
-                value.password,
-                value.phoneNumber,
-                value.city,
-                value.birthdate,
-                this.patient.appointments,
-                this.patient.patientHistories,
-                this.patient.feedbacks)
-                .finally(() => this.isRequesting = false)
-                .subscribe(
-                    result => {
-                        if (result) {
-                            this.router.navigate(['/edit-patient-profile']);
-                        }
-                    },
-                    errors => this.errors = errors);
+        if(value.password != value.passwordConfirmation) {
+            this.errors = "Parolele nu coincid";
+        }
+        else {
+            if (valid) {
+                this.userService.editPatientProfile(this.id,
+                    value.firstName,
+                    value.lastName,
+                    value.email,
+                    value.password,
+                    value.phoneNumber,
+                    value.city,
+                    value.birthdate,
+                    this.patient.appointments,
+                    this.patient.patientHistories,
+                    this.patient.feedbacks)
+                    .finally(() => this.isRequesting = false)
+                    .subscribe(
+                        result => {
+                            if (result) {
+                                this.router.navigate(['/home']);
+                            }
+                        },
+                        errors => this.errors = errors);
+            }
         }
     }
 }

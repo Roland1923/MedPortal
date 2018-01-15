@@ -71,9 +71,17 @@
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-4"><i class="fa fa2 fa-key"></i></span>
-                      <input id="password_confirm" type="password" class="form-control" name="password_confirm" placeholder="Confirmă parola" ngModel>
+                      <input id="passwordConfirmation" type="password" class="form-control" name="passwordConfirmation" placeholder="Confirmă parola" ngModel>
                     </div>
                     
+                    <div class="row align-items-center justify-content-center" style="margin-bottom: 2%;"> <!--</div>*ngIf="errors">-->
+                      <div class="form-control-feedback">
+                          <span class="text-danger">
+                              {{errors}}
+                          </span>
+                      </div>
+                    </div>
+
                     <div class="row align-items-center justify-content-center">
                         <button type="submit" class="btn btn-info mb-2 px-5" [disabled]="f.invalid || isRequesting">Salvează schimbările</button>
                     </div>
@@ -85,4 +93,3 @@
       </div>
     </div>
   </div>
-  {{error}}

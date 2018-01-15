@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Core.Entities;
 using Core.IRepositories;
 using Infrastructure.Attributes;
+using WebApp.Common;
 using WebApp.Models;
 
 namespace WebApp.Apis
@@ -39,12 +41,10 @@ namespace WebApp.Apis
                 return BadRequest(new ApiResponse { Status = false });
             }
         }
+        
 
-   
-
-
-    // GET api/Doctors/page/10/10
-    [HttpGet("page/{skip}/{take}")]
+        // GET api/Doctors/page/10/10
+        [HttpGet("page/{skip}/{take}")]
         [NoCache]
         [ProducesResponseType(typeof(List<Doctor>), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
@@ -89,10 +89,13 @@ namespace WebApp.Apis
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
+                return BadRequest(ModelState);
             }
 
-            var instance = Doctor.Create(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Description, doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address);
+            MD5 md5Hash = MD5.Create();
+            string passwordHash = PasswordHashMd5.GetMd5Hash(md5Hash, doctor.Password);
+
+            var instance = Doctor.Create(doctor.FirstName, doctor.LastName, doctor.Email, passwordHash, doctor.PhoneNumber, doctor.Description, doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address);
 
             try
             {
@@ -119,15 +122,18 @@ namespace WebApp.Apis
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
+                return BadRequest(ModelState);
             }
+
+            MD5 md5Hash = MD5.Create();
+            string passwordHash = PasswordHashMd5.GetMd5Hash(md5Hash, doctor.Password);
 
             var instance = await _repository.GetByIdAsync(id);
 
             try
             {
 
-                instance.Update(doctor.FirstName, doctor.LastName, doctor.Email, doctor.Password, doctor.PhoneNumber, doctor.Description,doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address, doctor.Appointments, doctor.Feedbacks);
+                instance.Update(doctor.FirstName, doctor.LastName, doctor.Email, passwordHash, doctor.PhoneNumber, doctor.Description,doctor.Speciality, doctor.Hospital, doctor.City, doctor.Address, doctor.Appointments, doctor.Feedbacks);
 
                 var status = await _repository.UpdateAsync(instance);
                 if (!status)

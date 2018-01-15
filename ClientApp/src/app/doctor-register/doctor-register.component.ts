@@ -27,27 +27,32 @@ export class DoctorRegisterComponent implements OnInit {
     this.errors = '';
 
     console.log(value);
-
-    if (valid) {
-        this.userService.doctorRegister(value.firstName,
-            value.lastName,
-            value.email,
-            value.password,
-            value.phoneNumber,
-            value.description,
-            value.speciality,
-            value.hospital,
-            value.city,
-            value.address)
-            .finally(() => this.isRequesting = false)
-            .subscribe(
-                result => {
-                    if (result) {
-                        this.router.navigate(['/edit-doctor-profile']);
-                    }
-                },
-                errors => this.errors = errors);
+    
+    if(value.password != value.passwordConfirmation) {
+        this.errors = "Parolele nu coincid";
     }
-}
+    else {
+        if (valid) {
+            this.userService.doctorRegister(value.firstName,
+                value.lastName,
+                value.email,
+                value.password,
+                value.phoneNumber,
+                value.description,
+                value.speciality,
+                value.hospital,
+                value.city,
+                value.address)
+                .finally(() => this.isRequesting = false)
+                .subscribe(
+                    result => {
+                        if (result) {
+                            this.router.navigate(['/edit-doctor-profile']);
+                        }
+                    },
+                    errors => this.errors = errors);
+        }
+    }
+  }
 
 }

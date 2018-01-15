@@ -26,7 +26,7 @@ export class PatientRegisterComponent implements OnInit {
     this.submitted = true;
     this.isRequesting = true;
     this.errors = '';
-    console.log(value);
+    
     if (valid) {
         this.userService.patientRegister(value.firstName,
             value.lastName,
@@ -42,9 +42,8 @@ export class PatientRegisterComponent implements OnInit {
                         this.router.navigate(['/edit-patient-profile']);
                     }
                 },
-                errors => {
+                errors => { 
                   this.errors = "<i class=\"fa fa-close\">" + errors + "<\\i>";
-                  console.log(errors);
               });
     }
   }

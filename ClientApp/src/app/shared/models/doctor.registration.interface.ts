@@ -3,6 +3,7 @@ export interface DoctorRegistration {
     lastName : string;
     email : string;
     password : string;
+    passwordConfirmation : string;
     phoneNumber : string;
     description : string;
     speciality : string;

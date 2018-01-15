@@ -21,34 +21,34 @@
                   <form #f="ngForm" novalidate (ngSubmit)="editPatientProfile(f)" class="form-horizontal"  id="contact_form">
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-3"><i class="fa fa2 fa-user-circle"></i></span>
-                      <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Nume" ngFocus [(ngModel)]="doctor.lastName">
+                      <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Nume" [(ngModel)]="patient.lastName">
                     </div>
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-3"><i class="fa fa2 fa-user-circle"></i></span>
-                      <input id="firstName" type="text" class="form-control" name="firstName" placeholder="Prenume" [(ngModel)]="doctor.firstName">
+                      <input id="firstName" type="text" class="form-control" name="firstName" placeholder="Prenume" [(ngModel)]="patient.firstName">
                     </div>
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-3"><i class="fa fa2 fa-phone"></i></span>
-                      <input id="phoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Telefon" [(ngModel)]="doctor.phoneNumber">
+                      <input id="phoneNumber" type="text" class="form-control" name="phoneNumber" placeholder="Telefon" [(ngModel)]="patient.phoneNumber">
                     </div>
                     
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-3"><i class="fa fa2 fa-location-arrow"></i></span>
-                      <input id="city" type="text" class="form-control" name="city" placeholder="Ora&#x219;" [(ngModel)]="doctor.city">
+                      <input id="city" type="text" class="form-control" name="city" placeholder="Ora&#x219;" [(ngModel)]="patient.city">
                     </div>
             
         
                         <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-3"><i class="fa fa-calendar-o"></i></span>
-                      <input id="birthdate" type="date" class="form-control" name="birthdate" placeholder="Dara Na&#x219;terii" [(ngModel)]="doctor.birthday">
+                      <input id="birthdate" type="date" class="form-control" name="birthdate" placeholder="Dara Na&#x219;terii" [(ngModel)]="patient.birthday">
                     </div>
   
                     <div class="input-group mt-5 px-4">
                       <span class="input-group-addon px-3"><i class="fa fa2 fa-envelope"></i></span>
-                      <input id="email" type="text" class="form-control" name="email" placeholder="E-mail" [(ngModel)]="doctor.email">
+                      <input id="email" type="text" class="form-control" name="email" placeholder="E-mail" [(ngModel)]="patient.email">
                     </div>
                     
                     <div class="input-group my-4 px-4">
@@ -58,7 +58,7 @@
                     
                     <div class="input-group my-4 px-4">
                       <span class="input-group-addon px-3"><i class="fa fa2 fa-key"></i></span>
-                      <input id="password_confirm" type="text" class="form-control" name="password_confirm" placeholder="Confirma parola" ngModel>
+                      <input id="passwordConfirmation" type="text" class="form-control" name="passwordConfirmation" placeholder="Confirma parola" ngModel>
                     </div>
   
                     <div class="row align-items-center justify-content-center">

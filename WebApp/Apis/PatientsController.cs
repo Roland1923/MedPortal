@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Core.Entities;
@@ -87,10 +88,14 @@ namespace WebApp.Apis
         {
             if (!ModelState.IsValid)
             {
-               return BadRequest(Json(new ApiResponse { Status = false, ModelState = ModelState }));
+               return BadRequest(ModelState);
             }
 
-            var instance = Patient.Create(patient.FirstName, patient.LastName, patient.Email, patient.Password, patient.City, patient.Birthdate, patient.PhoneNumber, null);
+            MD5 md5Hash = MD5.Create();
+            string passwordHash = PasswordHashMd5.GetMd5Hash(md5Hash, patient.Password);
+
+
+            var instance = Patient.Create(patient.FirstName, patient.LastName, patient.Email, passwordHash, patient.City, patient.Birthdate, patient.PhoneNumber, null);
 
             try
             {
@@ -117,15 +122,19 @@ namespace WebApp.Apis
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new ApiResponse { Status = false, ModelState = ModelState });
+                return BadRequest(ModelState);
             }
+
+            MD5 md5Hash = MD5.Create();
+            string passwordHash = PasswordHashMd5.GetMd5Hash(md5Hash, patient.Password);
+
 
             var instance = await _repository.GetByIdAsync(id);
 
             try
             {
 
-                instance.Update(patient.FirstName, patient.LastName, patient.Email, patient.Password, patient.City, patient.Birthdate, patient.PhoneNumber, patient.BloodDonor, patient.Appointments, patient.PatientHistories, patient.Feedbacks);
+                instance.Update(patient.FirstName, patient.LastName, patient.Email, passwordHash, patient.City, patient.Birthdate, patient.PhoneNumber, patient.BloodDonor, patient.Appointments, patient.PatientHistories, patient.Feedbacks);
 
                 var status = await _repository.UpdateAsync(instance);
                 if (!status)

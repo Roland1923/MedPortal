@@ -17,7 +17,8 @@ export abstract class BaseService {
         if (!serverError.type) {
             for (var key in serverError) {
                 if (serverError[key])
-                    modelStateErrors += serverError[key] + '\n';
+                    modelStateErrors = serverError[key];
+                    break;
             }
         }
 
