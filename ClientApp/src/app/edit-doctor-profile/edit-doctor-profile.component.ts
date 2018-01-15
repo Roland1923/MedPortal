@@ -15,7 +15,7 @@ export class EditDoctorProfileComponent implements OnInit {
     errors: string;  
     isRequesting: boolean;
     submitted: boolean = false;
-
+    id : string = 'a9e458f0-8692-437a-983b-d0e6860ac849';
     doctor: DoctorProfile;
 
     constructor(private userService:UserService, private router: Router) { }
@@ -25,7 +25,7 @@ export class EditDoctorProfileComponent implements OnInit {
     }
 
     private getDoctor() {
-        this.userService.getDoctor("a9e458f0-8692-437a-983b-d0e6860ac849")
+        this.userService.getDoctor(this.id)
         .subscribe((doctor: DoctorProfile) => {
             this.doctor = doctor;
         },
@@ -33,14 +33,16 @@ export class EditDoctorProfileComponent implements OnInit {
             this.errors = error;
         });
     }
-
     editDoctorProfile({ value, valid }: { value: UpdateDoctor, valid: boolean }) {
         this.submitted = true;
         this.isRequesting = true;
         this.errors = '';
         
+        console.log(value);
+
         if (valid) {
-            this.userService.editDoctorProfile(value.firstName,
+            this.userService.editDoctorProfile(this.id,
+                value.firstName,
                 value.lastName,
                 value.email,
                 value.password,
@@ -49,7 +51,9 @@ export class EditDoctorProfileComponent implements OnInit {
                 value.speciality,
                 value.hospital,
                 value.city,
-                value.address)
+                value.address,
+                this.doctor.appointments,
+                this.doctor.feedbacks)
                 .finally(() => this.isRequesting = false)
                 .subscribe(
                     result => {
