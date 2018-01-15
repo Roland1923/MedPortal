@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
 
 import { routing } from './app-routing.module';
@@ -19,6 +19,7 @@ import { EditPatientProfileComponent } from './edit-patient-profile/edit-patient
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './shared/services/auth.service';
 import { PatientRegisterComponent } from './patient-register/patient-register.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { PatientRegisterComponent } from './patient-register/patient-register.co
     HomeComponent,
     AuthComponent,
     PatientRegisterComponent,
+    DoctorProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { PatientRegisterComponent } from './patient-register/patient-register.co
       {path:'patient-register', component:PatientRegisterComponent},
       {path:'edit-doctor-profile', component:EditDoctorProfileComponent},
       {path:'edit-patient-profile', component:EditPatientProfileComponent},
+      {path:'doctor-profile', component:DoctorProfileComponent},
       {path:'login',component:AuthComponent}
     ]),
     HttpClientModule,

@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+?&#351 - ?
+&#350 - ?
+&#355 - ?
+&#354 - ?
+=======
+?&#351 - ?
+&#350 - ?
+&#355 - ?
+&#354 - ?
+>>>>>>> 177dba8c5da3e8e7b26c66acb1b35aa228dc763a
+Trebuiau encodate pentru a nu strica formatul textului.
