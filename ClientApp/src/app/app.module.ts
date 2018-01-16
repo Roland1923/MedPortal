@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
 
 import { routing } from './app-routing.module';
@@ -22,6 +22,7 @@ import { PatientRegisterComponent } from './patient-register/patient-register.co
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { DoctorSearchComponent } from './doctor-search/doctor-search.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     HeaderComponent,
     FooterComponent,
     DoctorProfileComponent,
+    DoctorSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
       {path:'patient-register', component:PatientRegisterComponent},
       {path:'edit-doctor-profile', component:EditDoctorProfileComponent},
       {path:'edit-patient-profile', component:EditPatientProfileComponent},
+      {path:'doctor-search', component:DoctorSearchComponent},
       {path:'login',component:AuthComponent}
     ]),
     HttpClientModule,
