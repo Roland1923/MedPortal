@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.IRepositories;
@@ -36,32 +36,33 @@ namespace WebApp.Apis
       [ProducesResponseType(typeof(ApiResponse), 404)]
       public async Task<ActionResult> DoctorAccount([FromBody]CredetialsModel doctorCredetialsModel)
       {
-        
-      
         try
         {
+          MD5 md5Hash = MD5.Create();
+          string passwordHash = PasswordHashMd5.GetMd5Hash(md5Hash, doctorCredetialsModel.Password);
           var doctorsList = await _repositoryDoctor.GetAllAsync();
-          if (!doctorsList.Any(doctor => doctor.Email == doctorCredetialsModel.Email && doctor.Password == doctorCredetialsModel.Password))
-            return Json(new RequestResult
-            {
-              State = RequestState.Failed
-            });
-        //return BadRequest(new ApiResponse {Status = false});
-        var requestAt = DateTime.Now;
-          var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
-          var token = GenerateToken(expiresIn);
-
-          return Json(new RequestResult
+          foreach (var doctor in doctorsList)
           {
-            State = RequestState.Success,
-            Data = new
+            if (doctor.Email == doctorCredetialsModel.Email && doctor.Password == passwordHash)
             {
-              requertAt = requestAt,
-              expiresIn = TokenAuthOption.ExpiresSpan.TotalSeconds,
-              tokeyType = TokenAuthOption.TokenType,
-              accessToken = token
+              var requestAt = DateTime.Now;
+              var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
+              var token = GenerateToken(expiresIn);
+
+              return Json(new RequestResult
+              {
+                State = RequestState.Success,
+                Data = new
+                {
+                  requertAt = requestAt,
+                  expiresIn = TokenAuthOption.ExpiresSpan.TotalSeconds,
+                  tokeyType = TokenAuthOption.TokenType,
+                  accessToken = token,
+                  user_id = doctor.DoctorId       
+                }
+              });
             }
-          });
+          }
         }
         catch
         {
@@ -69,52 +70,67 @@ namespace WebApp.Apis
           {
             State = RequestState.Failed
           });
-        //return BadRequest(new ApiResponse { Status = false });
+          
         }
-      }
+        return Json(new RequestResult
+        {
+          State = RequestState.Failed
+        });
 
-    [HttpGet("patientAccount")]
-    [NoCache]
-    [ProducesResponseType(typeof(Patient), 200)]
-    [ProducesResponseType(typeof(ApiResponse), 400)]
-    public async Task<ActionResult> PacientAccount(string email, string password)
+    }
+
+      [HttpPut("patientAccount")]
+      [NoCache]
+      [ProducesResponseType(typeof(Patient), 200)]
+      [ProducesResponseType(typeof(ApiResponse), 400)]
+      public async Task<ActionResult> PacientAccount([FromBody] CredetialsModel patientCredetialsModel)
       {
         try
         {
-          var pacientsList = await _repositoryPatient.GetAllAsync();
-          if (!pacientsList.Any(pacient => pacient.Email == email && pacient.Password == password))
-            // return BadRequest(new ApiResponse {Status = false});
+          MD5 md5Hash = MD5.Create();
+          string passwordHash = PasswordHashMd5.GetMd5Hash(md5Hash, patientCredetialsModel.Password);
+          var patientList = await _repositoryPatient.GetAllAsync();
+          foreach (var patient in patientList)
           {
-            return Json(new RequestResult
+            if (patient.Email == patientCredetialsModel.Email && patient.Password == passwordHash)
             {
-              State = RequestState.Failed
-            });
-          }
-          var requestAt = DateTime.Now;
-          var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
-          var token = GenerateToken(expiresIn);
+              var requestAt = DateTime.Now;
+              var expiresIn = requestAt + TokenAuthOption.ExpiresSpan;
+              var token = GenerateToken(expiresIn);
 
-          return Json(new RequestResult
-          {
-            State = RequestState.Success,
-            Data = new
-            {
-              requertAt = requestAt,
-              expiresIn = TokenAuthOption.ExpiresSpan.TotalSeconds,
-              tokeyType = TokenAuthOption.TokenType,
-              accessToken = token
+              return Json(new RequestResult
+              {
+                State = RequestState.Success,
+                Data = new
+                {
+                  requertAt = requestAt,
+                  expiresIn = TokenAuthOption.ExpiresSpan.TotalSeconds,
+                  tokeyType = TokenAuthOption.TokenType,
+                  accessToken = token,
+                  user_id = patient.PatientId
+                }
+              });
             }
-          });
+          }
         }
         catch
         {
-          return BadRequest(new ApiResponse { Status = false });
+          return Json(new RequestResult
+          {
+            State = RequestState.Failed
+          });
+
         }
+        return Json(new RequestResult
+        {
+          State = RequestState.Failed
+        });
+
       }
 
 
 
-    private string GenerateToken(DateTime expires)
+      private string GenerateToken(DateTime expires)
       {
         var handler = new JwtSecurityTokenHandler();
         var securityToken = handler.CreateToken(new SecurityTokenDescriptor
