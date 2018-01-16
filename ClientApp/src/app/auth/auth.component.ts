@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { AuthService } from '../shared/services/auth.service';
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -30,7 +31,7 @@ export class AuthComponent implements OnDestroy {
         )
     }
 
-     ngOnDestroy() {
+    ngOnDestroy() {
          if(this.postStream$){this.postStream$.unsubscribe()}
      }
 }

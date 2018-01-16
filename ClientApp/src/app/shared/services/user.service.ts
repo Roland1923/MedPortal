@@ -24,7 +24,7 @@ export class UserService extends BaseService {
   // Observable navItem stream
   authNavStatus$ = this._authNavStatusSource.asObservable();
 
-  private loggedIn = false;
+  private loggedIn = false; 
 
   constructor(private http: Http, private configService: ConfigService) {
     super();
@@ -86,5 +86,12 @@ export class UserService extends BaseService {
       return this.http.put(this.baseUrl + "api/Patients/" + id, body, options)
         .map(res => true)
         .catch(this.handleError);
+    }
+
+    getLogginState() {
+      if(this.loggedIn) {
+        return true;
+      }
+      return false;
     }
 }
