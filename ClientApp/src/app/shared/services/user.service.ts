@@ -26,6 +26,13 @@ export class UserService extends BaseService {
     this.baseUrl = configService.getApiURI();
   }
 
+  getLogginState() {
+    if(this.loggedIn) {
+      return true;
+    }
+    return false;
+  }
+
   getUserId() {
     if(!!localStorage.getItem('user_id') == true) {
       return localStorage.getItem('user_id');
@@ -61,6 +68,13 @@ export class UserService extends BaseService {
         .catch(this.handleError);
     }
 
+    getDoctorsByFilter(name : string, hospital : string, speciality : string, city : string, skip : number, take : number) {
+      return this.http.get(this.baseUrl + "api/Doctors/page/" + name + "/" + hospital + "/" + speciality + "/" + city+ "/" + skip + "/" + take)
+        .map(response => response.json())
+        .catch(this.handleError);
+    }
+    
+
     /* PATIENT */
     getPatient (id : string) {
       return this.http.get(this.baseUrl + "api/Patients/" + id)
@@ -86,12 +100,5 @@ export class UserService extends BaseService {
       return this.http.put(this.baseUrl + "api/Patients/" + id, body, options)
         .map(res => true)
         .catch(this.handleError);
-    }
-
-    getLogginState() {
-      if(this.loggedIn) {
-        return true;
-      }
-      return false;
     }
 }
