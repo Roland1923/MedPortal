@@ -15,22 +15,25 @@ export class EditDoctorProfileComponent implements OnInit {
     errors: string;  
     isRequesting: boolean;
     submitted: boolean = false;
-    id : string = 'a9e458f0-8692-437a-983b-d0e6860ac849';
+    userId : string;
     doctor: DoctorProfile;
 
     constructor(private userService:UserService, private router: Router) { }
 
     ngOnInit() {
-        this.getDoctor();
-        console.log(this.doctor);
+        this.userId = this.userService.getUserId();
+        if(this.userId != null) {
+            this.getDoctor();
+        }
+        else {
+            this.router.navigate(['/home']);
+        }
     }
 
     private getDoctor() {
-        this.userService.getDoctor(this.id)
+        this.userService.getDoctor(this.userId)
         .subscribe((doctor: DoctorProfile) => {
             this.doctor = doctor;
-            console.log("doctor: ");
-            console.log(doctor);
         },
         errors => this.errors = errors
         );
@@ -46,7 +49,7 @@ export class EditDoctorProfileComponent implements OnInit {
         }
         else {
             if (valid) {
-                this.userService.editDoctorProfile(this.id,
+                this.userService.editDoctorProfile(this.userId,
                     value.firstName,
                     value.lastName,
                     value.email,

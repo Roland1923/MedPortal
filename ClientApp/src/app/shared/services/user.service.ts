@@ -16,29 +16,29 @@ import { PatientProfile } from '../models/patient.profile.interface';
 
 @Injectable()
 export class UserService extends BaseService {
-
   baseUrl: string = '';
 
-  // Observable navItem source
-  private _authNavStatusSource = new BehaviorSubject<boolean>(false);
-  // Observable navItem stream
-  authNavStatus$ = this._authNavStatusSource.asObservable();
-
-  private loggedIn = false; 
+  private loggedIn = false;
 
   constructor(private http: Http, private configService: ConfigService) {
     super();
     this.loggedIn = !!localStorage.getItem('auth_token');
-    // ?? not sure if this the best way to broadcast the status but seems to resolve issue on page refresh where auth status is lost in
-    // header component resulting in authed user nav links disappearing despite the fact user is still logged in
-    this._authNavStatusSource.next(this.loggedIn);
     this.baseUrl = configService.getApiURI();
   }
 
+  getUserId() {
+    if(!!localStorage.getItem('user_id') == true) {
+      return localStorage.getItem('user_id');
+    }
+    return null;
+  }
+
   getDoctor(id : string) {
-    return this.http.get(this.baseUrl + "api/Doctors/" + id)
-      .map(response => response.json())
-      .catch(this.handleError);
+    if(this.loggedIn == false) {
+      return this.http.get(this.baseUrl + "api/Doctors/" + id)
+        .map(response => response.json())
+        .catch(this.handleError);
+    }
   }
 
   doctorRegister(firstName: string, lastName: string, email: string, password: string, phoneNumber: string, description : string, speciality: string, hospital: string, city: string, address: string): Observable<DoctorRegistration> {

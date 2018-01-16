@@ -14,8 +14,9 @@ import { AuthComponent } from "../../auth/auth.component";
 @Injectable()
 export class AuthService implements CanActivate{
 
-  private tokeyKey = "token";
+    private tokeyKey = "token";
     baseUrl = '';
+
     constructor(private http: HttpClient,private configService: ConfigService ,private router: Router) {
         this.baseUrl = configService.getApiURI();
      }
@@ -31,7 +32,7 @@ export class AuthService implements CanActivate{
    
 
     public login$(email: string, password: string) {
-        let body = JSON.stringify({email,password});
+        let body = JSON.stringify({email, password});
       
         let header = new HttpHeaders().set('Content-Type', 'application/json');
         let options = { headers: header };
@@ -45,7 +46,8 @@ export class AuthService implements CanActivate{
                 res => {
                     let result = res;
                     if (result.state && result.state == 1 && result.data && result.data.accessToken) {
-                        sessionStorage.setItem(this.tokeyKey, result.data.accessToken);
+                        localStorage.setItem('user_id',result.data.user_id);
+                        sessionStorage.setItem(this.tokeyKey,result.data.accessToken)
                     }
                     return result;
                 }
@@ -102,6 +104,14 @@ export class AuthService implements CanActivate{
             console.error(`${operation} error: ${error.message}`);
             return of(result as T);
         };
+    }
+
+    public logout()
+    {
+        console.log("dasDasdasdasdasd");
+        localStorage.clear();
+        sessionStorage.clear();
+        this.router.navigate(['/home']);
     }
 
 }
