@@ -60,6 +60,14 @@
                       <span class="input-group-addon px-3"><i class="fa fa2 fa-key"></i></span>
                       <input id="passwordConfirmation" type="text" class="form-control" name="passwordConfirmation" placeholder="Confirma parola" ngModel>
                     </div>
+
+                    <div class="row align-items-center justify-content-center" style="margin-bottom: 2%;"> <!--</div>*ngIf="errors">-->
+                      <div class="form-control-feedback">
+                          <span class="text-danger">
+                              {{errors}}
+                          </span>
+                      </div>
+                    </div>
   
                     <div class="row align-items-center justify-content-center">
                       <button type="submit" class="btn btn-info mb-2 px-5">Salveaza schimbarile</button>

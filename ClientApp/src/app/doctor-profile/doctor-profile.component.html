@@ -25,7 +25,11 @@
 								</p>
 
 								<p class="lead text-justify">
-									AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAA BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+									With angular that is not the case. Since angular has concept of directives,
+a directive may unroll a loop, which can the instantiate a controller,
+which can than modify the model which then causes more DOM updates. This
+makes it hard to have clear line in a send as to where the DOM update
+begins and ends.
 								</p>
 
 								<span><i class="fa fa2 fa-address-card"></i>Cardiolog</span>

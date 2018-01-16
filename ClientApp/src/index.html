@@ -5,12 +5,12 @@
     <title>Angular Bootstrap Demo</title>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 
-	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css"> <!-- thats important for animation effects -->
@@ -20,14 +20,13 @@
 
 
 <body>
-
     <header id="myHeader" *ngIf="showHeader">
-        <div class="navcustom">
+        <div class="navcustom" style="border-bottom: 1px solid grey;">
                 <nav class="navbar navbar-expand-md  flex-row" style="background-color: white">
-                        <a class="navbar-brand" href="/">
-                            <a href="#"></a>
-                                <img src="assets\img\general\heart-logo.png" width=15% height=100% class="img-responsive"></a>
-                             </a>
+                        <a class="navbar-brand" routerLink="/home">
+                            <a href=""></a>
+                            <img src="assets\img\general\heart-logo.png" width="15%" class="img-responsive">
+                        </a>
                         <ul class="navbar-nav flex-row ml-auto">
                             <li class="nav-item">
                                 <a class="nav-link pr-2"><i class="fa fa-search" ></i></a>
@@ -55,7 +54,7 @@
                                                                 <label class="sr-only" for="email">E-Mail</label>
                                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                                     <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                                                    <input type="text" name="email" class="form-control" id="email"
+                                                                    <input type="text" name="email_login" class="form-control" id="email_login"
                                                                            placeholder="roland@exemplu.com" required autofocus>
                                                                 </div>
                                                             </div>
@@ -68,7 +67,7 @@
                                                                 <label class="sr-only" for="password">Parolă</label>
                                                                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                                     <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                                                                    <input type="password" name="password" class="form-control" id="password"
+                                                                    <input type="password_login" name="password_login" class="form-control" id="password_login"
                                                                            placeholder="parolă" required>
                                                                 </div>
                                                             </div>
@@ -93,9 +92,11 @@
                                 </div>
                             </li>
                         </ul>
-                        <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                        <div class="row align-items-center justify-content-center">
+                            <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
                 </nav>
             </div>
         </header>

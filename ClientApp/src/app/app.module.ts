@@ -21,6 +21,7 @@ import { AuthService } from './shared/services/auth.service';
 import { PatientRegisterComponent } from './patient-register/patient-register.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { FooterComponent } from './footer/footer.component';
     PatientRegisterComponent,
     HeaderComponent,
     FooterComponent,
+    DoctorProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { FooterComponent } from './footer/footer.component';
       {path:'', redirectTo: 'home', pathMatch: 'full' },
       {path:'home', component:HomeComponent},
       {path:'doctor-register', component:DoctorRegisterComponent},
+      {path:'doctor-profile', component:DoctorProfileComponent},
       {path:'patient-register', component:PatientRegisterComponent},
       {path:'edit-doctor-profile', component:EditDoctorProfileComponent},
       {path:'edit-patient-profile', component:EditPatientProfileComponent},

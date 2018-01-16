@@ -15,7 +15,7 @@ export class EditPatientProfileComponent implements OnInit {
     errors: string;  
     isRequesting: boolean;
     submitted: boolean = false;
-    id : string = '40ac4cd1-5aca-4878-bed2-0b8d0985ccd9';
+    id : string = 'f8cac6dd-6462-424a-b22d-abe7f94b242c';
     patient : PatientProfile;
 
     constructor(private userService: UserService, private router: Router) { }
@@ -25,13 +25,12 @@ export class EditPatientProfileComponent implements OnInit {
     }
 
     private getPatient() {
-        this.userService.getDoctor(this.id)
+        this.userService.getPatient(this.id)
         .subscribe((patient: PatientProfile) => {
             this.patient = patient;
         },
-        errors => {
-            this.errors = errors;
-        });
+        errors => this.errors = errors
+        );
     }
 
     editPatientProfile({ value, valid }: { value: UpdatePatient, valid: boolean }) {

@@ -22,16 +22,18 @@ export class EditDoctorProfileComponent implements OnInit {
 
     ngOnInit() {
         this.getDoctor();
+        console.log(this.doctor);
     }
 
     private getDoctor() {
         this.userService.getDoctor(this.id)
         .subscribe((doctor: DoctorProfile) => {
             this.doctor = doctor;
+            console.log("doctor: ");
+            console.log(doctor);
         },
-        errors => {
-            this.errors = errors;
-        });
+        errors => this.errors = errors
+        );
     }
     
     editDoctorProfile({ value, valid }: { value: UpdateDoctor, valid: boolean }) {

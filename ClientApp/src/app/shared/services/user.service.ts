@@ -12,6 +12,7 @@ import { first } from 'rxjs/operator/first';
 import { Appointment } from '../models/appointment.interface';
 import { Feedback } from '../models/feedback.interface';
 import { PatientHistory } from '../models/patient.history.interface';
+import { PatientProfile } from '../models/patient.profile.interface';
 
 @Injectable()
 export class UserService extends BaseService {
