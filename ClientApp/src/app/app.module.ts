@@ -23,6 +23,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { DoctorSearchComponent } from './doctor-search/doctor-search.component';
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { DoctorSearchComponent } from './doctor-search/doctor-search.component';
     FooterComponent,
     DoctorProfileComponent,
     DoctorSearchComponent,
+    PatientProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { DoctorSearchComponent } from './doctor-search/doctor-search.component';
       {path:'edit-doctor-profile', component:EditDoctorProfileComponent},
       {path:'edit-patient-profile', component:EditPatientProfileComponent},
       {path:'doctor-search', component:DoctorSearchComponent},
+      {path:'patient-profile', component:PatientProfileComponent},
       {path:'login',component:AuthComponent}
     ]),
     HttpClientModule,
