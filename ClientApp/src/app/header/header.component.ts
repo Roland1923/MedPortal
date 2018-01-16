@@ -12,6 +12,7 @@ import { UserService } from '../shared/services/user.service';
 export class HeaderComponent implements OnInit {
   showHeader: boolean = false;
   auth: AuthComponent;
+  errors : string;
 
   constructor(private userService : UserService, private router: Router) { }
 
@@ -36,6 +37,11 @@ export class HeaderComponent implements OnInit {
 
   headerLogin() {
     this.auth.login();
+
+    /* Check if autentification faild and show error */
+    if(this.userService.getLogginState() == false) {
+      this.errors = "Email sau parola incorecte";
+    }
   }
 
 }

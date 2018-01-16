@@ -50,12 +50,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-control-feedback">
-                                                            <span class="text-danger align-middle">
-                                                            <!-- Put password error message here -->    
-                                                            </span>
-                                                        </div>
+                                                </div>
+                                                <div class="row align-items-center justify-content-center"> <!--</div>*ngIf="errors">-->
+                                                    <div class="form-control-feedback">
+                                                        <span class="text-danger">
+                                                            {{errors}}
+                                                        </span>
                                                     </div>
                                                 </div>
                                                 <div class="row" style="padding-top: 1rem">
@@ -71,12 +71,12 @@
                             <div *ngIf="showHeader">
 
                                <!-- Adauga aici front pentru cand e logat -->
-                               
+
                             </div>
                         </li>
                     </ul>
                     <div class="row align-items-center justify-content-center">
-                        <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler ml-lg-0" type="submit" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
