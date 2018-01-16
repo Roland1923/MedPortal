@@ -62,6 +62,25 @@ namespace WebApp.Apis
             }
         }
 
+        // GET api/Doctors/page/name/10/10
+      /*  [HttpGet("page/{name}/{hospital}/{speciality}/{city}/{skip}/{take}")]
+        [NoCache]
+        [ProducesResponseType(typeof(List<Doctor>), 200)]
+        [ProducesResponseType(typeof(ApiResponse), 400)]
+        public async Task<ActionResult> DoctorsNamePage(string name, string hospital, string speciality, string city, int skip, int take)
+        {
+            try
+            {
+                //var pagingResult = await _repository.GetByNameAsync(name, skip, take);
+                Response.Headers.Add("X-InlineCount", pagingResult.TotalRecords.ToString());
+                return Ok(pagingResult.Records);
+            }
+            catch
+            {
+                return BadRequest(new ApiResponse { Status = false });
+            }
+        }*/
+
         // GET api/Doctors/5
         [HttpGet("{id}", Name = "GetDoctorRoute")]
         [NoCache]

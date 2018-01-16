@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Entities;
 using Core.IRepositories;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +37,6 @@ namespace Infrastructure.Repositories.BaseRepositories
         {
             return await DatabaseService.Set<TEntity>().FindAsync(id);
         }
-
-       
+        
     }
 }
