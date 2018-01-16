@@ -1,7 +1,7 @@
 .well {
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(235, 183, 183, 0.7);
 	border: 0px solid gray;
-	align: center;
+
 	width: 40%;
 	margin: auto;
 	margin-top: 2%;
@@ -118,11 +118,11 @@ header .row
 
 header h1
 {
-    font-family: 'Arbutus', cursive;
+    font-family: "Lobster", serif;
     text-align:center;
-    font-size:61px;
-    color:#F8CA4D;
-    text-shadow:0px 0px 4px #222;
+    font-size:69px;
+    color:#FF9A48;
+    text-shadow:1px 2px 8px #000000;
 }
 
 @media (max-width:767px){
@@ -157,10 +157,11 @@ header .btn-link:hover
 
 
 /* Custom navbar settings */
+/*
 .navbar-default {
-  background-color:#3F5666;
+  background-color:#333333;
   border-color:#2F3440;
-  border-bottom:1px solidÂ #00c9c0;
+  border-bottom:1px solid #00c9c0;
   border-radius:0px;
 }
 
@@ -193,3 +194,4 @@ header .btn-link:hover
   transition:all 0.7s;
   font-size:15px;
 }
+*/
