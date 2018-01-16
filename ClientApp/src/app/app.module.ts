@@ -19,6 +19,8 @@ import { EditPatientProfileComponent } from './edit-patient-profile/edit-patient
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './shared/services/auth.service';
 import { PatientRegisterComponent } from './patient-register/patient-register.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -30,11 +32,13 @@ import { PatientRegisterComponent } from './patient-register/patient-register.co
     HomeComponent,
     AuthComponent,
     PatientRegisterComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path:'', component: AppComponent},
+      {path:'', redirectTo: 'home', pathMatch: 'full' },
       {path:'home', component:HomeComponent},
       {path:'doctor-register', component:DoctorRegisterComponent},
       {path:'patient-register', component:PatientRegisterComponent},
