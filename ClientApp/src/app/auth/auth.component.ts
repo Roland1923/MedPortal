@@ -31,6 +31,10 @@ export class AuthComponent implements OnDestroy {
         )
     }
 
+    logout() {
+        this.authService.logout();
+    }
+
     ngOnDestroy() {
          if(this.postStream$){this.postStream$.unsubscribe()}
      }

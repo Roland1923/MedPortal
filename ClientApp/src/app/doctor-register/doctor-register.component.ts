@@ -47,7 +47,7 @@ export class DoctorRegisterComponent implements OnInit {
                 .subscribe(
                     result => {
                         if (result) {
-                            this.router.navigate(['/edit-doctor-profile']);
+                            this.router.navigate(['/home']);
                         }
                     },
                     errors => this.errors = errors);

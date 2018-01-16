@@ -2,6 +2,7 @@ import { Appointment } from "./appointment.interface";
 import { Feedback } from "./feedback.interface";
 
 export interface DoctorProfile {
+    id : string;
     firstName : string;
     lastName : string;
     email : string;

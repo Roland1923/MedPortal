@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+                <div class="well my-5">
+                    <form #f="ngForm" novalidate (ngSubmit)="getDoctorByFilter(f)" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon" id="filter-special"><i class="fa fa2 fa-h-square"></i></div>
+                                <input name="hospital" id="hospital" type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Spital" ngModel>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon" id="filter-speciality"><i class="fa fa2 fa-id-card-o"></i></div>
+                                <input name="speciality" id="speciality" type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Specializare" ngModel>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon" id="filter-special"><i class="fa fa2 fa-location-arrow"></i></div>
+                                <input name="city" id="city" type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Ora&#x219;" ngModel>
+                            </div>
+                        </div>
+                        <p class="text-center"><button type="button" class="btn btn-info mb-2 px-5" role="button">Cauta <i class="fa fa-search-plus"></i></button></p>
+                    </form>
+                </div>
+            </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ml-5">
+            <p class="h2 mb-3 mt-4">Rezultatele cautarii</p>
+            <!-- Start Card -->
+			<div class="row small-padding-bg my-2 border border-info" *ngFor="let doctor of doctorsList">
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
+					<div class="image-size"><img src="https://cdn3.iconfinder.com/data/icons/internet-and-web-4/78/internt_web_technology-13-256.png"/></div>
+				</div>
+				<div class="col-lg-6 col-md-5 col-sm-5 col-xs-5 customs-p">
+					<h4>{{doctor.name}}</h4>
+                    <p><span><i class="fa fa2 fa-id-card-o"></i></span>{{doctor.speciality}}</p>
+                    <p><span><i class="fa fa2 fa-h-square"></i></span>{{doctor.hospital}}</p>
+                    <p><span><i class="fa fa2 fa-location-arrow"></i></span>{{doctor.city}}</p>
+					<p><span> <i class="fa fa2 fa-phone" aria-hidden="true"></i></span>{{doctor.phoneNumber}}</p>
+
+
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<a routerLink="/doctor-profile/doctor.id" class="btn_orange medium customs-margin">Profil</a>
+				</div>
+			</div>
+           
+            <nav aria-label="pagination" class="mb-5 mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#" tabindex="-1"> << </a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"> >> </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
