@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Core.Entities;
 using Core.IRepositories;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +31,16 @@ namespace Infrastructure.Repositories.BaseRepositories
                 .Take(take)
                 .ToListAsync();
             return new PagingResult<TEntity>(entity, totalRecords);
+        }
+
+        public async Task<PagingResult<TEntity>> GetByFilter(Expression<Func<TEntity, bool>> predicate, int skip, int take)
+        {
+            var totalRecords = await DatabaseService.Set<TEntity>().CountAsync();
+            var records = await DatabaseService.Set<TEntity>().Where(predicate)
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+            return new PagingResult<TEntity>(records, totalRecords);
         }
 
         public async Task<TEntity> GetByIdAsync(Guid id)

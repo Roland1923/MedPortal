@@ -2,7 +2,13 @@
     <div class="row">
         <div class="col-lg-3">
                 <div class="well my-5">
-                    <form #f="ngForm" novalidate (ngSubmit)="getDoctorByFilter(f)" class="form-horizontal">
+                    <form #f="ngForm" novalidate (ngSubmit)="getDoctorsByFilter(f, 1)" class="form-horizontal">
+                            <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon" id="filter-special"><i class="fa fa2 fa-h-square"></i></div>
+                                        <input name="name" id="name" type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Nume" tmfocus ngModel>
+                                    </div>
+                                </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon" id="filter-special"><i class="fa fa2 fa-h-square"></i></div>
@@ -21,7 +27,7 @@
                                 <input name="city" id="city" type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Ora&#x219;" ngModel>
                             </div>
                         </div>
-                        <p class="text-center"><button type="button" class="btn btn-info mb-2 px-5" role="button">Cauta <i class="fa fa-search-plus"></i></button></p>
+                        <button type="submit" class="btn btn-info mb-2 px-5" role="button">Cauta <i class="fa fa-search-plus"></i></button>
                     </form>
                 </div>
             </div>
@@ -43,19 +49,17 @@
 
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-					<a routerLink="/doctor-profile/doctor.id" class="btn_orange medium customs-margin">Profil</a>
+					<a routerLink="/doctor-profile/{{doctor.id}}" class="btn_orange medium customs-margin">Profil</a>
 				</div>
 			</div>
            
-            <nav aria-label="pagination" class="mb-5 mt-4">
+            <nav aria-label="pagination" class="mb-5 mt-4" *ngIf="numberOfPages!=0">
                 <ul class="pagination justify-content-center">
                     <li class="page-item"><a class="page-link" href="#" tabindex="-1"> << </a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#"> >> </a>
-                    </li>
+                    
+                    <li class="page-item" *ngFor="let page of numbers"><a class="page-link" (click)="getDoctorsByFilter(f, 2)">{{page}}</a></li>
+                    
+                    <li class="page-item"><a class="page-link" href="#"> >> </a></li>
                 </ul>
             </nav>
         </div>
