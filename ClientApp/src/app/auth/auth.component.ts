@@ -4,11 +4,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss'],
-  providers: [AuthService]
-})
+    selector: 'app-auth',
+    templateUrl: '../header/header.component.html',
+    styleUrls: ['../header/header.component.scss'],
+    providers: [AuthService]
+  })
 export class AuthComponent implements OnDestroy {
 
     private email: string;
