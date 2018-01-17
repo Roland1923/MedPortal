@@ -39,24 +39,41 @@ export class DoctorProfileComponent implements OnInit {
     }
 
 
+
     displayComments(event) {
-        if (document.getElementById("comments_").style.display === "none") {
-            document.getElementById("addFeedback_").style.display = "none";
-            document.getElementById('comments_').style.display = "block";
+        if (document.getElementById("comments_");.style.display === "none") {
+            document.getElementById('addFeedback_').style.display = "none";
+            document.getElementById('appointments_').style.display = "none";
+            document.getElementById("comments_").style.display = "block";
         } else {
             document.getElementById('comments_').style.display = "none";
+            document.getElementById('addFeedback_').style.display = "none";
+            document.getElementById('appointments_').style.display = "none";
         }
+        console.log(document.getElementById('comments_').style.display);
     }
 
     addFeedback(event) {
         if(document.getElementById("addFeedback_").style.display === "none") {
             document.getElementById("comments_").style.display = "none";
+            document.getElementById("appointments_").style.display = "none";
             document.getElementById("addFeedback_").style.display = "block";
         } else {
-            document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById('comments_').style.display = "none";
+            document.getElementById('addFeedback_').style.display = "none";
+            document.getElementById('appointments_').style.display = "none";
         }
     }
 
-
-
+    checkAppointment(event) {
+        if(document.getElementById("appointments_").style.display === "none") {
+            document.getElementById("comments_").style.display = "none";
+            document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById("appointments_").style.display = "block";
+        } else {
+            document.getElementById('comments_').style.display = "none";
+            document.getElementById('addFeedback_').style.display = "none";
+            document.getElementById('appointments_').style.display = "none";
+        }
+    }
 }
