@@ -26,7 +26,7 @@
 						<div class="card-body">
 							<div class="card-text">
 
-								<p class="h2">{{doctor.firstName}} {{doctor.lastName}} 
+								<p class="h2">{{doctor.firstName}} {{doctor.lastName}}
 									<small class="text-muted">{{doctor.speciality}}</small>
 								</p>
 								<p class="lead text-justify">{{doctor.description}}</p>
@@ -156,70 +156,199 @@
 	</div>
 
 	<div class="row">
-	        <div class="comment-tabs col-md-12">
-	                <ul class="nav nav-tabs" role="tablist">
-	                    <li class="mx-4"><a href="#addFeedback_" name="checkStatus" ng-model='checkStatus' (click)='displayComments($event)' role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Citeste recenzii</h4></a></li>
-	                    <li class="mx-4"><a href="#comments_" name="checkStatus" ng-model='checkStatus' (click)='addFeedback($event)'  role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Adauga recenzie</h4></a></li>
-	                </ul>
-	                <div class="tab-content">
-	                    <div id="comments_">
-	                        <div class="container">
-								<div class="row">
-									<div class="comments" id="comments">
-										<h3 class="mb-2">Recenzii</h3>
-										<!-- comment -->
-										<div class="comment my-2 row rounded mx-1">
-											<div class="comment-avatar col-md-1 col-sm-2 text-center pr-1 my-3">
-												<a href=""><img class="mx-auto img-fluid" src="https://cdn0.iconfinder.com/data/icons/human-resources-and-strategy/80/Human_resource_strategy-06-512.png" alt="avatar"></a>
-											</div>
-											<div class="comment-content col-md-11 col-sm-10 my-2">
-												<h6 class="small comment-meta"><a href="#">user</a> 23.12.2017, 2:38</h6>
-												<div class="comment-body">
-													<p>
-														Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback.
-														<br>
-													</p>
-												</div>
-											</div>
-										</div>
-										<!-- /comment -->
+		<div class="comment-tabs col-md-12">
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="mx-4"><a href="#comments_" name="checkStatus" ng-model='checkStatus' (click)='displayComments($event)' role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Citeste recenzii</h4></a></li>
+				<li class="mx-4"><a href="#addFeedback_" name="checkStatus" ng-model='checkStatus' (click)='addFeedback($event)' role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Adauga recenzie</h4></a></li>
+				<li class="mx-4"><a href="#appointments_" name="checkStatus" ng-model='checkStatus' (click)='checkAppointment($event)'  role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Vezi programari</h4></a></li>
+			</ul>
+			<div class="tab-content">
+				<div id="comments_" style="display:none;" class="tab-pane">
+					<div class="row">
+						<div class="comments" id="comments">
+							<h3 class="mb-2">Recenzii</h3>
 
-										<!-- comment -->
-										<div class="comment my-2 row rounded mx-1">
-											<div class="comment-avatar col-md-1 col-sm-2 text-center pr-1 my-3">
-												<a href=""><img class="mx-auto  img-fluid" src="https://cdn0.iconfinder.com/data/icons/human-resources-and-strategy/80/Human_resource_strategy-06-512.png" alt="avatar"></a>
-											</div>
-											<div class="comment-content col-md-11 col-sm-10 my-2">
-												<h6 class="small comment-meta"><a href="#">user</a> 17.01.2018, 7:35</h6>
-												<div class="comment-body">
-													<p>
-														Text feedback. Text feedback. Text feedback. Text feedback. Text feedback.
-														<br>
-													</p>
-												</div>
-											</div>
-										</div>
+							<!-- comment -->
+							<div class="comment my-2 row rounded mx-2">
+								<div class="comment-avatar col-md-1 col-sm-2 text-center pr-1 my-3">
+									<a href=""><img class="mx-auto img-fluid" src="https://cdn0.iconfinder.com/data/icons/human-resources-and-strategy/80/Human_resource_strategy-06-512.png" alt="avatar"></a>
+								</div>
+								<div class="comment-content col-md-10 col-sm-10 my-2">
+									<h6 class="small comment-meta"><a href="#">user</a> 23.12.2017, 2:38</h6>
+									<div class="comment-body">
+										<p>
+											Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback. Text feedback.
+											<br>
+										</p>
 									</div>
 								</div>
 							</div>
-	                    </div>
+							<!-- /comment -->
 
-	                    <div class="tab-pane" id="addFeedback_" style="display:none;">
-	                        <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
-	                            <div class="form-group">
-	                                <label for="email" class="col-sm-2 control-label">Scrie o recenzie</label>
-	                                <div class="col-sm-10">
-	                                  <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
-	                                </div>
-	                            </div>
-	                            <div class="form-group">
-	                                <div class="col-sm-offset-2 col-sm-10">
-	                                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span>Trimite recenzie</button>
-	                                </div>
-	                            </div>
-	                        </form>
-	                    </div>
-	                </div>
-	        </div>
-	    </div>
+							<!-- comment -->
+							<div class="comment my-2 row rounded mx-2">
+								<div class="comment-avatar col-md-1 col-sm-2 text-center pr-1 my-3">
+									<a href=""><img class="mx-auto  img-fluid" src="https://cdn0.iconfinder.com/data/icons/human-resources-and-strategy/80/Human_resource_strategy-06-512.png" alt="avatar"></a>
+								</div>
+								<div class="comment-content col-md-11 col-sm-10 my-2">
+									<h6 class="small comment-meta"><a href="#">user</a> 17.01.2018, 7:35</h6>
+									<div class="comment-body">
+										<p>
+											Text feedback. Text feedback. Text feedback. Text feedback. Text feedback.
+											<br>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="addFeedback_" style="display:none;" class="tab-pane">
+					<form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+						<div class="form-group">
+							<label for="email" class="col-sm-2 control-label">Scrie o recenzie</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span>Trimite recenzie</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div id="appointments_" style="display:none;" class="tab-pane">
+					<div class="row">
+						<!-- Start Card -->
+						<div class="cardAppointment text-justify">
+							<div class="row py-1 my-1 ml-2">
+								<div class="col">
+									<img class='cardAppointment-img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/User_icon_BLACK-01.png/120px-User_icon_BLACK-01.png">
+								</div>
+								<div class="col-8">
+									<div class="row">
+										<div class="col cardAppointment-name">
+											Nume Prenume
+										</div>
+									</div>
+									<div class="row">
+										<div class="col cardAppointment-data">
+											13/12/2017
+										</div>
+									</div>
+								</div>
+								<div class="col cardAppointment-X">
+										X
+								</div>
+
+							</div>
+							<div class="row px-3 py-3 cardAppointment-info">
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+							</div>
+						</div>
+						<!-- End Card -->
+
+						<!-- Start Card -->
+						<div class="cardAppointment text-justify">
+							<div class="row py-1 my-1 ml-2">
+								<div class="col">
+									<img class='cardAppointment-img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/User_icon_BLACK-01.png/120px-User_icon_BLACK-01.png">
+								</div>
+								<div class="col-8">
+									<div class="row">
+										<div class="col cardAppointment-name">
+											Nume Prenume
+										</div>
+									</div>
+									<div class="row">
+										<div class="col cardAppointment-data">
+											13/12/2017
+										</div>
+									</div>
+								</div>
+								<div class="col cardAppointment-X">
+										X
+								</div>
+
+							</div>
+							<div class="row px-3 py-3 cardAppointment-info">
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+							</div>
+						</div>
+						<!-- End Card -->
+
+						<!-- Start Card -->
+						<div class="cardAppointment text-justify my-4">
+							<div class="row py-1 my-1 ml-2">
+								<div class="col">
+									<img class='cardAppointment-img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/User_icon_BLACK-01.png/120px-User_icon_BLACK-01.png">
+								</div>
+								<div class="col-8">
+									<div class="row">
+										<div class="col cardAppointment-name">
+											Nume Prenume
+										</div>
+									</div>
+									<div class="row">
+										<div class="col cardAppointment-data">
+											13/12/2017
+										</div>
+									</div>
+								</div>
+								<div class="col cardAppointment-X">
+										X
+								</div>
+
+							</div>
+							<div class="row px-3 py-3 cardAppointment-info">
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+							</div>
+						</div>
+						<!-- End Card -->
+
+
+						<!-- Start Card -->
+						<div class="cardAppointment text-justify my-4">
+							<div class="row py-1 my-1 ml-2">
+								<div class="col">
+									<img class='cardAppointment-img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/User_icon_BLACK-01.png/120px-User_icon_BLACK-01.png">
+								</div>
+								<div class="col-8">
+									<div class="row">
+										<div class="col cardAppointment-name">
+											Nume Prenume
+										</div>
+									</div>
+									<div class="row">
+										<div class="col cardAppointment-data">
+											13/12/2017
+										</div>
+									</div>
+								</div>
+								<div class="col cardAppointment-X">
+										X
+								</div>
+
+							</div>
+							<div class="row px-3 py-3 cardAppointment-info">
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+								Descrierea problemei pacientului pe foarte scurt. Campul Descriere.
+							</div>
+						</div>
+						<!-- End Card -->
+
+					</div>
+				</div>
+			</div>
+		</div>
 </div>
