@@ -19,7 +19,7 @@ export class DoctorProfileComponent implements OnInit {
     constructor(private userService:UserService, private router: Router, private activateRoute : ActivatedRoute) { }
 
     ngOnInit() {
-        this.activateRoute.params.subscribe(params => {
+        /*this.activateRoute.params.subscribe(params => {
             this.doctorId = params['id'];
          });
 
@@ -35,7 +35,7 @@ export class DoctorProfileComponent implements OnInit {
         }
         else {
             this.router.navigate(['/home']);
-        }
+        }*/
     }
 
 
