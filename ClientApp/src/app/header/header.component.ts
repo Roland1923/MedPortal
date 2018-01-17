@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   modifyHeader(location) {
-    if (location.url != "/home"){
+    if (location.url == "/home"){
       this.showHeader = true;
     } 
     else {
@@ -45,3 +45,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+//scripturile jos, css-urile sus
