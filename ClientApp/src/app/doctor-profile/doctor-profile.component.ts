@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
+import { UserService } from '../shared/services/user.service';
+import { DoctorProfile } from '../shared/models/doctor.profile.interface'
 
 @Component({
   selector: 'app-doctor-profile',
@@ -7,28 +12,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorProfileComponent implements OnInit {
 
-  constructor() { }
+    private doctorId : string;
+    doctor : DoctorProfile;
+    errors : string = '';
 
-  ngOnInit() {
-  }
+    constructor(private userService:UserService, private router: Router, private activateRoute : ActivatedRoute) { }
 
-  displayComments(event) {
-      if (document.getElementById("comments_").style.display === "none") {
-          document.getElementById("addFeedback_").style.display = "none";
-          document.getElementById('comments_').style.display = "block";
-      } else {
-          document.getElementById('comments_').style.display = "none";
-      }
-  }
+    ngOnInit() {
+        this.activateRoute.params.subscribe(params => {
+            this.doctorId = params['id'];
+         });
 
-  addFeedback(event) {
-      if(document.getElementById("addFeedback_").style.display === "none") {
-          document.getElementById("comments_").style.display = "none";
-          document.getElementById("addFeedback_").style.display = "block";
-      } else {
-          document.getElementById("addFeedback_").style.display = "none";
-      }
-  }
+        console.log(this.doctorId);
+
+        if(this.doctorId != null) {
+            this.userService.getDoctor(this.doctorId)
+            .subscribe((doctor: DoctorProfile) => {
+                this.doctor = doctor;
+            },
+            errors => this.errors = errors
+            );
+        }
+        else {
+            this.router.navigate(['/home']);
+        }
+    }
+
+
+    displayComments(event) {
+        if (document.getElementById("comments_").style.display === "none") {
+            document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById('comments_').style.display = "block";
+        } else {
+            document.getElementById('comments_').style.display = "none";
+        }
+    }
+
+    addFeedback(event) {
+        if(document.getElementById("addFeedback_").style.display === "none") {
+            document.getElementById("comments_").style.display = "none";
+            document.getElementById("addFeedback_").style.display = "block";
+        } else {
+            document.getElementById("addFeedback_").style.display = "none";
+        }
+    }
 
 
 

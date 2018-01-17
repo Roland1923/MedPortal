@@ -104,6 +104,18 @@ namespace WebApp.Apis
                 return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) &&
                             x.Hospital.Contains(hospital);
 
+            if (name != "" && hospital == "" && speciality == "" && city == "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name));
+
+            if (name == "" && hospital != "" && speciality == "" && city == "")
+                return x => x.Hospital.Contains(hospital);
+
+            if (name == "" && hospital == "" && speciality != "" && city == "")
+                return x => x.Speciality.Contains(speciality);
+
+            if (name == "" && hospital == "" && speciality == "" && city != "")
+                return x => x.City.Contains(city);
+
             return x => x.LastName.Contains(name) || x.FirstName.Contains(name);
         }
 

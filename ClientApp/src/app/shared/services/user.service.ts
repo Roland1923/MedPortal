@@ -78,11 +78,6 @@ export class UserService extends BaseService {
       return this.http.put(this.baseUrl + "api/Doctors/page/" + skip + "/" + take, body, options)
         .map(response => response)
         .catch(this.handleError);
-        // this.pages = +response.headers.get('x-inlinecount')
-    }
-
-    getNumberOfPages() {
-      return this.pages;
     }
     
 

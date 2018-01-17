@@ -5,6 +5,7 @@ import { UserService } from '../shared/services/user.service';
 import { DoctorProfile } from '../shared/models/doctor.profile.interface';
 import { DoctorFilter } from '../shared/models/doctor.filter.interface';
 import { Response } from '@angular/http/src/static_response';
+import { DoctorProfileComponent } from '../doctor-profile/doctor-profile.component';
 
 @Component({
   selector: 'app-doctor-search',
@@ -30,32 +31,44 @@ export class DoctorSearchComponent implements OnInit {
 
   }
 
-  getDoctorsByFilter({ value, skip, valid }: { value: DoctorFilter, skip : number, valid: boolean }) {
+  getDoctorsByFilter({ value, valid }: { value: DoctorFilter, valid: boolean }, skip : number) {
     this.submitted = true;
     this.isRequesting = true;
     this.errors = '';
 
     this.doctorsList = [];
-    
-    console.log(skip);
+    this.numbers = [];
+    this.numberPages = 0;
+
     if (valid) {
       this.userService.getDoctorsByFilter(value.name,
           value.hospital,
           value.speciality,
           value.city,
-          skip,
+          skip * 10,
           10)
           .subscribe((response : Response) => {
             this.doctorsList = response.json();
             this.numberPages = +response.headers.get('x-inlinecount');
-
+            
+            console.log(this.numberPages);
+            
             this.numbers = [];
-            for(let i = 0; i <= this.numberPages / 10; i++)
+            for(let i = 0; i < this.numberPages / 10; i++)
+            {
               this.numbers.push(i+1);
+            }
 
+            if(this.doctorsList.length == 0) {
+              this.numbers = [];
+            }
         },
         errors => this.errors = errors
         );
     }
+  }
+
+  redirectToDoctorProfile(id) {
+    
   }
 }

@@ -26,27 +26,19 @@
 						<div class="card-body">
 							<div class="card-text">
 
-								<p class="h2">dr. Sebastian Ionescu
-									<small class="text-muted">Chirurg</small>
+								<p class="h2">{{doctor.firstName}} {{doctor.lastName}} 
+									<small class="text-muted">{{doctor.speciality}}</small>
 								</p>
-
-								<p class="lead text-justify">
-									With angular that is not the case. Since angular has concept of directives,
-a directive may unroll a loop, which can the instantiate a controller,
-which can than modify the model which then causes more DOM updates. This
-makes it hard to have clear line in a send as to where the DOM update
-begins and ends.
-								</p>
-
-								<span><i class="fa fa2 fa-address-card"></i>Cardiolog</span>
+								<p class="lead text-justify">{{doctor.description}}</p>
+								<span><i class="fa fa2 fa-address-card"></i>{{doctor.speciality}}</span>
 								<br>
-								<span> <i class="fa fa2 fa-hospital-o"></i>Institutul de Boli Cardiovasculare “Prof. Dr. George I.M. Georgescu” Iasi</span>
+								<span><i class="fa fa2 fa-envelope"></i>{{doctor.email}}</span>
 								<br>
-								<span> <i class="fa fa2 fa-phone"></i>0754 521 724</span>
+								<span> <i class="fa fa2 fa-phone"></i>{{doctor.phoneNumber}}</span>
 								<br>
-								<span> <i class="fa fa2 fa-map-marker"></i>B-dul Carol I, nr. 50, Iaşi, jud. Iaşi, România</span>
+								<span> <i class="fa fa2 fa-hospital-o"></i>{{doctor.hospital}}</span>
 								<br>
-								<span><i class="fa fa2 fa-envelope"></i>sionescu.cardio@yahoo.com</span>
+								<span> <i class="fa fa2 fa-map-marker"></i>{{doctor.address}}</span>
 								<br>
 								<br>
 
