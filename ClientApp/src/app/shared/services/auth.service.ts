@@ -33,9 +33,10 @@ export class AuthService implements CanActivate{
 
     public login$(email: string, password: string) {
         let body = JSON.stringify({email, password});
-      
+       
         let header = new HttpHeaders().set('Content-Type', 'application/json');
         let options = { headers: header };
+        console.log(body);
         
         
 

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthComponent } from '../auth/auth.component';
-import { UserService } from '../shared/services/user.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../shared/services/auth.service';
+import { AuthModel } from '../shared/models/auth.model.interface';
 
 @Component({
   selector: 'app-header',
@@ -13,44 +13,49 @@ import { AuthService } from '../shared/services/auth.service';
   providers : [AuthService]
 })
 export class HeaderComponent implements OnInit {
+  errors: string;  
+  isRequesting: boolean;
+  submitted: boolean = false;
+
   showHeader: boolean = false;
-  auth: AuthComponent;
-  errors : string;
   private postStream$: Subscription;
   private email_login: string;
   private password_login: string;
   
-  constructor(private authService: AuthService,private userService : UserService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  modifyHeader() {
+ /* modifyHeader() {
     if(this.userService.getLogginState()) {
       this.showHeader = true;
     }
     else {
       this.showHeader = false;
     }
-  }
+  }*/
 
-  headerLogin() {
+  headerLogin({ value, valid }: { value: AuthModel, valid: boolean }) {
+    this.submitted = true;
+    this.isRequesting = true;
+    this.errors = '';
 
-      if (this.postStream$) { this.postStream$.unsubscribe }
-   
-      this.postStream$ = this.authService.login$(this.email_login, this.password_login).subscribe(
-          result => {
-              if (result.state == 1) {
-                  this.router.navigate(["home"]);
-              } else {
-                  alert(result.msg);
-              }
-          }
-      )
-  
-    if(this.userService.getLogginState() == false) {
-      this.errors = "Email sau parola incorecte";
+    if (valid) {
+        this.authService.login$(value.email,
+            value.password)
+            .finally(() => this.isRequesting = false)
+            .subscribe(
+                result => {
+                    if (result) {
+                        this.router.navigate(['/home']);
+                    }
+                },
+                errors => this.errors = errors);
     }
+    /*if(this.userService.getLogginState() == false) {
+      this.errors = "Email sau parola incorecte";
+    }*/
   }
 }
 

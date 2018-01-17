@@ -5,8 +5,8 @@ import { AuthService } from '../shared/services/auth.service';
 
 @Component({
     selector: 'app-auth',
-    templateUrl: '../header/header.component.html',
-    styleUrls: ['../header/header.component.scss'],
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.scss'],
     providers: [AuthService]
   })
 export class AuthComponent implements OnDestroy {

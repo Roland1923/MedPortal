@@ -107,4 +107,8 @@ export class UserService extends BaseService {
         .map(res => true)
         .catch(this.handleError);
     }
+
+    addFeedback(description : string, rating : number) {
+      
+    }
 }

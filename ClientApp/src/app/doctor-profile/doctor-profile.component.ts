@@ -4,13 +4,17 @@ import { ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../shared/services/user.service';
 import { DoctorProfile } from '../shared/models/doctor.profile.interface'
+import { Feedback } from '../shared/models/feedback.interface';
 
 @Component({
   selector: 'app-doctor-profile',
   templateUrl: './doctor-profile.component.html',
   styleUrls: ['./doctor-profile.component.scss']
 })
+
 export class DoctorProfileComponent implements OnInit {
+    isRequesting: boolean;
+    submitted: boolean = false;
 
     private doctorId : string;
     doctor : DoctorProfile;
@@ -33,11 +37,12 @@ export class DoctorProfileComponent implements OnInit {
             errors => this.errors = errors
             );
         }
-        else {
-            this.router.navigate(['/home']);
-        }
+        // else {
+        //     this.router.navigate(['/home']);
+        // }
     }
 
+    
 
     displayComments(event) {
         if (document.getElementById("comments_").style.display === "none") {

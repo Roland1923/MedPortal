@@ -19,7 +19,7 @@
 <header id="myHeader">
     <div class="navcustom" style="border-bottom: 1px solid grey;">
             <nav class="navbar navbar-expand-md  flex-row">
-                 <div class="logo">  
+                 <div class="logo"> 
                      <a class="navbar-brand" routerLink="/home">
                         <a href=""></a>
                         <img src="assets\img\general\heart-logo.png" border="0" class="img-responsive" style="width: 100%; margin-top: -5%;">
@@ -32,7 +32,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <div class="login-container">
-                                            <form #f="ngForm" novalidate (ngSubmit)="headerLogin()" class="form-horizontal">
+                                            <form #f="ngForm" (ngSubmit)="headerLogin(f)" class="form-horizontal">
                                                 <div class="row">
                                                     <div class="col-md-3"></div>
                                                     <div class="col-md-6">
@@ -47,8 +47,8 @@
                                                             <label class="sr-only" for="email">E-Mail</label>
                                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                                 <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                                                                <input type="text" name="email_login" class="form-control" id="email_login"
-                                                                       placeholder="roland@exemplu.com" required autofocus>
+                                                                <input type="text" name="email" class="form-control" id="email"
+                                                                       placeholder="roland@exemplu.com" required ngModel>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -60,8 +60,8 @@
                                                             <label class="sr-only" for="password">Parolă</label>
                                                             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                                                 <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                                                                <input type="password_login" name="password_login" class="form-control" id="password_login"
-                                                                       placeholder="parolă" required>
+                                                                <input name="password" class="form-control" id="password"
+                                                                       placeholder="parolă" type="password" required ngModel>
                                                             </div>
                                                         </div>
                                                     </div>

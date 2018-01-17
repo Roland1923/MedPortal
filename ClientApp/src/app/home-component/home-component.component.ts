@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../shared/services/auth.service';
 import {Router} from '@angular/router';
+
 import { ConfigService } from '../shared/utils/config.service';
+import { DoctorFilter } from '../shared/models/doctor.filter.interface';
 
 @Component({
   selector: 'app-home-component',
@@ -14,17 +16,21 @@ import { ConfigService } from '../shared/utils/config.service';
 export class HomeComponent implements OnInit {
   characters: string[];
   baseUrl = ''
+ 
   constructor(private authService: AuthService, private router: Router,private configService: ConfigService) {
     this.baseUrl = configService.getApiURI();
-   }
+  }
+
   ngOnInit() {
-      /*if (this.authService.checkLogin()) {
-            this.authService.authGet$(this.baseUrl + "api/Auth/GetStaff").subscribe(
-              characters => this.characters = characters
-          );
-      } else {
-          this.router.navigate(["login"]);
-      }*/
+      
+  }
+
+  getDoctorsByFilter({value, valid}: { value: DoctorFilter, valid: boolean }) {
+    value.city = "";
+    value.hospital = "";
+    value.speciality = ""
+    
+    this.router.navigate(['/doctor-search'], { queryParams: { name: value.name }});
   }
 
 }

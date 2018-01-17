@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../shared/services/user.service';
 import { DoctorProfile } from '../shared/models/doctor.profile.interface';
@@ -16,19 +17,32 @@ export class DoctorSearchComponent implements OnInit {
   errors : string = '';
   submitted = true;
   isRequesting = true;
+  name : string = '';
 
   doctorsList : Array<DoctorProfile>;
   doctor : DoctorProfile;
+  
   numberPages : number;
   numbers : Array<number>;
 
-  constructor(private userService:UserService, private router: Router) { 
+  constructor(private userService:UserService, private router: Router, private activateRoute : ActivatedRoute) { 
     this.doctorsList = new Array<DoctorProfile>();
     this.numbers = new Array<number>();
   }
 
   ngOnInit() {
+    this.activateRoute.queryParams.subscribe(params => {
+      this.name = params['name'];
+    });
 
+    let name = this.name;
+    let valid : boolean;
+    let value : DoctorFilter;
+    value.name = name;
+    valid = true;
+
+    console.log(value);
+    this.getDoctorsByFilter({value, valid}, 0);
   }
 
   getDoctorsByFilter({ value, valid }: { value: DoctorFilter, valid: boolean }, skip : number) {
