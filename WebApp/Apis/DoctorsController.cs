@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -42,17 +43,17 @@ namespace WebApp.Apis
             }
         }
         
-
-        // GET api/Doctors/page/10/10
-        [HttpGet("page/{skip}/{take}")]
+        
+        // GET api/Doctors/page/name/10/10
+        [HttpPut("page/{skip}/{take}")]
         [NoCache]
         [ProducesResponseType(typeof(List<Doctor>), 200)]
         [ProducesResponseType(typeof(ApiResponse), 400)]
-        public async Task<ActionResult> DoctorsPage(int skip, int take)
+        public async Task<ActionResult> DoctorsNamePage([FromBody]DoctorFilterModel filter, int skip, int take)
         {
             try
             {
-                var pagingResult = await _repository.GetAllPageAsync(skip, take);
+                var pagingResult = await _repository.GetByFilter(FilterDelegate(filter.Name, filter.Hospital, filter.Speciality, filter.City), skip, take);
                 Response.Headers.Add("X-InlineCount", pagingResult.TotalRecords.ToString());
                 return Ok(pagingResult.Records);
             }
@@ -62,24 +63,62 @@ namespace WebApp.Apis
             }
         }
 
-        // GET api/Doctors/page/name/10/10
-      /*  [HttpGet("page/{name}/{hospital}/{speciality}/{city}/{skip}/{take}")]
-        [NoCache]
-        [ProducesResponseType(typeof(List<Doctor>), 200)]
-        [ProducesResponseType(typeof(ApiResponse), 400)]
-        public async Task<ActionResult> DoctorsNamePage(string name, string hospital, string speciality, string city, int skip, int take)
+        private static Expression<Func<Doctor, bool>> FilterDelegate(string name, string hospital, string speciality, string city)
         {
-            try
-            {
-                //var pagingResult = await _repository.GetByNameAsync(name, skip, take);
-                Response.Headers.Add("X-InlineCount", pagingResult.TotalRecords.ToString());
-                return Ok(pagingResult.Records);
-            }
-            catch
-            {
-                return BadRequest(new ApiResponse { Status = false });
-            }
-        }*/
+            if (name != "" && hospital != "" && speciality != "" && city != "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) &&
+                            x.Speciality.Contains(speciality) && x.Hospital.Contains(hospital) && x.City.Contains(city);
+
+            if (name != "" && hospital != "" && speciality != "" && city == "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) &&
+                            x.Speciality.Contains(speciality) && x.Hospital.Contains(hospital);
+
+            if (name != "" && hospital != "" && speciality == "" && city != "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) &&
+                            x.Speciality.Contains(speciality) && x.City.Contains(city);
+
+            if (name != "" && hospital == ""  && speciality != "" && city != "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) &&
+                             x.Hospital.Contains(hospital) && x.City.Contains(city);
+
+            if (name == "" && hospital != "" && speciality != "" && city != "")
+                return x => x.Speciality.Contains(speciality) && x.Hospital.Contains(hospital) && x.City.Contains(city);
+
+            if(name == "" && hospital == "" && speciality != "" && city != "")
+                return x => x.Speciality.Contains(speciality) && x.City.Contains(city);
+
+            if (name == "" && hospital != "" && speciality == "" && city != "")
+                return x => x.Hospital.Contains(hospital) && x.City.Contains(city);
+
+            if (name == "" && hospital != "" && speciality != "" && city == "")
+                return x => x.Speciality.Contains(speciality) && x.Hospital.Contains(hospital);
+
+            if (name != "" && hospital == "" && speciality == "" && city != "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) && x.City.Contains(city);
+
+            if (name != "" && hospital == "" && speciality != "" && city == "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) &&
+                            x.Speciality.Contains(speciality);
+
+            if (name != "" && hospital != "" && speciality == "" && city == "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name)) &&
+                            x.Hospital.Contains(hospital);
+
+            if (name != "" && hospital == "" && speciality == "" && city == "")
+                return x => (x.LastName.Contains(name) || x.FirstName.Contains(name));
+
+            if (name == "" && hospital != "" && speciality == "" && city == "")
+                return x => x.Hospital.Contains(hospital);
+
+            if (name == "" && hospital == "" && speciality != "" && city == "")
+                return x => x.Speciality.Contains(speciality);
+
+            if (name == "" && hospital == "" && speciality == "" && city != "")
+                return x => x.City.Contains(city);
+
+            return x => x.LastName.Contains(name) || x.FirstName.Contains(name);
+        }
+
 
         // GET api/Doctors/5
         [HttpGet("{id}", Name = "GetDoctorRoute")]

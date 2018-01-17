@@ -13,12 +13,14 @@ import { Appointment } from '../models/appointment.interface';
 import { Feedback } from '../models/feedback.interface';
 import { PatientHistory } from '../models/patient.history.interface';
 import { PatientProfile } from '../models/patient.profile.interface';
+import { Response } from '@angular/http/src/static_response';
 
 @Injectable()
 export class UserService extends BaseService {
   baseUrl: string = '';
 
   private loggedIn = false;
+  private pages : number;
 
   constructor(private http: Http, private configService: ConfigService) {
     super();
@@ -69,8 +71,12 @@ export class UserService extends BaseService {
     }
 
     getDoctorsByFilter(name : string, hospital : string, speciality : string, city : string, skip : number, take : number) {
-      return this.http.get(this.baseUrl + "api/Doctors/page/" + name + "/" + hospital + "/" + speciality + "/" + city+ "/" + skip + "/" + take)
-        .map(response => response.json())
+      let body = JSON.stringify({ name, hospital , speciality, city});
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.put(this.baseUrl + "api/Doctors/page/" + skip + "/" + take, body, options)
+        .map(response => response)
         .catch(this.handleError);
     }
     
