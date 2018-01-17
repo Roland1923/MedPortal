@@ -13,14 +13,6 @@ export class PatientProfileComponent implements OnInit {
   }
 
 
-    displayHistory(event) {
-        if (document.getElementById("history_").style.display === "none") {
-            document.getElementById('history_').style.display = "block";
-        } else {
-            document.getElementById('history_').style.display = "none";
-        }
-    }
-
     moreInfo(event, divID) {
         var x = document.getElementById(divID);
         if (x.style.display === "none") {
@@ -28,7 +20,29 @@ export class PatientProfileComponent implements OnInit {
         } else {
             x.style.display = "none";
         }
-        console.log(divID);
     }
+
+    displayHistory() {
+		if(document.getElementById("history_").style.display === "none") {
+			document.getElementById("appointment_").style.display = "none";
+			document.getElementById("history_").style.display = "block";
+            document.getElementById("tab_content").style.disply = "block";
+		} else {
+			document.getElementById("history_").style.display = "none";
+            document.getElementById("tab_content")
+		}
+	}
+
+    displayAppointment() {
+		if(document.getElementById("appointment_").style.display === "none") {
+			document.getElementById("history_").style.display = "none";
+			document.getElementById("appointment_").style.display = "block";
+            document.getElementById("tab_content").style.disply = "block";
+
+		} else {
+			document.getElementById("appointment_").style.display = "none";
+            document.getElementById("tab_content").style.disply = "none";
+		}
+	}
 
 }
