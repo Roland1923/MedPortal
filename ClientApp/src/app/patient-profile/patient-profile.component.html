@@ -1,3 +1,4 @@
+<!--The content below is only a placeholder and can be replaced.-->
 
 <div class="container" style="width:80%; margin-top: 5%; margin-bottom: 5%;">
 	<div class="row">
@@ -8,41 +9,35 @@
 
           <div class="row h-40 align-middle">
             <div class="btn-group-vertical">
-              <button type="button" class="btn btn-info mb-2 px-5">Editeare profil</button>
+					<a class="btn btn-link" href="/edit-patient-profile"><button type="button" class="btn btn-info mb-2 px-5">Editare profil</button></a>
             </div>
           </div>
         </div>
 
 
-		<div class="col-8">
-			<div class="row">
-				<div class="col-12 my-2">
-					<div class="card border-info my-1">
-						<div class="card-body">
-							<div class="card-text">
-
-								<p class="h2">Nume Prenume
-									<small class="text-muted">Pacient</small>
-								</p>
-
-								<p class="lead text-justify">
-									With angular that is not the case. Since angular has concept of directives, a directive may unroll a loop, which can the instantiate a controller, which can than modify the model which then causes more DOM updates. This makes it hard to have clear line in a send as to where the DOM update begins and ends.
-								</p>
-
-								<span> <i class="fa fa2 fa-phone"></i>+40-754521724</span>
-								<br>
-								<span> <i class="fa fa2 fa-map-marker"></i>B-dul Carol I, nr. 50, Iasi, jud. Iasi, România</span>
-								<br>
-								<span><i class="fa fa2 fa-envelope"></i>nume.prenume@yahoo.com</span>
-								<br>
-								<br>
-
+		<div class="h-100 col-8">
+				<div class="row">
+					<div class="col-12 my-2">
+						<div class="card border-info my-1">
+							<div class="card-body">
+								<div class="card-text">
+									<br>
+									<span><i class="fa fa-at"></i>{{patient.email}}</span>
+									<br>
+									<span> <i class="fa fa-phone"></i>{{patient.phoneNumber}}</span>
+									<br>
+									<span> <i class="fa fa-location-arrow"></i>{{patient.city}}</span>
+									<br>
+									<span> <i class="fa fa-calendar"></i>{{patient.birthdate}}</span>
+									<br>
+									<br>
+	
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
     </div>
 
 	<div class="row mt-5">
@@ -85,7 +80,7 @@
 														<a class="btn btn-default btn-circle btn-xl" name="checkStatus" ng-model='checkStatus' (click)='moreInfo($event, "moreInfo1-div")' role="tab" data-toggle="tab"><i class="fa fa-info text-black"></i></a>
 													</div>
 												</div>
-												<div id="moreInfo1-div" class="row px-3 py-3 historyCard-info" style="disply:none;">
+												<div id="moreInfo1-div" class="row px-3 py-3 historyCard-info" style="display:none;">
 													<div class="row historyCard-title textalign-middle text-center">
 														<div class="col">
 															Descriere

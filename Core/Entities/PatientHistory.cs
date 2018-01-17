@@ -21,17 +21,15 @@ namespace Core.Entities
 
         private PatientHistory() { }
 
-        public static PatientHistory Create(Patient patient, Doctor doctor, string prescription, string description, string recomandations, DateTime date)
+        public static PatientHistory Create(string prescription, string description, string recomandations, DateTime date)
         {
             var instance = new PatientHistory { HistoryId = Guid.NewGuid() };
-            instance.Update(patient, doctor, prescription, description, recomandations, date);
+            instance.Update(prescription, description, recomandations, date);
             return instance;
         }
 
-        public void Update(Patient patient, Doctor doctor, string prescription, string description, string recomandations, DateTime date)
+        public void Update(string prescription, string description, string recomandations, DateTime date)
         {
-            Patient = patient;
-            Doctor = doctor;
             Prescription = prescription;
             Description = description;
             Recomandations = recomandations;
