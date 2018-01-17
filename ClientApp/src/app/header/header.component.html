@@ -18,20 +18,17 @@
 </head>
 <header id="myHeader">
     <div class="navcustom" style="border-bottom: 1px solid grey;">
-            <nav class="navbar navbar-expand-md  flex-row" style="background-color: white">
-                    <a class="navbar-brand" routerLink="/home">
+            <nav class="navbar navbar-expand-md  flex-row">
+                 <div class="logo">  
+                     <a class="navbar-brand" routerLink="/home">
                         <a href=""></a>
-                        <img src="assets\img\general\heart-logo.png" border="0" class="img-responsive">
+                        <img src="assets\img\general\heart-logo.png" border="0" class="img-responsive" style="width: 100%; margin-top: -5%;">
                     </a>
-                    <ul class="navbar-nav flex-row ml-auto" *ngIf="showHeader">
-                        <li class="nav-item">
-                            <a class="nav-link pr-2"><i class="fa fa-search" ></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link pr-2"><i class="fa fa-facebook"></i></a>
-                        </li>
+                </div> 
+                    <ul class="navbar-nav flex-row ml-auto" *ngIf="!showHeader">
+                        
                         <li class="nav-item dropdown" >
-                            <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="autentif">AUTENTIFICARE </span> <span class="fa fa-user"></span><span class="caret"></span>
+                            <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 150%;"><span class="autentif">AUTENTIFICARE </span> <span class="fa fa-user"></span><span class="caret"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <div class="login-container">
@@ -88,15 +85,17 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="loggedin ">
-                    <div *ngIf="!showHeader">
+                    
+                    
+                    <div *ngIf="showHeader" style="width: 100%;">
+                        <div class="loggedin" style="float: right; margin-right: 5%;">
                         <!-- Adauga aici front pentru cand e logat -->
-                        <ul class="nav navbar-nav flex-row mr-auto">
+                        <ul class="nav navbar-nav flex-row">
                                 <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <span class="glyphicon glyphicon-user"></span> 
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="width: 150%; color: black; text-decoration: none;">
+                                            <span class="fa fa-user"></span> 
                                             <strong>Roland</strong>
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                            <span class="fa fa-chevron-down"></span>
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <div class="login-container">
@@ -133,8 +132,8 @@
                                             </div>
                                         </ul>
                                     </li>
-                        </ul>
-                     </div>
+                            </ul>
+                        </div>
                     </div>
 
       

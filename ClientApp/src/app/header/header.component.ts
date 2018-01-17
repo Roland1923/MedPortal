@@ -23,22 +23,15 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService,private userService : UserService, private router: Router) { }
 
   ngOnInit() {
-    this.router.events.subscribe(event => this.modifyHeader(event));
   }
 
-  modifyHeader(location) {
-    if (location.url == "/home"){
+  modifyHeader() {
+    if(this.userService.getLogginState()) {
       this.showHeader = true;
-    } 
+    }
     else {
       this.showHeader = false;
     }
-    // if(this.userService.getLogginState()) {
-    //   this.showHeader = true;
-    // }
-    // else {
-    //   this.showHeader = false;
-    // }
   }
 
   headerLogin() {

@@ -27,18 +27,19 @@
    height: 260px;
 }
 
+.loggedin {
+    width: 100px;
+}
+
 .loggedin .btn {
     background: #d2322d;
 }
 
 .loggedin .dropdown-menu .login-container {
     width: 300px;
- }
+}
 
- .loggedin .dropdown-toggle {
-    margin-left: 35cm;  
- }
-
- .loggedin .dropdown-toggle::after {
+ 
+.loggedin .dropdown-toggle::after {
     display: none;
 }

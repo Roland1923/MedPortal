@@ -26,7 +26,7 @@ export class PatientProfileComponent implements OnInit {
 		if(document.getElementById("history_").style.display === "none") {
 			document.getElementById("appointment_").style.display = "none";
 			document.getElementById("history_").style.display = "block";
-            document.getElementById("tab_content").style.disply = "block";
+            document.getElementById("tab_content").style.display = "block";
 		} else {
 			document.getElementById("history_").style.display = "none";
             document.getElementById("tab_content")
@@ -37,11 +37,11 @@ export class PatientProfileComponent implements OnInit {
 		if(document.getElementById("appointment_").style.display === "none") {
 			document.getElementById("history_").style.display = "none";
 			document.getElementById("appointment_").style.display = "block";
-            document.getElementById("tab_content").style.disply = "block";
+            document.getElementById("tab_content").style.display = "block";
 
 		} else {
 			document.getElementById("appointment_").style.display = "none";
-            document.getElementById("tab_content").style.disply = "none";
+            document.getElementById("tab_content").style.display = "none";
 		}
 	}
 
