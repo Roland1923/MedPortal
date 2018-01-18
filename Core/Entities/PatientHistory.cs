@@ -30,6 +30,8 @@ namespace Core.Entities
 
         public void Update(Patient patient, Doctor doctor, string prescription, string description, string recomandations, DateTime date)
         {
+            Patient = patient;
+            Doctor = doctor;
             Prescription = prescription;
             Description = description;
             Recomandations = recomandations;
