@@ -37,9 +37,9 @@ export class DoctorProfileComponent implements OnInit {
             errors => this.errors = errors
             );
         }
-        // else {
-        //     this.router.navigate(['/home']);
-        // }
+         else {
+             this.router.navigate(['/home']);
+         }
     }
 
     
