@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { UserService } from '../shared/services/user.service';
 import { AuthComponent } from '../auth/auth.component';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../shared/services/auth.service';
@@ -22,19 +23,16 @@ export class HeaderComponent implements OnInit {
   private email_login: string;
   private password_login: string;
   
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private userService : UserService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-  }
-
- /* modifyHeader() {
     if(this.userService.getLogginState()) {
       this.showHeader = true;
     }
     else {
       this.showHeader = false;
     }
-  }*/
+  }
 
   headerLogin({ value, valid }: { value: AuthModel, valid: boolean }) {
     this.submitted = true;
@@ -48,7 +46,8 @@ export class HeaderComponent implements OnInit {
             .subscribe(
                 result => {
                     if (result) {
-                        this.router.navigate(['/home']);
+                        this.router.navigate(['/doctor-profile']);
+                        
                     }
                 },
                 errors => this.errors = errors);

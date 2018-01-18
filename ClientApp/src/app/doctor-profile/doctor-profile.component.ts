@@ -27,19 +27,29 @@ export class DoctorProfileComponent implements OnInit {
             this.doctorId = params['id'];
          });
 
-        console.log(this.doctorId);
+        
 
         if(this.doctorId != null) {
             this.userService.getDoctor(this.doctorId)
             .subscribe((doctor: DoctorProfile) => {
+                console.log(doctor);
                 this.doctor = doctor;
             },
             errors => this.errors = errors
             );
         }
-        // else {
-        //     this.router.navigate(['/home']);
-        // }
+        else {
+            this.doctorId = this.userService.getUserId();
+            this.userService.getDoctor(this.doctorId)
+            .subscribe((doctor: DoctorProfile) => {
+                
+                this.doctor = doctor;
+            },
+            errors => this.errors = errors
+            );
+        }
+
+        console.log(this.doctor);
     }
 
     
@@ -47,18 +57,36 @@ export class DoctorProfileComponent implements OnInit {
     displayComments(event) {
         if (document.getElementById("comments_").style.display === "none") {
             document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById("appointments_").style.display = "none";
             document.getElementById('comments_').style.display = "block";
         } else {
-            document.getElementById('comments_').style.display = "none";
+            document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById("appointments_").style.display = "none";
+            document.getElementById("comments_").style.display = "none";
         }
     }
 
     addFeedback(event) {
         if(document.getElementById("addFeedback_").style.display === "none") {
             document.getElementById("comments_").style.display = "none";
+            document.getElementById("appointments_").style.display = "none";
             document.getElementById("addFeedback_").style.display = "block";
         } else {
             document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById("appointments_").style.display = "none";
+            document.getElementById("comments_").style.display = "none";
+        }
+    }
+
+    checkAppointment(event) {
+        if(document.getElementById("addFeedback_").style.display === "none") {
+            document.getElementById("comments_").style.display = "none";
+            document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById("appointments_").style.display = "block";
+        } else {
+            document.getElementById("addFeedback_").style.display = "none";
+            document.getElementById("appointments_").style.display = "none";
+            document.getElementById("comments_").style.display = "none";
         }
     }
 
