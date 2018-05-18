@@ -14256,26 +14256,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daniel Oana\\.nuget\\packages\\": {},
+    "C:\\Users\\rolan\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\rolan\\Desktop\\MedPortal\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Tests\\Tests.csproj",
-      "packagesPath": "C:\\Users\\Daniel Oana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Tests\\obj\\",
+      "projectPath": "C:\\Users\\rolan\\Desktop\\MedPortal\\Tests\\Tests.csproj",
+      "packagesPath": "C:\\Users\\rolan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rolan\\Desktop\\MedPortal\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Daniel Oana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rolan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -14288,11 +14285,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\Core.csproj"
+            "C:\\Users\\rolan\\Desktop\\MedPortal\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\rolan\\Desktop\\MedPortal\\Core\\Core.csproj"
             },
-            "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\rolan\\Desktop\\MedPortal\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\rolan\\Desktop\\MedPortal\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -14306,46 +14303,46 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "MSTest.TestFramework": {
-            "target": "Package",
-            "version": "1.2.0"
-          },
-          "Microsoft.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "2.0.1"
-          },
-          "Microsoft.EntityFrameworkCore.Tools": {
-            "target": "Package",
-            "version": "2.0.1"
-          },
-          "Microsoft.EntityFrameworkCore.InMemory": {
-            "target": "Package",
-            "version": "2.0.1"
-          },
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-            "target": "Package",
-            "version": "2.0.1"
-          },
           "MSTest.TestAdapter": {
             "target": "Package",
-            "version": "1.2.0"
+            "version": "[1.2.0, )"
           },
-          "Microsoft.NETCore.App": {
+          "MSTest.TestFramework": {
             "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "2.0.1"
+            "version": "[1.2.0, )"
           },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
-            "version": "2.0.3"
+            "version": "[2.0.3, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
-            "version": "15.5.0"
+            "version": "[15.5.0, )"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[2.0.0, )",
+            "autoReferenced": true
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           }
         },
         "imports": [

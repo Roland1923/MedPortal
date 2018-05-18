@@ -8,28 +8,28 @@ namespace Core.Entities
     {
         [Key]
         public Guid AppointmentId { get; private set; }
-        [ForeignKey("PatientId")]
-        public Patient Patient { get; private set; }
         public Guid PatientId { get; private set; }
-        [ForeignKey("DoctorId")]
-        public Doctor Doctor { get; private set; }
+        [ForeignKey("PatientId")]
+        public Patient Patient => null;
         public Guid DoctorId { get; private set; }
+        [ForeignKey("DoctorId")]
+        public Doctor Doctor => null;
         public DateTime AppointmentDate { get; private set; }
 
         private Appointment() { }
 
-        public static Appointment Create(DateTime appointmentDate, Doctor doctor, Patient patient)
+        public static Appointment Create(DateTime appointmentDate, Guid doctorId, Guid patientId)
         {
             var instance = new Appointment { AppointmentId = Guid.NewGuid()};
-            instance.Update(appointmentDate, doctor, patient);
+            instance.Update(appointmentDate, doctorId, patientId);
             return instance;
         }
 
-        public void Update(DateTime appointmentDate, Doctor doctor, Patient patient)
+        public void Update(DateTime appointmentDate, Guid doctorId, Guid patientId)
         {
             AppointmentDate = appointmentDate;
-            Doctor = doctor;
-            Patient = patient;
+            DoctorId = doctorId;
+            PatientId = patientId;
         }
     }
 }

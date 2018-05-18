@@ -16,6 +16,11 @@ namespace Infrastructure.Context
         public DbSet<Core.Entities.Appointment> Appointments { get; set; }
         public DbSet<Core.Entities.Feedback> Feedbacks { get; set; }
         public DbSet<Core.Entities.BloodDonor> BloodDonors { get; set; }
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+        }
+
     }
 }

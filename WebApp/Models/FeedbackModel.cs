@@ -1,4 +1,4 @@
-﻿using Core.Entities;
+﻿using System;
 
 namespace WebApp.Models
 
@@ -6,8 +6,8 @@ namespace WebApp.Models
     public class FeedbackModel
     {
         public string Description { get; set; }
-        public Patient Patient { get; set; }
-        public Doctor Doctor { get; set; }
+        public Guid PatientId { get; set; }
+        public Guid DoctorId { get; set; }
         public int Rating { get; set; }
     }
 }

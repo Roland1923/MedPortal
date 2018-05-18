@@ -9,28 +9,28 @@ namespace Core.Entities
         [Key]
         public Guid FeedbackId { get; private set; }
         [ForeignKey("PatientId")]
-        public Patient Patient { get; private set; }
+        public Patient Patient => null;
         public Guid PatientId { get; private set; }
         [ForeignKey("DoctorId")]
-        public Doctor Doctor { get; private set; }
+        public Doctor Doctor => null;
         public Guid DoctorId { get; private set; }
         public string Description { get; private set; }
         public int Rating { get; private set; }
 
         private Feedback() { }
 
-        public static Feedback Create(string description, Patient patient, Doctor doctor, int rating)
+        public static Feedback Create(string description, Guid patientId, Guid doctorId, int rating)
         {
             var instance = new Feedback { FeedbackId = Guid.NewGuid() };
-            instance.Update(description, patient, doctor, rating);
+            instance.Update(description, patientId, doctorId, rating);
             return instance;
         }
 
-        public void Update(string description, Patient patient, Doctor doctor, int rating)
+        public void Update(string description, Guid patientId, Guid doctorId, int rating)
         {
             Description = description;
-            Patient = patient;
-            Doctor = doctor;
+            PatientId = patientId;
+            DoctorId = doctorId;
             Rating = rating;
         }
     }

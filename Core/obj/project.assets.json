@@ -13123,26 +13123,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daniel Oana\\.nuget\\packages\\": {},
+    "C:\\Users\\rolan\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\rolan\\Desktop\\MedPortal\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\Daniel Oana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel Oana\\Documents\\GitHub\\MedPortal\\Core\\obj\\",
+      "projectPath": "C:\\Users\\rolan\\Desktop\\MedPortal\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\rolan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rolan\\Desktop\\MedPortal\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Daniel Oana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rolan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13166,23 +13163,23 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "[2.0.3, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
-            "version": "2.0.1"
-          },
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-            "target": "Package",
-            "version": "2.0.1"
+            "version": "[2.0.1, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0",
+            "version": "[2.0.0, )",
             "autoReferenced": true
           },
-          "Microsoft.AspNetCore.All": {
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
-            "version": "2.0.3"
+            "version": "[2.0.1, )"
           }
         },
         "imports": [

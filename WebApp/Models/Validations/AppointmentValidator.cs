@@ -8,8 +8,8 @@ namespace WebApp.Models.Validations
         public AppointmentValidator()
         {
             RuleFor(c => c.AppointmentDate).NotNull().WithMessage("Trebuie sa specificati o data").Must(BeAValidDate);
-            RuleFor(c => c.Patient).NotNull();
-            RuleFor(c => c.Doctor).NotNull();
+            RuleFor(c => c.PatientId).NotNull();
+            RuleFor(c => c.DoctorId).NotNull();
         }
 
         private bool BeAValidDate(DateTime date)

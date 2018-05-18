@@ -22,11 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
-    <Content Remove="ClientApp\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>

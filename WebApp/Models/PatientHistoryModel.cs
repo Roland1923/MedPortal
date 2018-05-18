@@ -1,15 +1,14 @@
 ﻿using System;
-using Core.Entities;
 
 namespace WebApp.Models
 {
     public class PatientHistoryModel
     {
-        public Patient Patient { get; set; }
-        public Doctor Doctor { get; set; }
+        public Guid PatientId { get; set; }
+        public Guid DoctorId { get; set; }
         public string Prescription { get; set; }
         public string Description { get; set; }
-        public string Recomandations { get; set; }
+        public string Recommendations { get; set; }
         public DateTime Date { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Core.IRepositories;
 using Infrastructure.Context;
@@ -26,9 +27,10 @@ namespace Infrastructure.Repositories.BaseRepositories
             return entity;
         }
 
-        public async Task<bool> DeleteAsync(TEntity entity)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            DatabaseService.Set<TEntity>().Remove(entity);
+            var itemToRemove = DatabaseService.Set<TEntity>().Find(id);
+            DatabaseService.Set<TEntity>().Remove(itemToRemove);
             try
             {
                 return await DatabaseService.SaveChangesAsync(new CancellationToken()) > 0;

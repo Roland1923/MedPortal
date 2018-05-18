@@ -16,6 +16,8 @@ using Microsoft.Extensions.FileProviders;
 using Swashbuckle.AspNetCore.Swagger;
 using FluentValidation.AspNetCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using WebApp.Common;
 using WebApp.Models;
 using WebApp.Models.Validations;
@@ -55,7 +57,7 @@ namespace WebApp
             };
 
           });
-      services.AddTransient<IDatabaseService, DatabaseService>();
+            services.AddTransient<IDatabaseService, DatabaseService>();
             services.AddTransient<IEditableRepository<Patient>, PatientRepository>();
             services.AddTransient<IEditableRepository<Doctor>, DoctorRepository>();
             services.AddTransient<IEditableRepository<PatientHistory>, PatientHistoryRepository>();
@@ -71,14 +73,17 @@ namespace WebApp
             var connection = Configuration.GetSection("ConnectionStrings:DefaultConnection");
             services.AddDbContext<DatabaseService>(option => option.UseSqlServer(connection.Value));
 
-            services.AddMvc().AddFluentValidation(fv => { });
+            services.AddMvc().AddFluentValidation(fv => { }).AddJsonOptions(options => {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            });
+
 
             services.AddTransient<IValidator<AppointmentModel>, AppointmentValidator>();
             services.AddTransient<IValidator<BloodDonorModel>, BloodDonorValidator>();
-            services.AddTransient<IValidator<CreateDoctorModel>, CreatingDoctorValidator>();
-            services.AddTransient<IValidator<UpdateDoctorModel>, UpdatingDoctorValidator>();
-            services.AddTransient<IValidator<CreatePatientModel>, CreatingPatientValidator>();
-            services.AddTransient<IValidator<UpdatePatientModel>, UpdatingPatientValidator>();
+            services.AddTransient<IValidator<DoctorModel>, DoctorValidator>();
+            services.AddTransient<IValidator<PatientModel>, PatientValidator>();
             services.AddTransient<IValidator<FeedbackModel>, FeedbackValidator>();
             services.AddTransient<IValidator<PatientHistoryModel>, PatientHistoryValidator>();
 
@@ -135,11 +140,12 @@ namespace WebApp
 
             app.UseStaticFiles();
 
+
             // Enable middleware to serve generated Swagger as a JSON endpoint
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
-            // Visit http://localhost:5000/swagger
+            // Visit http://localhost:port/swagger
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });

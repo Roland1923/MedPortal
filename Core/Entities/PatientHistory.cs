@@ -9,32 +9,32 @@ namespace Core.Entities
         [Key]
         public Guid HistoryId { get; private set; }
         [ForeignKey("PatientId")]
-        public Patient Patient { get; private set; }
+        public Patient Patient => null;
         public Guid PatientId { get; private set; }
         [ForeignKey("DoctorId")]
-        public Doctor Doctor { get; private set; }
+        public Doctor Doctor => null;
         public Guid DoctorId { get; private set; }
         public string Prescription { get; private set; }
         public string Description { get; private set; }
-        public string Recomandations { get; private set; }
+        public string Recommendation { get; private set; }
         public DateTime Date { get; private set; }
 
         private PatientHistory() { }
 
-        public static PatientHistory Create(Patient patient, Doctor doctor, string prescription, string description, string recomandations, DateTime date)
+        public static PatientHistory Create(Guid patientId, Guid doctorId, string prescription, string description, string recommendation, DateTime date)
         {
             var instance = new PatientHistory { HistoryId = Guid.NewGuid() };
-            instance.Update(patient, doctor, prescription, description, recomandations, date);
+            instance.Update(patientId, doctorId, prescription, description, recommendation, date);
             return instance;
         }
 
-        public void Update(Patient patient, Doctor doctor, string prescription, string description, string recomandations, DateTime date)
+        public void Update(Guid patientId, Guid doctorId, string prescription, string description, string recommendation, DateTime date)
         {
-            Patient = patient;
-            Doctor = doctor;
+            PatientId = patientId;
+            DoctorId = doctorId;
             Prescription = prescription;
             Description = description;
-            Recomandations = recomandations;
+            Recommendation = recommendation;
             Date = date;
         }
     }

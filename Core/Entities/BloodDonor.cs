@@ -10,22 +10,22 @@ namespace Core.Entities
         public Guid BloodDonorId { get; private set; }
         public string Type { get; private set; }
         [ForeignKey("PatientId")]
-        public Patient Patient { get; private set; }
+        public Patient Patient => null;
         public Guid PatientId { get; private set; }
 
         private BloodDonor() { }
 
-        public static BloodDonor Create(string type, Patient patient)
+        public static BloodDonor Create(string type, Guid patientId)
         {
             var instance = new BloodDonor { BloodDonorId = Guid.NewGuid() };
-            instance.Update(type, patient);
+            instance.Update(type, patientId);
             return instance;
         }
 
-        public void Update(string type, Patient patient)
+        public void Update(string type, Guid patientId)
         {
             Type = type;
-            Patient = patient;
+            PatientId = patientId;
         }
     }
 }

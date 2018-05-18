@@ -18,19 +18,19 @@ namespace Core.Entities
         public string Hospital { get; private set; }
         public string City { get; private set; }
         public string Address { get; private set; }
-        public List<Appointment> Appointments { get; private set; }
-        public List<Feedback> Feedbacks { get; private set; }
+        public List<Appointment> Appointments => null;
+        public List<Feedback> Feedbacks => null;
 
         private Doctor() { }
 
         public static Doctor Create(string firstName, string lastName, string email, string password, string phoneNumber, string description, string speciality, string hospital, string city, string address)
         {
-            var instance = new Doctor { DoctorId = Guid.NewGuid(), Appointments = new List<Appointment>(), Feedbacks = new List<Feedback>() };
-            instance.Update(firstName, lastName, email, password, phoneNumber, description, speciality, hospital, city, address, null, null);
+            var instance = new Doctor { DoctorId = Guid.NewGuid() };
+            instance.Update(firstName, lastName, email, password, phoneNumber, description, speciality, hospital, city, address);
             return instance;
         }
 
-        public void Update(string firstName, string lastName, string email, string password, string phoneNumber, string description, string speciality, string hospital, string city, string address, List<Appointment> appointments, List<Feedback> feedbacks)
+        public void Update(string firstName, string lastName, string email, string password, string phoneNumber, string description, string speciality, string hospital, string city, string address)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -42,20 +42,6 @@ namespace Core.Entities
             Hospital = hospital;
             City = city;
             Address = address;
-            if (appointments != null)
-            {
-                foreach (var appointment in appointments)
-                {
-                    Appointments.Add(appointment);
-                }
-            }
-            if (feedbacks != null)
-            {
-                foreach (var feedback in feedbacks)
-                {
-                    Feedbacks.Add(feedback);
-                }
-            }
         }
     }
 }

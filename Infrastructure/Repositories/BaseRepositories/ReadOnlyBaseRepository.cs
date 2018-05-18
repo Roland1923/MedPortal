@@ -18,8 +18,19 @@ namespace Infrastructure.Repositories.BaseRepositories
             DatabaseService = dbContext;
         }
 
-        public async Task<List<TEntity>> GetAllAsync()
+        public async Task<List<TEntity>> GetAllAsync(string[] includes)
         {
+            /*var query = DatabaseService.Set<TEntity>().AsQueryable();
+            if (includes != null)
+            {
+                foreach (string include in includes)
+                {
+                    query = query.AsNoTracking().Include(include);
+
+                }
+            }
+
+            return await query.ToListAsync();*/
             return await DatabaseService.Set<TEntity>().ToListAsync();
         }
 
